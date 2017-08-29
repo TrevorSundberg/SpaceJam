@@ -4,7 +4,7 @@ Cog
 	var Name = "Player"
 	Transform 
 	{
-		var Translation = Real3{0.247913197, 5.23123598, -1.14974499}
+		var Translation = Real3{0.908207417, 2.61459589, 0.143611908}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -56,13 +56,6 @@ Cog
 			}
 		}
 	}
-	Player 
-	{
-		var MoveForwardKey = Keys.W
-		var MoveLeftKey = Keys.A
-		var MoveBackKey = Keys.S
-		var MoveRightKey = Keys.D
-	}
 	SweptController 
 	{
 		var WorldUp = Real3{0, 1, 0}
@@ -71,7 +64,7 @@ Cog
 		var Gravity = 24
 		var JumpSpeed = 8
 		var JumpCancelFactor = 2
-		var MaxMoveSpeed = 6
+		var MaxMoveSpeed = 4
 		var MaxFallSpeed = 20
 		var GroundAcceleration = 40
 		var AirAcceleration = 40
@@ -86,31 +79,26 @@ Cog
 		var GroundTraction = 1
 		var AirTraction = 1
 	}
+	Player 
+	{
+		var MoveForwardKey = Keys.W
+		var MoveLeftKey = Keys.A
+		var MoveBackKey = Keys.S
+		var MoveRightKey = Keys.D
+		var JumpKey = Keys.Space
+	}
 	CustomCollisionEventTracker 
 	{
 	}
 	Hierarchy 
 	{
-		Cog [Id:0x59f224e3e98c11f8]
+		Cog [Id:0x59f398d356374a33][InheritId:"59f39b0cda853c77:CharacterAnimations2"]
 		{
-			var Name = "PlayerModel"
 			Transform 
 			{
-				var Translation = Real3{0, 0, 0}
-				var Scale = Real3{1, 2, 1}
+				var Translation = Real3{0, -1, 0}
 				var Rotation = Quaternion{0, 0, 0, 1}
-			}
-			Model 
-			{
-				var Visible = true
-				var ViewCulling = true
-				var VisibilityEvents = true
-				var OverrideBoundingBox = false
-				var LocalAabbCenter = Real3{0, 0, 0}
-				var LocalAabbHalfExtents = Real3{1, 1, 1}
-				var GroupSortValue = 0
-				var Material = "583afb5e7bf75e18:ZeroMaterial"
-				var Mesh = "4de0354322b3572e:Cylinder"
+				var Scale = Real3{1, 1, 1}
 			}
 		}
 	}

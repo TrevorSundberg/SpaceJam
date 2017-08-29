@@ -1,6 +1,12 @@
 [Version:1]
 DataContent 
 {
+	ContentTags 
+	{
+		var Tags = Array
+		{
+		}
+	}
 	DataBuilder 
 	{
 		var Name = "Player"
@@ -8,11 +14,5 @@ DataContent
 		var LoaderType = "Cog"
 		var Version = 0
 		var ShowInEditor = true
-	}
-	ContentTags 
-	{
-		var Tags = Array
-		{
-		}
 	}
 }

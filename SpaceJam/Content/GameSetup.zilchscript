@@ -311,7 +311,7 @@ class GameSetup : ZilchComponent
       worldLevel = Zero.Editor.EditLevel;
     
     this.WorldSpace = this.GameSession.CreateNamedSpace("WorldSpace", this.Server_WorldSpaceArchetype);
-    this.WorldSpace.LoadLevel(this.Server_WorldLevel);
+    this.WorldSpace.LoadLevel(worldLevel);
   }
   function DestroyWorld()
   {

@@ -7,17 +7,11 @@ DataContent
 		{
 		}
 	}
-	ContentTags 
-	{
-		var Tags = Array
-		{
-		}
-	}
 	DataBuilder 
 	{
-		var Name = "Game"
-		var ResourceId = 0x576f215c0825a2d3
-		var LoaderType = "GameSession"
+		var Name = "Translation"
+		var ResourceId = 0x59f3977da92ef9bb
+		var LoaderType = "NetPropertyConfig"
 		var Version = 0
 		var ShowInEditor = true
 	}

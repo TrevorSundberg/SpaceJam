@@ -1,4 +1,16 @@
 [Version:1]
 Cog [InheritId:"59f227a682d42985:Character"]
 {
+	Transform 
+	{
+		var Translation = Real3{0.404761791, 4.12542057, -0.93739152}
+		var Rotation = Quaternion{0, 0, 0, 1}
+		var Scale = Real3{1, 1, 1}
+	}
+	CharacterAnimations [LocallyAdded]
+	{
+	}
+	SimpleAnimation [LocallyRemoved]
+	{
+	}
 }

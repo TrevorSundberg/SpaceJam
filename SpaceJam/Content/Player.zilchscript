@@ -1,7 +1,6 @@
 class Player : ZilchComponent
 {
   // Dependencies
-  [Dependency] var Model : Model;
   [Dependency] var RigidBody : RigidBody;
   [Dependency] var NetUser : NetUser;
   [Dependency] var SweptController : SweptController;
@@ -40,8 +39,8 @@ class Player : ZilchComponent
     // If we're the server, we're responsible for processing the player's inputs set by the owning client.
     if(this.NetUser.IsServer)
     {
-      Zero.Connect(this.Space, Events.LogicUpdate, this.Server_OnLogicUpdate);
       Zero.Connect(this.Owner, Events.NetChannelIncomingPropertyChanged, this.Server_OnNetChannelIncomingPropertyChanged);
+      Zero.Connect(this.Space, Events.LogicUpdate, this.Server_OnLogicUpdate);
     }
     
     // We are a client and this player belongs to us?
@@ -52,6 +51,7 @@ class Player : ZilchComponent
       Zero.Connect(Zero.Keyboard, Events.KeyDown, this.Client_OnKeyDown);
       Zero.Connect(Zero.Keyboard, Events.KeyUp, this.Client_OnKeyUp);
     }
+    
   }
   
   //
@@ -116,6 +116,8 @@ class Player : ZilchComponent
     //Handle Jumping
     if(this.InputJump)
       this.SweptController.Jump();
+    
+    this.Owner.FindChildByName("Character").CharacterAnimations.Jumping = !this.SweptController.Grounded;
   }
   function Server_OnNetChannelIncomingPropertyChanged(event : NetChannelPropertyChange)
   {

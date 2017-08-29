@@ -9,4 +9,10 @@ DataContent
 		var Version = 0
 		var ShowInEditor = true
 	}
+	ContentTags 
+	{
+		var Tags = Array
+		{
+		}
+	}
 }
