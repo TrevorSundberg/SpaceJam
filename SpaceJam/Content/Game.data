@@ -28,10 +28,6 @@ GameSession
 		var BasicHostInfoTimeout = 3
 		var ExtraHostInfoTimeout = 4
 	}
-	GameLogger 
-	{
-		var Active = true
-	}
 	GameSetup 
 	{
 		var Client_LobbySpaceArchetype = "5953cc822262c182:LobbySpace"

@@ -4,40 +4,30 @@ Cog
 	var Name = "Player"
 	Transform 
 	{
-		var Translation = Real3{2, 5, 0}
+		var Translation = Real3{0.247913197, 5.23123598, -1.14974499}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
-	Model 
-	{
-		var Visible = true
-		var ViewCulling = true
-		var VisibilityEvents = true
-		var OverrideBoundingBox = false
-		var LocalAabbCenter = Real3{0, 0, 0}
-		var LocalAabbHalfExtents = Real3{1, 1, 1}
-		var GroupSortValue = 0
-		var Material = "583afb5e7bf75e18:ZeroMaterial"
-		var Mesh = "4de0354322b345ae:Cube"
-	}
-	RigidBody 
-	{
-		var Velocity = Real3{0, 0, 0}
-		var AngularVelocity = Real3{0, 0, 0}
-		var DynamicState = RigidBodyDynamicState.Dynamic
-		var AllowSleep = false
-		var Asleep = false
-		var RotationLocked = true
-		var Mode2D = Mode2DStates.InheritFromSpace
-	}
-	BoxCollider 
+	CylinderCollider 
 	{
 		var Ghost = false
 		var SendsEvents = true
 		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 		var CollisionGroup = "4e740859314e5515:DefaultGroup"
 		var Offset = Real3{0, 0, 0}
-		var HalfSize = Real3{0.5, 0.5, 0.5}
+		var Radius = 0.5
+		var Height = 2
+		var Direction = AxisDirection.Y
+	}
+	RigidBody 
+	{
+		var Velocity = Real3{0, 0, 0}
+		var AngularVelocity = Real3{0, 0, 0}
+		var DynamicState = RigidBodyDynamicState.Kinematic
+		var AllowSleep = false
+		var Asleep = false
+		var RotationLocked = true
+		var Mode2D = Mode2DStates.InheritFromSpace
 	}
 	NetUser 
 	{
@@ -68,6 +58,60 @@ Cog
 	}
 	Player 
 	{
-		var Server_MovementScalar = 8
+		var MoveForwardKey = Keys.W
+		var MoveLeftKey = Keys.A
+		var MoveBackKey = Keys.S
+		var MoveRightKey = Keys.D
+	}
+	SweptController 
+	{
+		var WorldUp = Real3{0, 1, 0}
+		var LockZAxis = false
+		var ForwardEvents = true
+		var Gravity = 24
+		var JumpSpeed = 8
+		var JumpCancelFactor = 2
+		var MaxMoveSpeed = 6
+		var MaxFallSpeed = 20
+		var GroundAcceleration = 40
+		var AirAcceleration = 40
+		var GroundDeceleration = 80
+		var AirDeceleration = 40
+		var MaxGroundSlope = 60
+		var MaxCeilingSlope = 60
+		var GroundSnapDistance = 0.100000001
+		var ControllerVelocity = Real3{0, 0, 0}
+		var Grounded = true
+		var Jumping = false
+		var GroundTraction = 1
+		var AirTraction = 1
+	}
+	CustomCollisionEventTracker 
+	{
+	}
+	Hierarchy 
+	{
+		Cog [Id:0x59f224e3e98c11f8]
+		{
+			var Name = "PlayerModel"
+			Transform 
+			{
+				var Translation = Real3{0, 0, 0}
+				var Scale = Real3{1, 2, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Model 
+			{
+				var Visible = true
+				var ViewCulling = true
+				var VisibilityEvents = true
+				var OverrideBoundingBox = false
+				var LocalAabbCenter = Real3{0, 0, 0}
+				var LocalAabbHalfExtents = Real3{1, 1, 1}
+				var GroupSortValue = 0
+				var Material = "583afb5e7bf75e18:ZeroMaterial"
+				var Mesh = "4de0354322b3572e:Cylinder"
+			}
+		}
 	}
 }

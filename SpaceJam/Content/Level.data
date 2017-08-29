@@ -77,7 +77,7 @@ Level
 		}
 		Ssao 
 		{
-			var Active = false
+			var Active = true
 			var Radius = 1
 			var Intensity = 1
 			var BlurDepthThreshold = 0.0500000007
@@ -85,7 +85,7 @@ Level
 		}
 		Bloom 
 		{
-			var Active = false
+			var Active = true
 			var Intensity = 0.100000001
 			var Threshold = 1
 			var Bloom1 = true

@@ -1,22 +1,30 @@
 class Player : ZilchComponent
 {
-  [Dependency]
-  var Model : Model;
-  [Dependency]
-  var RigidBody : RigidBody;
-  [Dependency]
-  var NetUser : NetUser;
+  
+  //Dependencies
+  [Dependency] var RigidBody : RigidBody;
+  [Dependency] var NetUser : NetUser;
+  [Dependency] var SweptController : SweptController;
   
   // Player info string used for logging.
   var PlayerInfo : String
   {
-    get { return "<Player #`this.NetUser.NetUserId`>"; }
+    get { return "`this.GameSession.NetPeer.Info` <Player #`this.NetUser.NetUserId`>"; }
   }
   
-  // Player input set by the owning client.
-  // (Here we specify in the NetProperty attribute that these properties should replicate over the ClientAuthority NetChannel.
-  // This NetChannel configuration specifies that the client who "owns" this NetObject has the authority to replicate property changes
-  // to the server and have those values be accepted and applied. The server then relays these changes to the other clients.)
+  
+  //Input Keys
+  [Property] var MoveForwardKey : Keys = Keys.W;
+  [Property] var MoveLeftKey : Keys = Keys.A;
+  [Property] var MoveBackKey : Keys = Keys.S;
+  [Property] var MoveRightKey : Keys = Keys.D;
+  
+  [Property] var JumpKey : Keys = Keys.Space;
+  
+  
+  // Player input, set directly by the owning client.
+  // (The owning client has authority over these properties and replicates their state to the server.
+  // Other clients are relayed the state of these properties through the server.)
   [NetProperty(netChannelConfig : "ClientAuthority")]
   var InputUp : Boolean;
   [NetProperty(netChannelConfig : "ClientAuthority")]
@@ -25,10 +33,9 @@ class Player : ZilchComponent
   var InputLeft : Boolean;
   [NetProperty(netChannelConfig : "ClientAuthority")]
   var InputRight : Boolean;
+  [NetProperty(netChannelConfig : "ClientAuthority")]
+  var InputJump : Boolean;
   
-  // Player movement force scalar.
-  [Property]
-  var Server_MovementScalar : Real = 8;
   
   function Initialize(init : CogInitializer)
   {
@@ -68,14 +75,17 @@ class Player : ZilchComponent
     // Set input state.
     // (Since these input properties are client authoritative, the network system will automatically replicate these
     // changes to the server, which will accept the changes without question.)
-    if(event.Key == Keys.W)
+    if(event.Key == this.MoveForwardKey)
       this.InputUp = state;
-    else if(event.Key == Keys.S)
+    else if(event.Key == this.MoveBackKey)
       this.InputDown = state;
-    else if(event.Key == Keys.A)
+    else if(event.Key == this.MoveLeftKey)
       this.InputLeft = state;
-    else if(event.Key == Keys.D)
+    else if(event.Key == this.MoveRightKey)
       this.InputRight = state;
+    else if(event.Key == this.JumpKey)
+      this.InputJump = state;
+      
   }
   
   //
@@ -102,10 +112,15 @@ class Player : ZilchComponent
     // Normalize the movement vector (so player's can't move faster diagonally)
     // and scale it by our movement scalar so our player's go as fast we want them to.
     movement = Math.Normalize(movement);
-    movement *= this.Server_MovementScalar;
     
     // Apply a force to move the player in the direction the client intended.
-    this.RigidBody.ApplyForce(movement);
+    this.SweptController.Update(movement, event.Dt);
+    
+    
+    //Handle Jumping
+    if(this.InputJump)
+      this.SweptController.Jump();
+    
   }
   function Server_OnNetChannelIncomingPropertyChanged(event : NetChannelPropertyChange)
   {
@@ -127,8 +142,8 @@ class Player : ZilchComponent
     
     // Print whether or not that input was pressed or released.
     if(propertyValue)
-      this.GameSession.GameLogger.WriteLine("`this.PlayerInfo` Pressed `event.PropertyName` at `event.Timestamp`s.");
+      Console.WriteLine("`this.PlayerInfo` Pressed `event.PropertyName` at `event.Timestamp`s");
     else
-      this.GameSession.GameLogger.WriteLine("`this.PlayerInfo` Released `event.PropertyName` at `event.Timestamp`s.");
+      Console.WriteLine("`this.PlayerInfo` Released `event.PropertyName` at `event.Timestamp`s");
   }
 }
