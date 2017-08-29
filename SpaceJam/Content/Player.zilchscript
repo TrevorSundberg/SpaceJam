@@ -1,6 +1,8 @@
 class Player : ZilchComponent
 {
   [Dependency]
+  var Model : Model;
+  [Dependency]
   var RigidBody : RigidBody;
   [Dependency]
   var NetUser : NetUser;
@@ -8,12 +10,13 @@ class Player : ZilchComponent
   // Player info string used for logging.
   var PlayerInfo : String
   {
-    get { return "`this.GameSession.NetPeer.Info` <Player #`this.NetUser.NetUserId`>"; }
+    get { return "<Player #`this.NetUser.NetUserId`>"; }
   }
   
-  // Player input, set directly by the owning client.
-  // (The owning client has authority over these properties and replicates their state to the server.
-  // Other clients are relayed the state of these properties through the server.)
+  // Player input set by the owning client.
+  // (Here we specify in the NetProperty attribute that these properties should replicate over the ClientAuthority NetChannel.
+  // This NetChannel configuration specifies that the client who "owns" this NetObject has the authority to replicate property changes
+  // to the server and have those values be accepted and applied. The server then relays these changes to the other clients.)
   [NetProperty(netChannelConfig : "ClientAuthority")]
   var InputUp : Boolean;
   [NetProperty(netChannelConfig : "ClientAuthority")]
@@ -124,8 +127,8 @@ class Player : ZilchComponent
     
     // Print whether or not that input was pressed or released.
     if(propertyValue)
-      Console.WriteLine("`this.PlayerInfo` Pressed `event.PropertyName` at `event.Timestamp`s");
+      this.GameSession.GameLogger.WriteLine("`this.PlayerInfo` Pressed `event.PropertyName` at `event.Timestamp`s.");
     else
-      Console.WriteLine("`this.PlayerInfo` Released `event.PropertyName` at `event.Timestamp`s");
+      this.GameSession.GameLogger.WriteLine("`this.PlayerInfo` Released `event.PropertyName` at `event.Timestamp`s.");
   }
 }

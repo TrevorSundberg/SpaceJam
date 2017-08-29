@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "GameLogger"
+		var ResourceId = 0x597953e89782038e
+	}
+}

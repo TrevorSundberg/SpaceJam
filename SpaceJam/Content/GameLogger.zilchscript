@@ -1,0 +1,263 @@
+class GameLogger : ZilchComponent
+{
+  [Dependency]
+  var NetPeer : NetPeer;
+  
+  // Whether or not the logger may write to the console.
+  [Property]
+  var Active : Boolean = true;
+  
+  function Initialize(init : CogInitializer)
+  {
+    this.WriteLine("Initializing GameSession.");
+    
+    // GameSession Startup
+    Zero.Connect(this.GameSession, Events.GameSetup, this.OnGameSetup);
+    Zero.Connect(this.GameSession, Events.GameStarted, this.OnGameStarted);
+    
+    // GameSession Shutdown
+    Zero.Connect(this.GameSession, Events.GameRequestQuit, this.OnGameRequestQuit);
+    Zero.Connect(this.GameSession, Events.GameQuit, this.OnGameQuit);
+    Zero.Connect(this.GameSession, Events.CogDestroy, this.OnCogDestroy);
+    
+    // Peer Status
+    Zero.Connect(this.GameSession, Events.NetPeerOpened, this.OnNetPeerOpened);
+    Zero.Connect(this.GameSession, Events.NetPeerClosed, this.OnNetPeerClosed);
+    
+    // Connection Handshake
+    Zero.Connect(this.GameSession, Events.NetPeerSentConnectRequest, this.Client_OnNetPeerSentConnectRequest);
+    Zero.Connect(this.GameSession, Events.NetPeerReceivedConnectResponse, this.Client_OnNetPeerReceivedConnectResponse);
+    
+    Zero.Connect(this.GameSession, Events.NetPeerReceivedConnectRequest, this.Server_OnNetPeerReceivedConnectRequest);
+    Zero.Connect(this.GameSession, Events.NetPeerSentConnectResponse, this.Server_OnNetPeerSentConnectResponse);
+    
+    // Add-User Handshake
+    Zero.Connect(this.GameSession, Events.NetPeerSentUserAddRequest, this.Client_OnNetPeerSentUserAddRequest);
+    Zero.Connect(this.GameSession, Events.NetPeerReceivedUserAddResponse, this.Client_OnNetPeerReceivedUserAddResponse);
+    
+    Zero.Connect(this.GameSession, Events.NetPeerReceivedUserAddRequest, this.Server_OnNetPeerReceivedUserAddRequest);
+    Zero.Connect(this.GameSession, Events.NetPeerSentUserAddResponse, this.Server_OnNetPeerSentUserAddResponse);
+    
+    // Connection Status
+    Zero.Connect(this.GameSession, Events.NetLinkConnected, this.OnNetLinkConnected);
+    Zero.Connect(this.GameSession, Events.NetLinkDisconnected, this.OnNetLinkDisconnected);
+    
+    // Replicated Game State
+    Zero.Connect(this.GameSession, Events.NetGameStarted, this.OnNetGameStarted);
+    Zero.Connect(this.GameSession, Events.NetLevelStarted, this.OnNetLevelStarted);
+    
+    // NetObject Online Status
+    Zero.Connect(this.GameSession, Events.NetGameOnline, this.OnNetGameOnline);
+    Zero.Connect(this.GameSession, Events.NetGameOffline, this.OnNetGameOffline);
+    
+    Zero.Connect(this.GameSession, Events.NetSpaceOnline, this.OnNetSpaceOnline);
+    Zero.Connect(this.GameSession, Events.NetSpaceOffline, this.OnNetSpaceOffline);
+    
+    Zero.Connect(this.GameSession, Events.NetUserOnline, this.OnNetUserOnline);
+    Zero.Connect(this.GameSession, Events.NetUserOffline, this.OnNetUserOffline);
+    
+    Zero.Connect(this.GameSession, Events.NetObjectOnline, this.OnNetObjectOnline);
+    Zero.Connect(this.GameSession, Events.NetObjectOffline, this.OnNetObjectOffline);
+    
+    // NetHost Discovery
+    Zero.Connect(this.GameSession, Events.NetHostDiscovered, this.OnNetHostDiscovered);
+  }
+  
+  //
+  // GameSession Startup
+  //
+  
+  function OnGameSetup(event : GameEvent)
+  {
+    this.WriteLine("Game Setup.");
+  }
+  function OnGameStarted(event : GameEvent)
+  {
+    this.WriteLine("Game Started.");
+  }
+  
+  //
+  // GameSession Shutdown
+  //
+  
+  function OnGameRequestQuit(event : GameEvent)
+  {
+    this.WriteLine("Game Request Quit.");
+  }
+  function OnGameQuit(event : GameEvent)
+  {
+    this.WriteLine("Game Quit.");
+  }
+  function OnCogDestroy(event : ObjectEvent)
+  {
+    this.WriteLine("Destroying GameSession.");
+  }
+  
+  //
+  // Peer Status
+  //
+  
+  function OnNetPeerOpened(event : NetPeerOpened)
+  {
+    this.WriteLine("Peer Opened.");
+  }
+  function OnNetPeerClosed(event : NetPeerClosed)
+  {
+    this.WriteLine("Peer Closed.");
+  }
+  
+  //
+  // Connection Handshake
+  //
+  
+  function Client_OnNetPeerSentConnectRequest(event : NetPeerSentConnectRequest)
+  {
+    this.WriteLine("Sent a connect request to the server (`event.TheirIpAddress.String`) - We have `event.OurPendingUserAddRequestCount` user add requests pending.");
+  }
+  function Client_OnNetPeerReceivedConnectResponse(event : NetPeerReceivedConnectResponse)
+  {
+    this.WriteLine("Received the '`event.TheirConnectResponse`' connect response from the server (`event.TheirIpAddress.String`).");
+    
+    // Check to see if the server accepted our connect request.
+    // (If, during NetPeerReceivedConnectRequest, the server set event.ReturnOurConnectResponse to false, our connection would not be accepted.)
+    if(event.TheirConnectResponse == ConnectResponse.Accept)
+      this.WriteLine("We are Peer #`this.NetPeer.NetPeerId`.");
+  }
+  
+  function Server_OnNetPeerReceivedConnectRequest(event : NetPeerReceivedConnectRequest)
+  {
+    this.WriteLine("Received a connect request from a client (`event.TheirIpAddress.String`) - They have `event.TheirPendingUserAddRequestCount` user add requests pending.");
+  }
+  function Server_OnNetPeerSentConnectResponse(event : NetPeerSentConnectResponse)
+  {
+    this.WriteLine("Sent the '`event.OurConnectResponse`' connect response to client (`event.TheirIpAddress.String`).");
+    
+    // Check to see if we accepted their connect request.
+    // (If, during NetPeerReceivedConnectRequest, we set event.ReturnOurConnectResponse to false, their connection would not be accepted.)
+    if(event.OurConnectResponse == ConnectResponse.Accept)
+      this.WriteLine("They are Peer #`event.TheirNetPeerId`.");
+  }
+  
+  //
+  // Add-User Handshake
+  //
+  
+  function Client_OnNetPeerSentUserAddRequest(event : NetPeerSentUserAddRequest)
+  {
+    this.WriteLine("Sent a user add request to the server (`event.TheirIpAddress.String`).");
+  }
+  function Client_OnNetPeerReceivedUserAddResponse(event : NetPeerReceivedUserAddResponse)
+  {
+    this.WriteLine("Received the '`event.TheirAddResponse`' user add response from the server (`event.TheirIpAddress.String`).");
+    
+    // Check to see if the server accepted our user add request.
+    // (If, during NetPeerReceivedUserAddRequest, the server set event.ReturnOurAddResponse to false or did not set a valid NetUser on event.ReturnTheirNetUser,
+    // our add user request would not be accepted.)
+    if(event.TheirAddResponse == NetUserAddResponse.Accept)
+      this.WriteLine("We own User #`event.OurNetUserId`.");
+  }
+  
+  function Server_OnNetPeerReceivedUserAddRequest(event : NetPeerReceivedUserAddRequest)
+  {
+    this.WriteLine("Received a user add request from client #`event.TheirNetPeerId` (`event.TheirIpAddress.String`).");
+  }
+  function Server_OnNetPeerSentUserAddResponse(event : NetPeerSentUserAddResponse)
+  {
+    this.WriteLine("Sent the '`event.OurAddResponse`' user add response to client #`event.TheirNetPeerId` (`event.TheirIpAddress.String`).");
+    
+    // Check to see if we accepted their user add request.
+    // (If, during NetPeerReceivedUserAddRequest, we set event.ReturnOurAddResponse to false or did not set a valid NetUser on event.ReturnTheirNetUser,
+    // their add user request would not be accepted.)
+    if(event.OurAddResponse == NetUserAddResponse.Accept)
+      this.WriteLine("They own User #`event.TheirNetUserId`.");
+  }
+  
+  //
+  // Connection Status
+  //
+  
+  function OnNetLinkConnected(event : NetLinkConnected)
+  {
+    this.WriteLine("Link connected to Peer #`event.TheirNetPeerId` (`event.TheirIpAddress.String`) by `event.Direction` request.");
+  }
+  function OnNetLinkDisconnected(event : NetLinkDisconnected)
+  {
+    this.WriteLine("Link disconnected from Peer #`event.TheirNetPeerId` (`event.TheirIpAddress.String`) by `event.Direction` `event.DisconnectReason`.");
+  }
+  
+  //
+  // Replicated Game State
+  //
+  
+  function OnNetGameStarted(event : NetGameStarted)
+  {
+    this.WriteLine("Network Game Started.");
+  }
+  function OnNetLevelStarted(event : NetLevelStarted)
+  {
+    this.WriteLine("Network Level '`event.LevelName`' Started in NetSpace '`event.Space`'.");
+  }
+  
+  //
+  // NetObject Online Status
+  //
+  
+  function OnNetGameOnline(event : NetObjectOnline)
+  {
+    this.WriteLine("NetPeer '`event.Object`' Object Online.");
+  }
+  function OnNetGameOffline(event : NetObjectOffline)
+  {
+    this.WriteLine("NetPeer '`event.Object`' Object Offline.");
+  }
+  
+  function OnNetSpaceOnline(event : NetObjectOnline)
+  {
+    this.WriteLine("NetSpace '`event.Object`' Object Online.");
+  }
+  function OnNetSpaceOffline(event : NetObjectOffline)
+  {
+    this.WriteLine("NetSpace '`event.Object`' Object Offline.");
+  }
+  
+  function OnNetUserOnline(event : NetObjectOnline)
+  {
+    this.WriteLine("NetUser '`event.Object`' Object Online.");
+  }
+  function OnNetUserOffline(event : NetObjectOffline)
+  {
+    this.WriteLine("NetUser '`event.Object`' Object Offline.");
+  }
+  
+  function OnNetObjectOnline(event : NetObjectOnline)
+  {
+    this.WriteLine("NetObject '`event.Object`' Object Online.");
+  }
+  function OnNetObjectOffline(event : NetObjectOffline)
+  {
+    this.WriteLine("NetObject '`event.Object`' Object Offline.");
+  }
+  
+  //
+  // NetHost Discovery
+  //
+  
+  function OnNetHostDiscovered(event : NetHostUpdate)
+  {
+    if(event.RefreshResult != NetRefreshResult.NoResponse)
+      this.WriteLine("`event.Network` host discovered (`event.Host.IpAddress.String` - `event.Host.Latency`ms) after `event.ResponseTime` seconds.");
+  }
+  
+  //
+  // Operations
+  //
+  
+  // Prepends the specified line with NetPeer info and writes it to the Console.
+  function WriteLine(line : String)
+  {
+    if(!this.Active)
+      return;
+    
+    Console.WriteLine("`this.NetPeer.Info`: `line`");
+  }
+}

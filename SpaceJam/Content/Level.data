@@ -77,7 +77,7 @@ Level
 		}
 		Ssao 
 		{
-			var Active = true
+			var Active = false
 			var Radius = 1
 			var Intensity = 1
 			var BlurDepthThreshold = 0.0500000007
@@ -85,7 +85,7 @@ Level
 		}
 		Bloom 
 		{
-			var Active = true
+			var Active = false
 			var Intensity = 0.100000001
 			var Threshold = 1
 			var Bloom1 = true
@@ -443,6 +443,9 @@ Level
 			var DetectOutgoingChanges = true
 			var AcceptIncomingChanges = true
 			var AllowNapping = true
+			var AccurateTimestampOnOnline = false
+			var AccurateTimestampOnChange = false
+			var AccurateTimestampOnOffline = false
 			var AutomaticChannel = "56f22bdc94800e65:Default"
 			var NetPropertyInfos = Array
 			{
