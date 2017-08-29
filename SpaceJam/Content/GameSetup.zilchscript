@@ -1,0 +1,574 @@
+class GameSetup : ZilchComponent
+{
+  [Dependency]
+  var NetPeer : NetPeer;
+  
+  // Set if we're a host client, otherwise null.
+  // This is the local game server we created in the background.
+  // We must maintain a reference to it because we're responsible for managing it's lifetime.
+  var Client_BackgroundServer : GameSession;
+  
+  // Lobby Space Archetype to be created by clients during OnGameSetup.
+  // The server does not need a lobby so it does not create one.
+  [Property]
+  var Client_LobbySpaceArchetype : Archetype = Archetype.LobbySpace;
+  
+  // Lobby Space set by clients during OnGameSetup.
+  var Client_LobbySpace : Space;
+  
+  // Lobby Level Resource to be loaded by clients during OnGameSetup.
+  // This Level is responsible for starting the game as either a client or server.
+  // Upon server disconnect or requesting game quit, the LobbySpace returns to this Level.
+  [Property]
+  var Client_LobbyLevel : Level = Level.Lobby;
+  
+  // World Space Archetype to be created by the server during OnGameSetup.
+  // Clients don't have the authority to spawn NetSpaces (or any NetObject type) and instead will receive the WorldSpace from the server on connect.
+  [Property]
+  var Server_WorldSpaceArchetype : Archetype = Archetype.Space;
+  
+  // World Space set by the server during OnGameSetup.
+  // Clients will have this set after connecting to the server, during OnNetSpaceOnline.
+  var WorldSpace : Space;
+  
+  // World Level Resource to be loaded by the server during OnGameSetup.
+  // This Level contains the initial game world that the server loads.
+  // Clients will be informed to load whatever the current Level is on WorldSpace after connecting to the server.
+  [Property]
+  var Server_WorldLevel : Level = Level.Level;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Console.WriteLine("`this.NetPeer.Info` Initializing GameSession");
+    
+    // GameSession Startup Events
+    Zero.Connect(this.GameSession, Events.GameSetup, this.OnGameSetup);
+    Zero.Connect(this.GameSession, Events.GameStarted, this.OnGameStarted);
+    
+    // GameSession Shutdown Events
+    Zero.Connect(this.GameSession, Events.GameRequestQuit, this.OnGameRequestQuit);
+    Zero.Connect(this.GameSession, Events.CogDestroy, this.OnCogDestroy);
+    Zero.Connect(this.GameSession, Events.CogDelayedDestroy, this.OnCogDelayedDestroy);
+    
+    // Peer Status Events
+    Zero.Connect(this.GameSession, Events.NetPeerOpened, this.OnNetPeerOpened);
+    Zero.Connect(this.GameSession, Events.NetPeerClosed, this.OnNetPeerClosed);
+    
+    // Connection Handshake Events
+    Zero.Connect(this.GameSession, Events.NetPeerSentConnectRequest, this.Client_OnNetPeerSentConnectRequest);
+    Zero.Connect(this.GameSession, Events.NetPeerReceivedConnectResponse, this.Client_OnNetPeerReceivedConnectResponse);
+    Zero.Connect(this.GameSession, Events.NetPeerReceivedConnectRequest, this.Server_OnNetPeerReceivedConnectRequest);
+    Zero.Connect(this.GameSession, Events.NetPeerSentConnectResponse, this.Server_OnNetPeerSentConnectResponse);
+    
+    // Add-User Handshake Events
+    Zero.Connect(this.GameSession, Events.NetPeerSentUserAddRequest, this.Client_OnNetPeerSentUserAddRequest);
+    Zero.Connect(this.GameSession, Events.NetPeerReceivedUserAddResponse, this.Client_OnNetPeerReceivedUserAddResponse);
+    Zero.Connect(this.GameSession, Events.NetPeerReceivedUserAddRequest, this.Server_OnNetPeerReceivedUserAddRequest);
+    Zero.Connect(this.GameSession, Events.NetPeerSentUserAddResponse, this.Server_OnNetPeerSentUserAddResponse);
+    
+    // Connection Status Events
+    Zero.Connect(this.GameSession, Events.NetLinkConnected, this.OnNetLinkConnected);
+    Zero.Connect(this.GameSession, Events.NetLinkDisconnected, this.OnNetLinkDisconnected);
+    
+    // Replicated Game State Events
+    Zero.Connect(this.GameSession, Events.NetGameStarted, this.OnNetGameStarted);
+    Zero.Connect(this.GameSession, Events.NetLevelStarted, this.OnNetLevelStarted);
+    
+    // NetPeer (GameSession) Online Status Events
+    Zero.Connect(this.GameSession, Events.NetGameOnline, this.OnNetGameOnline);
+    Zero.Connect(this.GameSession, Events.NetGameOffline, this.OnNetGameOffline);
+    
+    // NetSpace (Space) Online Status Events
+    Zero.Connect(this.GameSession, Events.NetSpaceOnline, this.OnNetSpaceOnline);
+    Zero.Connect(this.GameSession, Events.NetSpaceOffline, this.OnNetSpaceOffline);
+    
+    // NetUser (Cog) Online Status Events
+    Zero.Connect(this.GameSession, Events.NetUserOnline, this.OnNetUserOnline);
+    Zero.Connect(this.GameSession, Events.NetUserOffline, this.OnNetUserOffline);
+    
+    // NetObject (Cog) Online Status Events
+    Zero.Connect(this.GameSession, Events.NetObjectOnline, this.OnNetObjectOnline);
+    Zero.Connect(this.GameSession, Events.NetObjectOffline, this.OnNetObjectOffline);
+    
+    // NetHost Discovery Events
+    Zero.Connect(this.GameSession, Events.NetHostDiscovered, this.OnNetHostDiscovered);
+  }
+  
+  //
+  // GameSession Startup Events
+  //
+  
+  function OnGameSetup(event : GameEvent)
+  {
+    Console.WriteLine("`this.NetPeer.Info` Game Setup");
+    
+    // Create the world if we're the server, otherwise we're an undecided client so we should create the lobby.
+    if(this.NetPeer.IsServer)
+      this.Server_CreateWorld();
+    else
+      this.Client_CreateLobby();
+  }
+  function OnGameStarted(event : GameEvent)
+  {
+    Console.WriteLine("`this.NetPeer.Info` Game Started");
+  }
+  
+  //
+  // GameSession Shutdown Events
+  //
+  
+  function OnGameRequestQuit(event : GameEvent)
+  {
+    // If we're a client, we want to return to the lobby rather than quit out of the game.
+    if(this.NetPeer.IsClient)
+    {
+      this.Client_ReturnToLobby();
+      event.Handled = true;
+    }
+  }
+  
+  function OnCogDestroy(event : ObjectEvent)
+  {
+    Console.WriteLine("`this.NetPeer.Info` Destroying GameSession (At the start of next frame)");
+  }
+  function OnCogDelayedDestroy(event : ObjectEvent)
+  {
+    Console.WriteLine("`this.NetPeer.Info` Destroyed GameSession");
+  }
+  function Destroyed()
+  {
+    Console.WriteLine("`this.NetPeer.Info` Game Destroyed");
+  }
+  
+  //
+  // Peer Status Events
+  //
+  
+  function OnNetPeerOpened(event : NetPeerOpened)
+  {
+    Console.WriteLine("`this.NetPeer.Info` Peer Opened");
+  }
+  function OnNetPeerClosed(event : NetPeerClosed)
+  {
+    Console.WriteLine("`this.NetPeer.Info` Peer Closed");
+  }
+  
+  //
+  // Connection Handshake Events
+  //
+  
+  // Client: Connection Handshake Stage 1
+  function Client_OnNetPeerSentConnectRequest(event : NetPeerSentConnectRequest)
+  {
+    Console.WriteLine("`this.NetPeer.Info` Sent connect request to the server (`event.TheirIpAddress.String`) - Requesting `event.OurPendingUserAddRequestCount` users");
+  }
+  // Client: Connection Handshake Stage 2
+  function Client_OnNetPeerReceivedConnectResponse(event : NetPeerReceivedConnectResponse)
+  {
+    Console.WriteLine("`this.NetPeer.Info` Received '`event.TheirConnectResponse`' connect response - Requesting `event.OurPendingUserAddRequestCount` users");
+    
+    // Check to see if the server accepted our connect request.
+    // (If the server set ReturnOurConnectResponse to false, then our connection would not be accepted.)
+    if(event.TheirConnectResponse == ConnectResponse.Accept)
+      Console.WriteLine("`this.NetPeer.Info` Successfully connected to the server (`event.TheirIpAddress.String`) -> We are Client #`this.NetPeer.NetPeerId`");
+    else
+      Console.WriteLine("`this.NetPeer.Info` Unable to connect to the server (`event.TheirIpAddress.String`)");
+  }
+  
+  // Server: Connection Handshake Stage 1
+  function Server_OnNetPeerReceivedConnectRequest(event : NetPeerReceivedConnectRequest)
+  {
+    Console.WriteLine("`this.NetPeer.Info` Received connect request from a client (`event.TheirIpAddress.String`) - Requesting `event.TheirPendingUserAddRequestCount` users");
+    
+    // Decide if we want to accept the client's connection using the custom Event data structure they passed into their request.
+    // (This is optional but useful for being selective about which clients your server accepts.
+    // Here you might check to see if the client provided the correct server password or if they're not already on a banned client list.)
+    var connectRequestData = event.TheirRequestBundle.ConnectRequestData;
+    if(connectRequestData != null)
+    {
+      // (Ex. Server Password, Unique Client Account Id, etc.)
+      
+      // Accept the client if they provided the correct password.
+      // event.ReturnOurConnectResponse = (connectRequestData.ServerPassword == this.ActualServerPassword)
+    }
+    else
+      Console.WriteLine("Unable to read ConnectRequestData");
+    
+    // Accept the client.
+    event.ReturnOurConnectResponse = true;
+  }
+  // Server: Connection Handshake Stage 2
+  function Server_OnNetPeerSentConnectResponse(event : NetPeerSentConnectResponse)
+  {
+    Console.WriteLine("`this.NetPeer.Info` Sent '`event.OurConnectResponse`' connect response - Requesting `event.TheirPendingUserAddRequestCount` users");
+    
+    // Check to see if we accepted their connect request.
+    // (If we set ReturnOurConnectResponse to false, then their connection would not be accepted.)
+    if(event.OurConnectResponse == ConnectResponse.Accept)
+      Console.WriteLine("`this.NetPeer.Info` Accepted connection to client (`event.TheirIpAddress.String`) -> They are Client #`event.TheirNetPeerId`");
+    else
+      Console.WriteLine("`this.NetPeer.Info` Denied connection to client (`event.TheirIpAddress.String`)");
+  }
+  
+  //
+  // Add-User Handshake Events
+  //
+  
+  // Client: Add-User Handshake Stage 1
+  function Client_OnNetPeerSentUserAddRequest(event : NetPeerSentUserAddRequest)
+  {
+    Console.WriteLine("`this.NetPeer.Info` Sent user add request to the server (`event.TheirIpAddress.String`)");
+  }
+  // Client: Add-User Handshake Stage 2
+  function Client_OnNetPeerReceivedUserAddResponse(event : NetPeerReceivedUserAddResponse)
+  {
+    Console.WriteLine("`this.NetPeer.Info` Received '`event.TheirAddResponse`' user add response from the server (`event.TheirIpAddress.String`)");
+    
+    // Check to see if the server accepted our user add request.
+    // (If the server set ReturnOurAddResponse to false or did not set a valid NetUser on ReturnTheirNetUser, our add user request would not be accepted.)
+    if(event.TheirAddResponse == NetUserAddResponse.Accept)
+      Console.WriteLine("`this.NetPeer.Info` We own User #`event.OurNetUserId`");
+  }
+  
+  // Server: Add-User Handshake Stage 1
+  function Server_OnNetPeerReceivedUserAddRequest(event : NetPeerReceivedUserAddRequest)
+  {
+    Console.WriteLine("`this.NetPeer.Info` Received user add request from a client (`event.TheirIpAddress.String`)");
+    
+    // Accept their user add request.
+    // (We must also set ReturnTheirNetUser with a valid NetUser to successfully accept their user add request.)
+    event.ReturnOurAddResponse = true;
+    
+    // Create a player (this will be their NetUser).
+    var player = this.WorldSpace.Create(Archetype.Player);
+    
+    // Configure their player using the custom Event data structure they passed into their request.
+    // (This is optional but useful for creating customized player objects)
+    var userAddRequestData = event.TheirRequestBundle.UserAddRequestData;
+    if(userAddRequestData != null)
+    {
+      // (Ex. Player Name, Color, Icon, Customizations, etc.)
+      
+      // Set the player's color to what the client requested.
+      // player.Player.Color = userAddRequestData.PlayerColor;
+    }
+    else
+      Console.WriteLine("Unable to read UserAddRequestData");
+    
+    // Return the player as their NetUser.
+    event.ReturnTheirNetUser = player;
+  }
+  // Server: Add-User Handshake Stage 2
+  function Server_OnNetPeerSentUserAddResponse(event : NetPeerSentUserAddResponse)
+  {
+    Console.WriteLine("`this.NetPeer.Info` Sent '`event.OurAddResponse`' user add response to the client (`event.TheirIpAddress.String`)");
+    
+    // Check to see if we accepted their user add request.
+    // (If we set ReturnOurAddResponse to false or did not set a valid NetUser on ReturnTheirNetUser, their add user request would not be accepted.)
+    if(event.OurAddResponse == NetUserAddResponse.Accept)
+      Console.WriteLine("`this.NetPeer.Info` They own User #`event.TheirNetUserId`");
+  }
+  
+  //
+  // Connection Status Events
+  //
+  
+  function OnNetLinkConnected(event : NetLinkConnected)
+  {
+    Console.WriteLine("`this.NetPeer.Info` Link connected (`event.TheirIpAddress.String`)");
+  }
+  function OnNetLinkDisconnected(event : NetLinkDisconnected)
+  {
+    // Ex. Return clients to the lobby / main menu.
+    
+    Console.WriteLine("`this.NetPeer.Info` Link disconnected (`event.TheirIpAddress.String`) by `event.Direction` `event.DisconnectReason`");
+    
+    // If we're a client, we've just been disconnected from the server and want to return to the lobby.
+    if(this.NetPeer.IsClient)
+      this.Client_ReturnToLobby();
+  }
+  
+  //
+  // Replicated Game State Events
+  //
+  
+  function OnNetGameStarted(event : NetGameStarted)
+  {
+    // Ex. Take down the client's game-loading / connecting screen.
+    
+    Console.WriteLine("`this.NetPeer.Info` Network Game `event.GameSession` Started");
+    
+    // If we're a client, we don't need the lobby right now, so we'll destroy it.
+    if(this.NetPeer.IsClient)
+      this.Client_DestroyLobby();
+  }
+  function OnNetLevelStarted(event : NetLevelStarted)
+  {
+    // Ex. Take down the client's level-loading / transition screen.
+    
+    Console.WriteLine("`this.NetPeer.Info` NetSpace `event.Space` - Network Level '`event.LevelName`' Started");
+  }
+  
+  //
+  // NetPeer (GameSession) Online Status Events
+  //
+  
+  function OnNetGameOnline(event : NetObjectOnline)
+  {
+    Console.WriteLine("`this.NetPeer.Info` NetGame `event.Object` Online");
+  }
+  function OnNetGameOffline(event : NetObjectOffline)
+  {
+    Console.WriteLine("`this.NetPeer.Info` NetGame `event.Object` Offline");
+  }
+  
+  //
+  // NetSpace (Space) Online Status Events
+  //
+  
+  function OnNetSpaceOnline(event : NetObjectOnline)
+  {
+    Console.WriteLine("`this.NetPeer.Info` NetSpace `event.Object` Online");
+    
+    if(this.NetPeer.IsClient)
+    {
+      // Get the Space that just came online from the NetObjectOnline Event.
+      var space = (event.Object as Space);
+      
+      // Set our WorldSpace reference.
+      // (We do this here so we don't have to manually look up the WorldSpace by name later on should we want to reference it.
+      // This is the safest place to set a reference to a received NetObject (in the aforementioned object's "NetObjectOnline" event handler).
+      // Cog references do not need to be cleared in the corresponding "NetObjectOffline" event because they will be cleared anyway
+      // once the object goes out of scope (is destroyed) shortly after the NetObjectOffline event is dispatched.)
+      if(space.Name == "WorldSpace")
+        this.WorldSpace = space;
+    }
+  }
+  function OnNetSpaceOffline(event : NetObjectOffline)
+  {
+    Console.WriteLine("`this.NetPeer.Info` NetSpace `event.Object` Offline");
+  }
+  
+  //
+  // NetUser (Cog) Online Status Events
+  //
+  
+  function OnNetUserOnline(event : NetObjectOnline)
+  {
+    Console.WriteLine("`this.NetPeer.Info` NetUser `event.Object` Online");
+  }
+  function OnNetUserOffline(event : NetObjectOffline)
+  {
+    Console.WriteLine("`this.NetPeer.Info` NetUser `event.Object` Offline");
+  }
+  
+  //
+  // NetObject (Cog) Online Status Events
+  //
+  
+  function OnNetObjectOnline(event : NetObjectOnline)
+  {
+    Console.WriteLine("`this.NetPeer.Info` NetObject `event.Object` Online");
+  }
+  function OnNetObjectOffline(event : NetObjectOffline)
+  {
+    Console.WriteLine("`this.NetPeer.Info` NetObject `event.Object` Offline");
+  }
+  
+  //
+  // NetHost Discovery Events
+  //
+  
+  function OnNetHostDiscovered(event : NetHostUpdate)
+  {
+    if(event.RefreshResult != NetRefreshResult.NoResponse)
+    {
+      Console.WriteLine("`this.NetPeer.Info` `event.Network` host discovered (`event.Host.IpAddress.String` - `event.Host.Latency`ms) after `event.ResponseTime` seconds");
+      
+      // Already connected or connecting to a server?
+      if(this.NetPeer.IsClient && this.NetPeer.LinkCount > 0)
+        return;
+      
+      // Join the discovered host.
+      this.JoinNow(event.Host.IpAddress);
+      
+      // Stop discovering hosts.
+      this.NetPeer.CancelHostRequests();
+    }
+  }
+  
+  //
+  // Operations
+  //
+  
+  function HostNow()
+  {
+    Console.WriteLine("`this.NetPeer.Info` Hosting...");
+    
+    // Close our net peer if we're already open.
+    // (This is possible if we started discovering hosts and decided to host ourselves instead.)
+    if(this.NetPeer.IsOpen)
+      this.NetPeer.Close();
+    
+    // As a host client, we need to create a "background" GameSession to act as our local game server.
+    // We are responsible for managing the lifetime of this extra GameSession we are creating.
+    
+    // Game is being run in the Editor?
+    if(Zero.Editor != null)
+    {
+      // Create a new GameSession via the Editor.
+      // (This creates a viewport tab for the GameSession, which is useful for debugging server-side issues.)
+      // Options: We're running multiple GameSession instances (so don't close out of any pre-existing GameSessions).
+      //          Don't take viewport tab focus. And don't start the game.
+      this.Client_BackgroundServer = Zero.Editor.PlayGame(PlayGameOptions.MultipleInstances, false, false);
+    }
+    // Game is being run outside the Editor? (Exported Game)
+    else
+    {
+      // Create a new GameSession via the Engine.
+      // (This will not create a viewport tab for the GameSession.)
+      // This method does not start the game.
+      this.Client_BackgroundServer = Zero.Engine.CreateGameSession();
+    }
+    
+    // Start the background GameSession's NetPeer as a game server.
+    // (We must do this here, before starting the GameSession, so that the NetPeer has it's NetRole set before OnGameSetup runs.)
+    this.Client_BackgroundServer.GameSetup.OpenServer();
+    
+    // Run GameSetup now and start updating the GameSession in the next engine update.
+    this.Client_BackgroundServer.Start();
+    
+    // Join the background server we just created.
+    var serverAddress = this.Client_BackgroundServer.NetPeer.Ipv4Address;
+    this.JoinNow(serverAddress);
+  }
+  
+  function DiscoverAndJoinLater()
+  {
+    Console.WriteLine("`this.NetPeer.Info` Discovering Hosts...");
+    
+    // Discover server hosts on the LAN.
+    // (Results handled later via the NetHostDiscovered event for each host discovered.)
+    this.NetPeer.DiscoverHostList(Network.LAN, true);
+  }
+  
+  function JoinNow()
+  {
+    var serverPortStart = this.NetPeer.HostPortRangeStart;
+    this.JoinNow(IpAddress("127.0.0.1", serverPortStart));
+  }
+  function JoinNow(ipAddress : IpAddress)
+  {
+    Console.WriteLine("`this.NetPeer.Info` Joining Host (`ipAddress.String`)...");
+    
+    // Start this GameSession as a client.
+    this.OpenClient();
+    
+    // Connect to server IP address.
+    // (Here we're creating a user-defined Event structure to package and serialize an arbitrary number of
+    // NetProperties to send to the server as additional parameters to take into consideration when deciding to accept our connection.
+    // Things such as "Server Password", "Unique Client Account Id" etc. could all be passed to the server from here.)
+    this.NetPeer.ConnectLink(ipAddress, ConnectRequestData());
+    
+    // Request a new NetUser belonging to our client (this will be our "Player" object).
+    // (Again, as we did for ConnectLink, we're sending to the server additional parameters to take into consideration when creating our NetUser.
+    // Things such as "Player Name", "Color", etc. could all be passed to the server from here.)
+    this.NetPeer.AddUser(UserAddRequestData());
+  }
+  
+  //
+  // Helper Methods
+  //
+  
+  function OpenServer()
+  {
+    // Open the NetPeer as a server.
+    // (Host discovery on the LAN works by broadcasting a discovery packet on every port within the NetPeer's host port range,
+    // so in order for our server to be discoverable we must open the server on a port within this configurable range.)
+    var serverPortStart = this.NetPeer.HostPortRangeStart;
+    var serverPortCount = (this.NetPeer.HostPortRangeEnd - this.NetPeer.HostPortRangeStart);
+    this.NetPeer.Open(NetRole.Server, serverPortStart, serverPortCount);
+  }
+  
+  function OpenClient()
+  {
+    // Open the NetPeer as a client.
+    // (Any available port will be chosen.)
+    this.NetPeer.Open(NetRole.Client);
+  }
+  
+  function Client_ReturnToLobby()
+  {
+    // Close our net peer
+    // This will disconnect us from the server (if we're connected to one) and reset our peer's state
+    this.NetPeer.Close();
+    
+    // If we created a background server GameSession (because we launched as a host client), destroy it now.
+    if(this.Client_BackgroundServer != null)
+    {
+      Console.WriteLine("`this.NetPeer.Info` Destroying Background Server");
+      this.Client_BackgroundServer.Quit();
+    }
+    
+    // Return to the lobby.
+    this.DestroyWorld();
+    this.Client_CreateLobby();
+  }
+  
+  function Client_CreateLobby()
+  {
+    // GameSession is shutting down? Don't try to create the lobby.
+    if(this.GameSession.MarkedForDestruction)
+      return;
+    
+    // (In the case where we connect to the server but there's an error replicating the entire game state,
+    // we won't receive the NetGameStarted event which causes us to destroy our lobby. After failing to receive the game state,
+    // we will be disconnected from the server and receive the NetLinkDisconnected event where we create the lobby again.
+    // So in that case we'll still have a lobby because we never destroyed it, which is why we check this here.)
+    if(this.Client_LobbySpace != null)
+      return;
+    
+    this.Client_LobbySpace = this.GameSession.CreateNamedSpace("LobbySpace", this.Client_LobbySpaceArchetype);
+    this.Client_LobbySpace.LoadLevel(this.Client_LobbyLevel);
+  }
+  function Client_DestroyLobby()
+  {
+    if(this.Client_LobbySpace != null)
+      this.Client_LobbySpace.Destroy();
+  }
+  
+  function Server_CreateWorld()
+  {
+    this.WorldSpace = this.GameSession.CreateNamedSpace("WorldSpace", this.Server_WorldSpaceArchetype);
+    this.WorldSpace.LoadLevel(this.Server_WorldLevel);
+  }
+  function DestroyWorld()
+  {
+    if(this.WorldSpace != null)
+      this.WorldSpace.Destroy();
+  }
+}
+
+//
+// Event Data
+//
+
+// Optional data to send from the client to the server when requesting to connect.
+// (All supported network type Properties with the [NetProperty] Attribute will be serialized when passing
+// these Event parameters into certain NetPeer network event calls, such as ConnectLink and AddUser.)
+class ConnectRequestData : ZilchEvent
+{
+  // (Ex. Server Password, Unique Client Account Id, etc.)
+  
+  // [NetProperty]
+  // var ServerPassword : String;
+}
+
+// Optional data to send from the client to the server when requesting a new NetUser.
+class UserAddRequestData : ZilchEvent
+{
+  // (Ex. Player Name, Color, Icon, Customizations, etc.)
+  
+  // [NetProperty]
+  // var PlayerColor : Real4;
+}

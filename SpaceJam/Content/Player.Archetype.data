@@ -1,0 +1,73 @@
+[Version:1]
+Cog 
+{
+	var Name = "Player"
+	Transform 
+	{
+		var Translation = Real3{2, 5, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Model 
+	{
+		var Visible = true
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var OverrideBoundingBox = false
+		var LocalAabbCenter = Real3{0, 0, 0}
+		var LocalAabbHalfExtents = Real3{1, 1, 1}
+		var GroupSortValue = 0
+		var Material = "583afb5e7bf75e18:ZeroMaterial"
+		var Mesh = "4de0354322b345ae:Cube"
+	}
+	RigidBody 
+	{
+		var Velocity = Real3{0, 0, 0}
+		var AngularVelocity = Real3{0, 0, 0}
+		var DynamicState = RigidBodyDynamicState.Dynamic
+		var AllowSleep = false
+		var Asleep = false
+		var RotationLocked = true
+		var Mode2D = Mode2DStates.InheritFromSpace
+	}
+	BoxCollider 
+	{
+		var Ghost = false
+		var SendsEvents = true
+		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+		var CollisionGroup = "4e740859314e5515:DefaultGroup"
+		var Offset = Real3{0, 0, 0}
+		var HalfSize = Real3{0.5, 0.5, 0.5}
+	}
+	NetUser 
+	{
+		var DetectOutgoingChanges = true
+		var AcceptIncomingChanges = true
+		var AllowNapping = true
+		var AccurateTimestampOnOnline = true
+		var AccurateTimestampOnChange = true
+		var AccurateTimestampOnOffline = true
+		var AutomaticChannel = "56f22bdc94800e65:Default"
+		var NetPropertyInfos = Array
+		{
+			Object
+			{
+				var ComponentName = "Transform"
+				var PropertyName = "Translation"
+				var NetChannelConfig = "56f22bdc957a8572:Transform"
+				var NetPropertyConfig = "74f23adc1a810b95:Default"
+			}
+			Object
+			{
+				var ComponentName = "Transform"
+				var PropertyName = "Rotation"
+				var NetChannelConfig = "56f22bdc957a8572:Transform"
+				var NetPropertyConfig = "74f23adc1a810b95:Default"
+			}
+		}
+	}
+	Player 
+	{
+		var Server_MovementScalar = 8
+	}
+}

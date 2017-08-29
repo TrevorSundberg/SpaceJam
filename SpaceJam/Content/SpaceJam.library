@@ -1,0 +1,8 @@
+[Version:1]
+ContentLibrary 
+{
+	var Name = "SpaceJam"
+	var LibraryId = 0x59f22e0394fa7219
+	var SourceControlType = ""
+	var ReadOnly = false
+}

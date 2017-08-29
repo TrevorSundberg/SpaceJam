@@ -1,0 +1,12 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "Lobby"
+		var ResourceId = 0x59a4c6f607a2f677
+		var LoaderType = "Level"
+		var Version = 0
+		var ShowInEditor = true
+	}
+}

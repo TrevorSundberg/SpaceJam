@@ -1,0 +1,131 @@
+class Player : ZilchComponent
+{
+  [Dependency]
+  var RigidBody : RigidBody;
+  [Dependency]
+  var NetUser : NetUser;
+  
+  // Player info string used for logging.
+  var PlayerInfo : String
+  {
+    get { return "`this.GameSession.NetPeer.Info` <Player #`this.NetUser.NetUserId`>"; }
+  }
+  
+  // Player input, set directly by the owning client.
+  // (The owning client has authority over these properties and replicates their state to the server.
+  // Other clients are relayed the state of these properties through the server.)
+  [NetProperty(netChannelConfig : "ClientAuthority")]
+  var InputUp : Boolean;
+  [NetProperty(netChannelConfig : "ClientAuthority")]
+  var InputDown : Boolean;
+  [NetProperty(netChannelConfig : "ClientAuthority")]
+  var InputLeft : Boolean;
+  [NetProperty(netChannelConfig : "ClientAuthority")]
+  var InputRight : Boolean;
+  
+  // Player movement force scalar.
+  [Property]
+  var Server_MovementScalar : Real = 8;
+  
+  function Initialize(init : CogInitializer)
+  {
+    // If we're the server, we're responsible for processing the player's inputs set by the owning client.
+    if(this.NetUser.IsServer)
+    {
+      Zero.Connect(this.Space, Events.LogicUpdate, this.Server_OnLogicUpdate);
+      Zero.Connect(this.Owner, Events.NetChannelIncomingPropertyChanged, this.Server_OnNetChannelIncomingPropertyChanged);
+    }
+    
+    // We are a client and this player belongs to us?
+    // (Remember, this logic is being run by everyone, that includes the server
+    // and other clients, so we must check to see if this player is specifically ours.)
+    if(this.NetUser.IsClientAndMine)
+    {
+      Zero.Connect(Zero.Keyboard, Events.KeyDown, this.Client_OnKeyDown);
+      Zero.Connect(Zero.Keyboard, Events.KeyUp, this.Client_OnKeyUp);
+    }
+  }
+  
+  //
+  // Client-Side Input Events
+  //
+  
+  function Client_OnKeyDown(event : KeyboardEvent)
+  {
+    // Handle key state change.
+    this.Client_OnKeyChanged(event, true);
+  }
+  function Client_OnKeyUp(event : KeyboardEvent)
+  {
+    // Handle key state change.
+    this.Client_OnKeyChanged(event, false);
+  }
+  function Client_OnKeyChanged(event : KeyboardEvent, state : Boolean)
+  {
+    // Set input state.
+    // (Since these input properties are client authoritative, the network system will automatically replicate these
+    // changes to the server, which will accept the changes without question.)
+    if(event.Key == Keys.W)
+      this.InputUp = state;
+    else if(event.Key == Keys.S)
+      this.InputDown = state;
+    else if(event.Key == Keys.A)
+      this.InputLeft = state;
+    else if(event.Key == Keys.D)
+      this.InputRight = state;
+  }
+  
+  //
+  // Server-Side Update Events
+  //
+  
+  function Server_OnLogicUpdate(event : UpdateEvent)
+  {
+    // Compute the player movement vector based on the client's input.
+    var movement = Real3(0, 0, 0);
+    
+    // (These input property values are replicated to us from the owning client whenever their state changes.
+    // We are still authoritative over the player's other properties, such as Translation and Rotation,
+    // so clients are unable to cheat by trying to set their own position / orientation.)
+    if(this.InputUp)
+      movement -= Real3.ZAxis;
+    if(this.InputDown)
+      movement += Real3.ZAxis;
+    if(this.InputLeft)
+      movement -= Real3.XAxis;
+    if(this.InputRight)
+      movement += Real3.XAxis;
+    
+    // Normalize the movement vector (so player's can't move faster diagonally)
+    // and scale it by our movement scalar so our player's go as fast we want them to.
+    movement = Math.Normalize(movement);
+    movement *= this.Server_MovementScalar;
+    
+    // Apply a force to move the player in the direction the client intended.
+    this.RigidBody.ApplyForce(movement);
+  }
+  function Server_OnNetChannelIncomingPropertyChanged(event : NetChannelPropertyChange)
+  {
+    // Ex. This is the best place to handle "toggled" property logic or property logic with a clear "begin" / "end".
+    // This could include things like player crouching ("toggled") or starting an attack and ending an attack (clear "begin" / "end").
+    
+    // Get the current property value from the property that was just changed.
+    var propertyValue : Boolean = false;
+    if(event.PropertyName == "InputUp")
+      propertyValue = this.InputUp;
+    else if(event.PropertyName == "InputDown")
+      propertyValue = this.InputDown;
+    else if(event.PropertyName == "InputLeft")
+      propertyValue = this.InputLeft;
+    else if(event.PropertyName == "InputRight")
+      propertyValue = this.InputRight;
+    else
+      return;
+    
+    // Print whether or not that input was pressed or released.
+    if(propertyValue)
+      Console.WriteLine("`this.PlayerInfo` Pressed `event.PropertyName` at `event.Timestamp`s");
+    else
+      Console.WriteLine("`this.PlayerInfo` Released `event.PropertyName` at `event.Timestamp`s");
+  }
+}

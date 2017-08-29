@@ -1,0 +1,8 @@
+[Version:1]
+ContentLibrary 
+{
+	var Name = "NetworkTemplate"
+	var LibraryId = 0x59a4c1c2be3020e1
+	var SourceControlType = ""
+	var ReadOnly = false
+}

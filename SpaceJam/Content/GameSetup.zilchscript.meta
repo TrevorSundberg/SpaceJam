@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "GameSetup"
+		var ResourceId = 0x59a4d7a5f11cd8f4
+	}
+}

@@ -1,0 +1,41 @@
+class LobbyLogic : ZilchComponent
+{
+  // Host menu button
+  [Property]
+  var HostButton : CogPath;
+  
+  // Join menu button
+  [Property]
+  var JoinButton : CogPath;
+  
+  function Initialize(init : CogInitializer)
+  {
+    // Connect event handlers
+    Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+    Zero.Connect(this.HostButton.Cog, Events.LeftClick, this.OnHostButtonLeftClick);
+    Zero.Connect(this.JoinButton.Cog, Events.LeftClick, this.OnJoinButtonLeftClick);
+  }
+  
+  function OnKeyDown(event : KeyboardEvent)
+  {
+    // Lobby keyboard shortcuts
+    if(event.Key == Keys.Enter)
+    {
+      this.GameSession.GameSetup.HostNow();
+    }
+    else if(event.Key == Keys.Space)
+    {
+      this.GameSession.GameSetup.DiscoverAndJoinLater();
+    }
+  }
+  
+  function OnHostButtonLeftClick(event : ViewportMouseEvent)
+  {
+    this.GameSession.GameSetup.HostNow();
+  }
+  
+  function OnJoinButtonLeftClick(event : ViewportMouseEvent)
+  {
+    this.GameSession.GameSetup.DiscoverAndJoinLater();
+  }
+}

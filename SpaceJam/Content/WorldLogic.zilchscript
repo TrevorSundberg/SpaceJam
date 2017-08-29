@@ -1,0 +1,18 @@
+class WorldLogic : ZilchComponent
+{
+  // Peer info text
+  [Property]
+  var PeerInfoText : CogPath;
+  
+  function Initialize(init : CogInitializer)
+  {
+    // Connect event handlers
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+  
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    // Update peer info text display with current peer information
+    this.PeerInfoText.Cog.SpriteText.Text = this.GameSession.NetPeer.Info;
+  }
+}
