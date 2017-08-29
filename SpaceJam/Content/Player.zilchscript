@@ -1,7 +1,7 @@
 class Player : ZilchComponent
 {
-  
-  //Dependencies
+  // Dependencies
+  [Dependency] var Model : Model;
   [Dependency] var RigidBody : RigidBody;
   [Dependency] var NetUser : NetUser;
   [Dependency] var SweptController : SweptController;
@@ -9,11 +9,10 @@ class Player : ZilchComponent
   // Player info string used for logging.
   var PlayerInfo : String
   {
-    get { return "`this.GameSession.NetPeer.Info` <Player #`this.NetUser.NetUserId`>"; }
+    get { return "<Player #`this.NetUser.NetUserId`>"; }
   }
   
-  
-  //Input Keys
+  // Input Keys
   [Property] var MoveForwardKey : Keys = Keys.W;
   [Property] var MoveLeftKey : Keys = Keys.A;
   [Property] var MoveBackKey : Keys = Keys.S;
@@ -21,10 +20,10 @@ class Player : ZilchComponent
   
   [Property] var JumpKey : Keys = Keys.Space;
   
-  
-  // Player input, set directly by the owning client.
-  // (The owning client has authority over these properties and replicates their state to the server.
-  // Other clients are relayed the state of these properties through the server.)
+  // Player input set by the owning client.
+  // (Here we specify in the NetProperty attribute that these properties should replicate over the ClientAuthority NetChannel.
+  // This NetChannel configuration specifies that the client who "owns" this NetObject has the authority to replicate property changes
+  // to the server and have those values be accepted and applied. The server then relays these changes to the other clients.)
   [NetProperty(netChannelConfig : "ClientAuthority")]
   var InputUp : Boolean;
   [NetProperty(netChannelConfig : "ClientAuthority")]
@@ -35,7 +34,6 @@ class Player : ZilchComponent
   var InputRight : Boolean;
   [NetProperty(netChannelConfig : "ClientAuthority")]
   var InputJump : Boolean;
-  
   
   function Initialize(init : CogInitializer)
   {
@@ -85,7 +83,6 @@ class Player : ZilchComponent
       this.InputRight = state;
     else if(event.Key == this.JumpKey)
       this.InputJump = state;
-      
   }
   
   //
@@ -116,11 +113,9 @@ class Player : ZilchComponent
     // Apply a force to move the player in the direction the client intended.
     this.SweptController.Update(movement, event.Dt);
     
-    
     //Handle Jumping
     if(this.InputJump)
       this.SweptController.Jump();
-    
   }
   function Server_OnNetChannelIncomingPropertyChanged(event : NetChannelPropertyChange)
   {
@@ -142,8 +137,8 @@ class Player : ZilchComponent
     
     // Print whether or not that input was pressed or released.
     if(propertyValue)
-      Console.WriteLine("`this.PlayerInfo` Pressed `event.PropertyName` at `event.Timestamp`s");
+      this.GameSession.GameLogger.WriteLine("`this.PlayerInfo` Pressed `event.PropertyName` at `event.Timestamp`s.");
     else
-      Console.WriteLine("`this.PlayerInfo` Released `event.PropertyName` at `event.Timestamp`s");
+      this.GameSession.GameLogger.WriteLine("`this.PlayerInfo` Released `event.PropertyName` at `event.Timestamp`s.");
   }
 }
