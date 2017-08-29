@@ -1,0 +1,12 @@
+[Version:1]
+AudioContent 
+{
+	SoundBuilder 
+	{
+		var Name = "Space Jam Theme Song"
+		var ResourceId = 0x59f3d759a9c83d71
+		var Streamed = false
+		var Normalize = false
+		var MaxVolume = 0.899999976
+	}
+}

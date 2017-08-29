@@ -196,9 +196,9 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{1.21878397, 4.71575308, 8.25958157}
+			var Translation = Real3{-0.253781557, 6.33032894, 12.1152134}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{-0.185718551, -0.0719573051, -0.013638353, 0.979869783}
+			var Rotation = Quaternion{-0.170753747, -0.0103181386, -0.00178822293, 0.985258162}
 		}
 		CameraViewport 
 		{
@@ -255,10 +255,10 @@ Level
 		{
 			var ControlMode = ControlMode.Orbit
 			var Previous3DMode = ControlMode.Orbit
-			var LookDistance = 8.94518471
-			var VerticalAngle = 0.374624074
-			var HorizontalAngle = 0.14660795
-			var LookTarget = Real3{2.43489742, 1.44250703, 0.0240938216}
+			var LookDistance = 12.8683548
+			var VerticalAngle = 0.343208194
+			var HorizontalAngle = 0.0209442824
+			var LookTarget = Real3{0, 2, 0}
 			var MoveSensitivity = 1
 		}
 	}
@@ -466,13 +466,29 @@ Level
 			}
 		}
 	}
-	Cog [InheritId:"59f227a682d42985:Character"][ContextId:9]
+	Cog [ContextId:9]
 	{
+		var Name = "LevelMusic"
 		Transform 
 		{
-			var Translation = Real3{2.43489861, 0.541441202, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
+			var Translation = Real3{0, 0, 0}
 			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		SoundEmitter 
+		{
+			var Volume = 1
+			var Pitch = 0
+			var Attenuator = "57ca8a6ad262efe5:DefaultNoAttenuation"
+			var Directional = false
+			var EmitAngle = 90
+			var RearVolume = 0.200000003
+		}
+		SimpleSound 
+		{
+			var StartPlaying = true
+			var Positional = false
+			var Cue = "59f3d75caaae58ac:Space Jam Theme Song"
 		}
 	}
 }

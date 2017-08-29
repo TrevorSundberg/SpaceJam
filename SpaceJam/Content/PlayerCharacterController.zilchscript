@@ -1,0 +1,23 @@
+class PlayerCharacterController : ZilchComponent
+{
+  
+  [Dependency] var RigidBody : RigidBody;
+  
+  [Dependency] var NetUser : NetUser;
+  
+  // Player info string used for logging.
+  var PlayerInfo : String
+  {
+    get { return "`this.GameSession.NetPeer.Info` <Player #`this.NetUser.NetUserId`>"; }
+  }
+  
+  
+  function Initialize(init : CogInitializer)
+  {
+    //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+  }
+}
