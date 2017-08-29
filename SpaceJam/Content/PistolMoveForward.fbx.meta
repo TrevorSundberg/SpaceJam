@@ -1,0 +1,27 @@
+[Version:1]
+GeometryContent 
+{
+	GeometryImport 
+	{
+		var OriginOffset = Real3{0, 0, 0}
+		var ScaleFactor = 0.00999999978
+		var ChangeBasis = false
+		var XBasisTo = BasisType.PositiveX
+		var YBasisTo = BasisType.PositiveY
+		var ZBasisTo = BasisType.PositiveZ
+	}
+	AnimationBuilder 
+	{
+		var Clips = Array
+		{
+		}
+		var Animations = Array
+		{
+			Object
+			{
+				var Name = "PistolMoveForward"
+				var ResourceId = 0x59f2226affc63a68
+			}
+		}
+	}
+}

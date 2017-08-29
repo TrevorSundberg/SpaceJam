@@ -38,26 +38,8 @@ Level
 			var HighlightInterval = 10
 			var FollowEditorCamera = false
 		}
-		WorldLogic 
-		{
-			var PeerInfoText = CogPath
-			{
-				var Path = ":/GameCamera/PeerInfoText"
-				var ErrorOnResolveToNull = false
-				var ErrorOnPathCantCompute = false
-				var ErrorOnDirectLinkFail = false
-				var UpdateCogOnPathChange = true
-				var UpdatePathOnCogChange = true
-				var UpdateCogOnInitialize = true
-				var ResolvedNullErrorOccurred = false
-				var Cog = 2
-				var PathPreference0 = CogPathPreference.CogRelative
-				var PathPreference1 = CogPathPreference.SpaceRelative
-				var PathPreference2 = CogPathPreference.Absolute
-			}
-		}
 	}
-	Cog [ContextId:3]
+	Cog [ContextId:2]
 	{
 		var Name = "Renderer"
 		DeferredRenderer 
@@ -79,7 +61,7 @@ Level
 		{
 			var Active = true
 			var Radius = 1
-			var Intensity = 1
+			var Intensity = 2.20000005
 			var BlurDepthThreshold = 0.0500000007
 			var DebugBuffer = false
 		}
@@ -96,7 +78,7 @@ Level
 			var DebugBuffer = false
 		}
 	}
-	Cog [ContextId:4]
+	Cog [ContextId:3]
 	{
 		var Name = "DirectionalLightShadows"
 		Transform 
@@ -146,7 +128,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var Cog = 4
+				var Cog = 3
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -161,7 +143,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var Cog = 4
+				var Cog = 3
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -191,19 +173,90 @@ Level
 		{
 		}
 	}
-	Cog [ContextId:5]
+	Cog [ContextId:4]
 	{
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{1.21878397, 4.71575308, 8.25958157}
+			var Translation = Real3{1.30343962, 2.82590437, 7.39847183}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{-0.185718551, -0.0719573051, -0.013638353, 0.979869783}
+			var Rotation = Quaternion{-0.208635971, 0.155428559, 0.0336048752, 0.964978635}
 		}
 		CameraViewport 
 		{
 			var RenderInEditor = true
 			var RenderInGame = false
+			var RenderOrder = 0
+			var CameraPath = CogPath
+			{
+				var Path = "."
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var Cog = 4
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
+			var RendererPath = CogPath
+			{
+				var Path = ":/Renderer"
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var Cog = 2
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
+			var ResolutionOrAspect = Integer2{1920, 1080}
+			var RenderToViewport = true
+			var ForwardViewportEvents = false
+			var ViewportScaling = ViewportScaling.Fill
+			var MarginColor = Real4{0, 0, 0, 1}
+			var NormalizedSize = Real2{1, 1}
+			var NormalizedOffset = Real2{0, 0}
+		}
+		Camera 
+		{
+			var NearPlane = 0.100000001
+			var FarPlane = 200
+			var PerspectiveMode = PerspectiveMode.Perspective
+			var FieldOfView = 60
+			var Size = 20
+		}
+		EditorCameraController 
+		{
+			var ControlMode = ControlMode.Orbit
+			var Previous3DMode = ControlMode.Orbit
+			var LookDistance = 3.65037394
+			var VerticalAngle = 0.425860703
+			var HorizontalAngle = -0.319395602
+			var LookTarget = Real3{0.259622276, 1.31791735, 4.24226332}
+			var MoveSensitivity = 1
+		}
+	}
+	Cog [ContextId:5]
+	{
+		var Name = "GameCamera"
+		Transform 
+		{
+			var Translation = Real3{0, 2, 10}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		CameraViewport 
+		{
+			var RenderInEditor = false
+			var RenderInGame = true
 			var RenderOrder = 0
 			var CameraPath = CogPath
 			{
@@ -230,78 +283,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var Cog = 3
-				var PathPreference0 = CogPathPreference.CogRelative
-				var PathPreference1 = CogPathPreference.SpaceRelative
-				var PathPreference2 = CogPathPreference.Absolute
-			}
-			var ResolutionOrAspect = Integer2{1920, 1080}
-			var RenderToViewport = true
-			var ForwardViewportEvents = false
-			var ViewportScaling = ViewportScaling.Fill
-			var MarginColor = Real4{0, 0, 0, 1}
-			var NormalizedSize = Real2{1, 1}
-			var NormalizedOffset = Real2{0, 0}
-		}
-		Camera 
-		{
-			var NearPlane = 0.100000001
-			var FarPlane = 200
-			var PerspectiveMode = PerspectiveMode.Perspective
-			var FieldOfView = 60
-			var Size = 20
-		}
-		EditorCameraController 
-		{
-			var ControlMode = ControlMode.Orbit
-			var Previous3DMode = ControlMode.Orbit
-			var LookDistance = 8.94518471
-			var VerticalAngle = 0.374624074
-			var HorizontalAngle = 0.14660795
-			var LookTarget = Real3{2.43489742, 1.44250703, 0.0240938216}
-			var MoveSensitivity = 1
-		}
-	}
-	Cog [ContextId:6]
-	{
-		var Name = "GameCamera"
-		Transform 
-		{
-			var Translation = Real3{0, 2, 10}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		CameraViewport 
-		{
-			var RenderInEditor = false
-			var RenderInGame = true
-			var RenderOrder = 0
-			var CameraPath = CogPath
-			{
-				var Path = "."
-				var ErrorOnResolveToNull = false
-				var ErrorOnPathCantCompute = false
-				var ErrorOnDirectLinkFail = false
-				var UpdateCogOnPathChange = true
-				var UpdatePathOnCogChange = true
-				var UpdateCogOnInitialize = true
-				var ResolvedNullErrorOccurred = false
-				var Cog = 6
-				var PathPreference0 = CogPathPreference.CogRelative
-				var PathPreference1 = CogPathPreference.SpaceRelative
-				var PathPreference2 = CogPathPreference.Absolute
-			}
-			var RendererPath = CogPath
-			{
-				var Path = ":/Renderer"
-				var ErrorOnResolveToNull = false
-				var ErrorOnPathCantCompute = false
-				var ErrorOnDirectLinkFail = false
-				var UpdateCogOnPathChange = true
-				var UpdatePathOnCogChange = true
-				var UpdateCogOnInitialize = true
-				var ResolvedNullErrorOccurred = false
-				var Cog = 3
+				var Cog = 2
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -326,48 +308,8 @@ Level
 		{
 			var Active = true
 		}
-		SelectionIcon 
-		{
-			var Visible = true
-			var VisibilityEvents = true
-			var Material = "56581e2bb81777be:DebugDrawOnTop"
-			var SpriteSource = "58f8e4be7360cf7c:CameraIcon"
-			var ViewScale = 1
-			var OverrideSelections = true
-		}
-		Hierarchy 
-		{
-			Cog [ContextId:2]
-			{
-				var Name = "PeerInfoText"
-				Transform 
-				{
-					var Translation = Real3{-2, 1.04999995, -2}
-					var Scale = Real3{1, 1, 1}
-					var Rotation = Quaternion{0, 0, 0, 1}
-				}
-				SpriteText 
-				{
-					var Visible = true
-					var ViewCulling = true
-					var VisibilityEvents = true
-					var OverrideBoundingBox = false
-					var LocalAabbCenter = Real3{0, 0, 0}
-					var LocalAabbHalfExtents = Real3{1, 1, 1}
-					var GroupSortValue = 0
-					var Material = "582c575af53d18c9:AlphaSprite"
-					var VertexColor = Real4{1, 1, 1, 1}
-					var GeometryMode = SpriteGeometryMode.ViewPlane
-					var Text = "Peer Info Text"
-					var Font = "57343753bb4eaaec:NotoSans-Regular"
-					var FontSize = 64
-					var PixelsPerUnit = 512
-					var TextAlign = TextAlign.Left
-				}
-			}
-		}
 	}
-	Cog [ContextId:7]
+	Cog [ContextId:6]
 	{
 		var Name = "Cube"
 		Transform 
@@ -398,7 +340,7 @@ Level
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog [ContextId:8]
+	Cog [ContextId:7]
 	{
 		var Name = "Sphere"
 		Transform 
@@ -438,41 +380,42 @@ Level
 			var Offset = Real3{0, 0, 0}
 			var Radius = 0.5
 		}
-		NetObject 
-		{
-			var DetectOutgoingChanges = true
-			var AcceptIncomingChanges = true
-			var AllowNapping = true
-			var AccurateTimestampOnOnline = false
-			var AccurateTimestampOnChange = false
-			var AccurateTimestampOnOffline = false
-			var AutomaticChannel = "56f22bdc94800e65:Default"
-			var NetPropertyInfos = Array
-			{
-				Object
-				{
-					var ComponentName = "Transform"
-					var PropertyName = "Translation"
-					var NetChannelConfig = "56f22bdc957a8572:Transform"
-					var NetPropertyConfig = "74f23adc1a810b95:Default"
-				}
-				Object
-				{
-					var ComponentName = "Transform"
-					var PropertyName = "Rotation"
-					var NetChannelConfig = "56f22bdc957a8572:Transform"
-					var NetPropertyConfig = "74f23adc1a810b95:Default"
-				}
-			}
-		}
 	}
-	Cog [InheritId:"59f227a682d42985:Character"][ContextId:9]
+	Cog [InheritId:"59f3de60c9596436:CharacterAnimations"][ContextId:8]
 	{
 		Transform 
 		{
-			var Translation = Real3{2.43489861, 0.541441202, 0}
+			var Translation = Real3{-1.01869273, 0.5, 2.8474164}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
+		}
+		CharacterAnimations [LocallyAdded]
+		{
+			var Spine = CogPath
+			{
+				var Path = "mixamorigHips/mixamorigSpine"
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var Cog = 9
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
+			var AnimationSpeed = Real2{0.75, 0.449999988}
+			var IdleSpeed = 0.600000024
+			var Smoothing = 0.899999976
+			var Movement = Real2{0, 0}
+			var VerticalAngle = 0
+			var HorizontalAngle = 0
+			var Jumping = false
+		}
+		SimpleAnimation [LocallyRemoved]
+		{
 		}
 	}
 }

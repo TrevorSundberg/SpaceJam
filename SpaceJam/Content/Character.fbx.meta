@@ -1,0 +1,59 @@
+[Version:1]
+GeometryContent 
+{
+	ContentTags 
+	{
+		var Tags = Array
+		{
+		}
+	}
+	GeneratedArchetype 
+	{
+		var ResourceId = 0x59f227a682d42985
+	}
+	GeometryImport 
+	{
+		var OriginOffset = Real3{0, 0, 0}
+		var ScaleFactor = 0.00999999978
+		var ChangeBasis = false
+		var XBasisTo = BasisType.PositiveX
+		var YBasisTo = BasisType.PositiveY
+		var ZBasisTo = BasisType.PositiveZ
+	}
+	MeshBuilder 
+	{
+		var GenerateSmoothNormals = false
+		var SmoothingAngleDegreesThreshold = 30
+		var GenerateTangentSpace = true
+		var InvertUvYAxis = false
+		var FlipWindingOrder = false
+		var FlipNormals = false
+		var Meshes = Array
+		{
+			Object
+			{
+				var Name = "Character_Alpha_Surface"
+				var ResourceId = 0x59f227a6822e1d87
+			}
+			Object
+			{
+				var Name = "Character_Alpha_Joints"
+				var ResourceId = 0x59f227a6822e1d91
+			}
+		}
+	}
+	AnimationBuilder 
+	{
+		var Clips = Array
+		{
+		}
+		var Animations = Array
+		{
+			Object
+			{
+				var Name = "Character"
+				var ResourceId = 0x59f227a6822e1d96
+			}
+		}
+	}
+}

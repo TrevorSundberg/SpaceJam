@@ -1,0 +1,179 @@
+class CharacterAnimations : ZilchComponent
+{
+  [Dependency]
+  var AnimationGraph : AnimationGraph;
+  
+  [Property]
+  var Spine : CogPath;
+  
+  [Property]
+  var AnimationSpeed : Real2 = Real2(1, 1);
+  
+  [Property]
+  var IdleSpeed : Real = 0.5;
+  
+  [Property]
+  var Smoothing : Real = 0.9;
+  
+  [Property]
+  var Movement : Real2;
+  
+  [Property]
+  var VerticalAngle : Real;
+  [Property]
+  var HorizontalAngle : Real;
+  
+  [Property]
+  var Jumping : Boolean;
+  
+  var Anim1 : BasicAnimation;
+  var Anim2 : BasicAnimation;
+  var Blend : CrossBlend;
+  
+  var Idle : BasicAnimation;
+  var IdleBlend : CrossBlend;
+  
+  var LastPos : Real2;
+  var LastMovement : Real2;
+  var LastJumping : Boolean;
+  
+  function Initialize(init : CogInitializer)
+  {
+    this.Anim1 = this.AnimationGraph.CreateBasicNode(Animation.PistolIdle, AnimationPlayMode.Loop);
+    this.Anim2 = this.AnimationGraph.CreateBasicNode(Animation.PistolIdle, AnimationPlayMode.Loop);
+    
+    this.Anim1.TimeScale = this.Anim1.Duration;
+    this.Anim2.TimeScale = this.Anim2.Duration;
+    
+    this.Blend = this.AnimationGraph.CreateCrossBlendNode();
+    this.Blend.From = this.Anim1;
+    this.Blend.To = this.Anim2;
+    this.Blend.TimeScale = 0;
+    this.Blend.SetNormalizedTime(0);
+    
+    this.Idle = this.AnimationGraph.CreateBasicNode(Animation.PistolIdle, AnimationPlayMode.Loop);
+    
+    this.IdleBlend = this.AnimationGraph.CreateCrossBlendNode();
+    this.IdleBlend.From = this.Blend;
+    this.IdleBlend.To = this.Idle;
+    this.IdleBlend.TimeScale = 0;
+    this.IdleBlend.SetNormalizedTime(0);
+    
+    this.AnimationGraph.ActiveNode = this.IdleBlend;
+    
+    this.LastPos = this.Owner.Transform.WorldTranslation.XZ;
+    
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+  
+  [Extension(typeid(BasicAnimation))]
+  function SetAnimationPreserved(animation : Animation)
+  {
+    var normalizedTime = this.GetNormalizedTime();
+    this.Animation = animation;
+    this.TimeScale = animation.Duration;
+    this.SetNormalizedTime(normalizedTime);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    var pos = this.Owner.Transform.WorldTranslation.XZ;
+    var movement = pos - this.LastPos;
+    this.LastPos = pos;
+    
+    movement = Math.Lerp(this.Movement, movement, this.Smoothing);
+    
+    var inverseSmoothing = 1.0 - this.Smoothing;
+    
+    var oldLength = Math.Length(this.Movement);
+    var newLength = Math.Length(movement);
+    var length = Math.Lerp(oldLength, newLength, inverseSmoothing);
+    var deltaAngle = Math.AngleBetween(this.Movement, movement);
+    this.Movement = Math.RotateTowards(Math.Normalize(this.Movement), Math.Normalize(movement), Math.Abs(deltaAngle) * inverseSmoothing) * length;
+    
+    var angle = Math.ATan2(-this.Movement.X, this.Movement.Y);
+    
+    var pi = Math.Pi;
+    var halfPi = Math.Pi / 2.0;
+    
+    if (angle >= 0)
+    {
+      if (angle < +halfPi)
+      {
+        this.Anim1.SetAnimationPreserved(Animation.PistolMoveForward);
+        this.Anim2.SetAnimationPreserved(Animation.PistolMoveRight);
+        this.Blend.SetNormalizedTime(angle / +halfPi);
+      }
+      else
+      {
+        this.Anim1.SetAnimationPreserved(Animation.PistolMoveRight);
+        this.Anim2.SetAnimationPreserved(Animation.PistolMoveBackward);
+        this.Blend.SetNormalizedTime((angle - halfPi) / +halfPi);
+      }
+    }
+    else
+    {
+      if (angle > -halfPi)
+      {
+        this.Anim1.SetAnimationPreserved(Animation.PistolMoveForward);
+        this.Anim2.SetAnimationPreserved(Animation.PistolMoveLeft);
+        this.Blend.SetNormalizedTime(angle / -halfPi);
+      }
+      else
+      {
+        this.Anim1.SetAnimationPreserved(Animation.PistolMoveLeft);
+        this.Anim2.SetAnimationPreserved(Animation.PistolMoveBackward);
+        this.Blend.SetNormalizedTime((angle + halfPi) / -halfPi);
+      }
+    }
+    
+    var speed = Math.Length(this.Movement * this.AnimationSpeed) / event.Dt;
+    
+    if (speed <= this.IdleSpeed)
+    {
+      this.IdleBlend.SetNormalizedTime(1.0 - speed / this.IdleSpeed);
+      speed = this.IdleSpeed;
+    }
+    else
+    {
+      this.IdleBlend.SetNormalizedTime(0);
+    }
+    
+    this.Anim1.TimeScale *= speed;
+    this.Anim2.TimeScale *= speed;
+    
+    var spineTx = this.Spine.Cog.Transform;
+    spineTx.WorldRotation = Math.Multiply(Math.AxisAngle(Real3.XAxis, this.VerticalAngle), spineTx.WorldRotation);
+    spineTx.WorldRotation = Math.Multiply(Math.AxisAngle(Real3.YAxis, this.HorizontalAngle), spineTx.WorldRotation);
+    
+    if (this.Jumping)
+    {
+      if (!this.LastJumping)
+      {
+        var jump = this.AnimationGraph.CreateBasicNode(Animation.PistolJump, AnimationPlayMode.PlayOnce);
+        
+        var blend = this.AnimationGraph.CreateCrossBlendNode();
+        blend.From = this.AnimationGraph.ActiveNode;
+        blend.To = jump;
+        blend.Duration = 0.3;
+        
+        this.AnimationGraph.ActiveNode = blend;
+      }
+      
+    }
+    else
+    {
+      if (this.LastJumping)
+      {
+        var blend = this.AnimationGraph.CreateCrossBlendNode();
+        blend.From = this.AnimationGraph.ActiveNode;
+        blend.To = this.IdleBlend;
+        blend.Duration = 0.5;
+        
+        this.AnimationGraph.ActiveNode = blend;
+      }
+    }
+    
+    this.LastJumping = this.Jumping;
+  }
+}
