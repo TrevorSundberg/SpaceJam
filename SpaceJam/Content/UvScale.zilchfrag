@@ -1,0 +1,17 @@
+// Scales a meshes UV coordinates
+[Vertex]
+struct UvScale
+{
+  // Mesh UV scale factor
+  [PropertyInput]
+  var UvScale : Real2 = Real2(1, 1);
+  
+  // Vertex Attributes
+  // Standard mesh attributes
+  [StageInput][Output] var Uv : Real2;
+
+  function Main()
+  {
+    this.Uv *= this.UvScale;
+  }
+}

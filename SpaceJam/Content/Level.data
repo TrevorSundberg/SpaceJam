@@ -25,7 +25,7 @@ Level
 		}
 		GridDraw 
 		{
-			var Active = false
+			var Active = true
 			var HalfCellOffset = false
 			var CellSize = 1
 			var Axis = AxisDirection.Y
@@ -196,9 +196,9 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{2.22963047, 4.4980011, -3.68156886}
+			var Translation = Real3{-8.13671303, 17.8781071, -27.7827644}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{-0.0154800871, 0.961565673, 0.0554436184, 0.268473148}
+			var Rotation = Quaternion{0.057937596, 0.941718876, 0.247055233, -0.220845193}
 		}
 		CameraViewport 
 		{
@@ -255,10 +255,10 @@ Level
 		{
 			var ControlMode = ControlMode.Orbit
 			var Previous3DMode = ControlMode.Orbit
-			var LookDistance = 4.33280563
-			var VerticalAngle = 0.115191922
-			var HorizontalAngle = 9.96931934
-			var LookTarget = Real3{0, 4, 0}
+			var LookDistance = 32.8706589
+			var VerticalAngle = 0.513126552
+			var HorizontalAngle = 27.813633
+			var LookTarget = Real3{4.59477758, 1.74178517, -2.13109064}
 			var MoveSensitivity = 1
 		}
 	}
@@ -267,9 +267,9 @@ Level
 		var Name = "GameCamera"
 		Transform 
 		{
-			var Translation = Real3{0, 2, 10}
+			var Translation = Real3{0, 2, -22.1499996}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
+			var Rotation = Quaternion{-4.37113883e-08, 1, -4.37113883e-08, 1.91068547e-15}
 		}
 		CameraViewport 
 		{
@@ -369,12 +369,37 @@ Level
 	}
 	Cog [ContextId:7]
 	{
-		var Name = "Cube"
+		var Name = "LevelMusic"
 		Transform 
 		{
 			var Translation = Real3{0, 0, 0}
-			var Scale = Real3{20, 1, 20}
+			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		SoundEmitter 
+		{
+			var Volume = 1
+			var Pitch = 0
+			var Attenuator = "57ca8a6ad262efe5:DefaultNoAttenuation"
+			var Directional = false
+			var EmitAngle = 90
+			var RearVolume = 0.200000003
+		}
+		SimpleSound 
+		{
+			var StartPlaying = true
+			var Positional = false
+			var Cue = "59f3d75caaae58ac:Space Jam Theme Song"
+		}
+	}
+	Cog [ContextId:8]
+	{
+		var Name = "GunSize"
+		Transform 
+		{
+			var Translation = Real3{7.14015961, 2.79999995, -1.87575531}
+			var Scale = Real3{1, 0.100000001, 0.200000003}
+			var Rotation = Quaternion{-0.707106829, 0, 0, 0.707106829}
 		}
 		Model 
 		{
@@ -386,26 +411,7 @@ Level
 			var LocalAabbHalfExtents = Real3{1, 1, 1}
 			var GroupSortValue = 0
 			var Material = "583afb5e7bf75e18:ZeroMaterial"
-			var Mesh = "4de0354322b345ae:Cube"
-		}
-		BoxCollider 
-		{
-			var Ghost = false
-			var SendsEvents = true
-			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.5, 0.5, 0.5}
-		}
-	}
-	Cog [ContextId:8]
-	{
-		var Name = "Sphere"
-		Transform 
-		{
-			var Translation = Real3{0, 2, 0}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
+			var Mesh = "4de0354322b3572e:Cylinder"
 		}
 		RigidBody 
 		{
@@ -417,41 +423,24 @@ Level
 			var RotationLocked = false
 			var Mode2D = Mode2DStates.InheritFromSpace
 		}
-		SphereCollider 
+		BoxCollider 
 		{
 			var Ghost = false
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
 			var Offset = Real3{0, 0, 0}
-			var Radius = 0.5
+			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
-		NetObject 
+	}
+	Cog [ContextId:9]
+	{
+		var Name = "PlayerSize"
+		Transform 
 		{
-			var DetectOutgoingChanges = true
-			var AcceptIncomingChanges = true
-			var AllowNapping = true
-			var AccurateTimestampOnOnline = false
-			var AccurateTimestampOnChange = false
-			var AccurateTimestampOnOffline = false
-			var AutomaticChannel = "56f22bdc94800e65:Default"
-			var NetPropertyInfos = Array
-			{
-				Object
-				{
-					var ComponentName = "Transform"
-					var PropertyName = "Translation"
-					var NetChannelConfig = "56f22bdc957a8572:Transform"
-					var NetPropertyConfig = "74f23adc1a810b95:Default"
-				}
-				Object
-				{
-					var ComponentName = "Transform"
-					var PropertyName = "Rotation"
-					var NetChannelConfig = "56f22bdc957a8572:Transform"
-					var NetPropertyConfig = "74f23adc1a810b95:Default"
-				}
-			}
+			var Translation = Real3{8.14015961, 3.70000005, -0.87575531}
+			var Scale = Real3{1, 2, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Model 
 		{
@@ -463,7 +452,156 @@ Level
 			var LocalAabbHalfExtents = Real3{1, 1, 1}
 			var GroupSortValue = 0
 			var Material = "583afb5e7bf75e18:ZeroMaterial"
-			var Mesh = "4de0354322b376ae:Sphere"
+			var Mesh = "4de0354322b3572e:Cylinder"
+		}
+		CylinderCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var Radius = 0.5
+			var Height = 1
+			var Direction = AxisDirection.Y
+		}
+	}
+	Cog [InheritId:"59279c93d8f5e2a8:ThinWall4x4"][ContextId:10]
+	{
+		Transform 
+		{
+			var Translation = Real3{-3.85984039, 2.5, 3.22424459}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{4, 4, 0.200000003}
+		}
+	}
+	Cog [InheritId:"592793c1c225580e:ThinWall2x4"][ContextId:11]
+	{
+		var Name = "ThinWall2x4"
+		Transform 
+		{
+			var Translation = Real3{-6.85984039, 2.5, 3.22424459}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{2, 4, 0.200000003}
+		}
+	}
+	Cog [InheritId:"592793a13ec1b90a:ThinWall1x4"][ContextId:12]
+	{
+		var Name = "ThinWall1x4"
+		Transform 
+		{
+			var Translation = Real3{-8.35984039, 2.5, 3.22424459}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 4, 0.200000003}
+		}
+	}
+	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:13]
+	{
+		var Name = "ThinGround4x4"
+		Transform 
+		{
+			var Translation = Real3{-3.85984039, 0.600000024, 1.12424469}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{4, 0.200000003, 4}
+		}
+	}
+	Cog [InheritId:"59278955ba26f34d:ThinGround2x2"][ContextId:14]
+	{
+		var Name = "ThinGround2x2"
+		Transform 
+		{
+			var Translation = Real3{-6.85984039, 0.600000024, 2.12424469}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{2, 0.200000003, 2}
+		}
+	}
+	Cog [InheritId:"59279550ce2110cf:ThinGround1x1"][ContextId:15]
+	{
+		var Name = "ThinGround1x1"
+		Transform 
+		{
+			var Translation = Real3{-8.35984039, 0.600000024, 2.62424469}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 0.200000003, 1}
+		}
+	}
+	Cog [InheritId:"5927805ae88b7326:Box"][ContextId:16]
+	{
+		var Name = "Box"
+		Transform 
+		{
+			var Translation = Real3{-3.85984039, 3.20000005, 1.12424469}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+	}
+	Cog [InheritId:"592787fbde6fc0e4:Crate"][ContextId:17]
+	{
+		var Name = "Crate"
+		Transform 
+		{
+			var Translation = Real3{-3.85984039, 1.70000005, 1.12424469}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{2, 2, 2}
+		}
+	}
+	Cog [InheritId:"5927870dc3b9af1a:ThinWall8x4"][ContextId:18]
+	{
+		var Name = "ThinWall8x4"
+		Transform 
+		{
+			var Translation = Real3{2.14016008, 2.5, 3.22424459}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 4, 0.200000003}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:19]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{2.14016008, 0.600000024, -0.87575531}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"5927b872c66ccfe0:Barrel"][ContextId:20]
+	{
+		Transform 
+		{
+			var Translation = Real3{2.14016008, 1.20000005, -2.87575531}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{0.699999988, 1, 0.699999988}
+		}
+	}
+	Cog [InheritId:"5927b0cf2daf34ac:Ramp"][ContextId:21]
+	{
+		var Name = "Ramp"
+		Transform 
+		{
+			var Translation = Real3{4.14016008, 1.70000005, 0.12424469}
+			var Rotation = Quaternion{-0, 0.707106829, -0, -0.707106829}
+			var Scale = Real3{2, 2, 4}
+		}
+	}
+	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:22]
+	{
+		var Name = "ThinGround4x4"
+		Transform 
+		{
+			var Translation = Real3{8.14015961, 2.60000014, -0.87575531}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{4, 0.200000003, 4}
+		}
+	}
+	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:23]
+	{
+		var Name = "ThinGround4x4"
+		Transform 
+		{
+			var Translation = Real3{8.14015961, 2.60000014, -4.87575531}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{4, 0.200000003, 4}
 		}
 	}
 }

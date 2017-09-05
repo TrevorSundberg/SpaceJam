@@ -1,0 +1,75 @@
+[Version:1]
+Cog 
+{
+	var Name = "Barrel"
+	Transform 
+	{
+		var Translation = Real3{4.20000029, 1.20000005, -6.25}
+		var Scale = Real3{0.699999988, 1, 0.699999988}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Model 
+	{
+		var Visible = true
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var OverrideBoundingBox = false
+		var LocalAabbCenter = Real3{0, 0, 0}
+		var LocalAabbHalfExtents = Real3{1, 1, 1}
+		var GroupSortValue = 0
+		var Material = "592788aca60c54a5:UvScaledZeroMaterial"
+		var Mesh = "4de0354322b3572e:Cylinder"
+	}
+	RigidBody 
+	{
+		var Velocity = Real3{0, 0, 0}
+		var AngularVelocity = Real3{0, 0, 0}
+		var DynamicState = RigidBodyDynamicState.Dynamic
+		var AllowSleep = true
+		var Asleep = false
+		var RotationLocked = false
+		var Mode2D = Mode2DStates.InheritFromSpace
+	}
+	CylinderCollider 
+	{
+		var Ghost = false
+		var SendsEvents = true
+		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+		var CollisionGroup = "4e740859314e5515:DefaultGroup"
+		var Offset = Real3{0, 0, 0}
+		var Radius = 0.5
+		var Height = 1
+		var Direction = AxisDirection.Y
+	}
+	UvScaler 
+	{
+		var UvScale = Real2{1, 1}
+	}
+	NetObject 
+	{
+		var DetectOutgoingChanges = true
+		var AcceptIncomingChanges = true
+		var AllowNapping = true
+		var AccurateTimestampOnOnline = false
+		var AccurateTimestampOnChange = false
+		var AccurateTimestampOnOffline = false
+		var AutomaticChannel = "56f22bdc94800e65:Default"
+		var NetPropertyInfos = Array
+		{
+			Object
+			{
+				var ComponentName = "Transform"
+				var PropertyName = "Translation"
+				var NetChannelConfig = "56f22bdc957a8572:Transform"
+				var NetPropertyConfig = "74f23adc1a810b95:Default"
+			}
+			Object
+			{
+				var ComponentName = "Transform"
+				var PropertyName = "Rotation"
+				var NetChannelConfig = "56f22bdc957a8572:Transform"
+				var NetPropertyConfig = "74f23adc1a810b95:Default"
+			}
+		}
+	}
+}
