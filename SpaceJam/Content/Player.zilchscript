@@ -80,7 +80,9 @@ class Player : ZilchComponent
       // Other client
       else
       {
-        this.Owner.FindChildByName("Camera").CameraViewport.RenderInGame = false;
+        var cameraCog = this.Owner.FindChildByName("Camera");
+        cameraCog.CameraViewport.RenderInGame = false;
+        cameraCog.SoundListener.Active = false;
       }
       
       Zero.Connect(this.Space, Events.LogicUpdate, this.Client_OnLogicUpdate);

@@ -21,7 +21,7 @@ Cog
 	}
 	RigidBody 
 	{
-		var Velocity = Real3{0, 0, 0}
+		var Velocity = Real3{-91.5254898, -166.826981, -178.327194}
 		var AngularVelocity = Real3{0, 0, 0}
 		var DynamicState = RigidBodyDynamicState.Kinematic
 		var AllowSleep = false
@@ -65,7 +65,7 @@ Cog
 		var JumpSpeed = 8
 		var JumpCancelFactor = 2
 		var MaxMoveSpeed = 4
-		var MaxFallSpeed = 20
+		var MaxFallSpeed = 35
 		var GroundAcceleration = 40
 		var AirAcceleration = 40
 		var GroundDeceleration = 80
@@ -259,7 +259,7 @@ Cog
 			}
 			RigidBody 
 			{
-				var Velocity = Real3{0, 0, 0}
+				var Velocity = Real3{-91.5254898, -166.826981, -178.327194}
 				var AngularVelocity = Real3{0, 0, 0}
 				var DynamicState = RigidBodyDynamicState.Kinematic
 				var AllowSleep = true
