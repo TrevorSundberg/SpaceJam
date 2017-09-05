@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "Upright"
+		var ResourceId = 0x591b09f71af01c9c
+	}
+}

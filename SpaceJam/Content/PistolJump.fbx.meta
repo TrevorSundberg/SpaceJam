@@ -1,6 +1,12 @@
 [Version:1]
 GeometryContent 
 {
+	ContentTags 
+	{
+		var Tags = Array
+		{
+		}
+	}
 	AnimationBuilder 
 	{
 		var Clips = Array
@@ -19,9 +25,9 @@ GeometryContent
 	{
 		var OriginOffset = Real3{0, 0, 0}
 		var ScaleFactor = 0.00999999978
-		var ChangeBasis = false
-		var XBasisTo = BasisType.PositiveX
+		var ChangeBasis = true
+		var XBasisTo = BasisType.NegativeX
 		var YBasisTo = BasisType.PositiveY
-		var ZBasisTo = BasisType.PositiveZ
+		var ZBasisTo = BasisType.NegativeZ
 	}
 }

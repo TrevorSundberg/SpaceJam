@@ -1,0 +1,16 @@
+[Version:1]
+DataContent 
+{
+	ContentTags 
+	{
+		var Tags = Array
+		{
+		}
+	}
+	RichAnimationBuilder 
+	{
+		var Name = "PistolShoot"
+		var ResourceId = 0x591885b30f040ffe
+		var PreviewArchetype = ""
+	}
+}

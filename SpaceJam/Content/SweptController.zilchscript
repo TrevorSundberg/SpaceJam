@@ -189,10 +189,11 @@ class SweptController : ZilchComponent
     
     // Only want to resolve collision with static and kinematic.
     this.CastFilter = CastFilter();
-    this.CastFilter.IgnoreDynamic = true;
+    this.CastFilter.IgnoreDynamic = false;
     this.CastFilter.IgnoreGhost = true;
     this.CastFilter.IgnoreKinematic = false;
     this.CastFilter.IgnoreStatic = false;
+    this.CastFilter.IgnoreChildren = true;
     // Sets the collision group for the detection query.
     // Only detection settings from the collision table have any effect.
     this.CastFilter.CollisionGroup = this.Collider.CollisionGroup;
@@ -380,7 +381,7 @@ class SweptController : ZilchComponent
     // using the velocity of that object. (for moving platforms and such)
     foreach (var cog in this.KinematicContacts)
     {
-      this.SweptCollision(cog.RigidBody.Velocity, dt, true);
+      //this.SweptCollision(cog.RigidBody.Velocity, dt, true);
     }
     
     // Done after the sweep to stay in contact with the ground when detected.

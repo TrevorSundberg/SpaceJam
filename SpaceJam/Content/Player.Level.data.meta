@@ -1,0 +1,18 @@
+[Version:1]
+DataContent 
+{
+	ContentTags 
+	{
+		var Tags = Array
+		{
+		}
+	}
+	DataBuilder 
+	{
+		var Name = "Player"
+		var ResourceId = 0x591883fbbc28a3b7
+		var LoaderType = "Level"
+		var Version = 0
+		var ShowInEditor = true
+	}
+}

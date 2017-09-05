@@ -7,19 +7,6 @@ GeometryContent
 		{
 		}
 	}
-	GeneratedArchetype 
-	{
-		var ResourceId = 0x59f227a682d42985
-	}
-	GeometryImport 
-	{
-		var OriginOffset = Real3{0, 0, 0}
-		var ScaleFactor = 0.00999999978
-		var ChangeBasis = false
-		var XBasisTo = BasisType.PositiveX
-		var YBasisTo = BasisType.PositiveY
-		var ZBasisTo = BasisType.PositiveZ
-	}
 	MeshBuilder 
 	{
 		var GenerateSmoothNormals = false
@@ -41,6 +28,19 @@ GeometryContent
 				var ResourceId = 0x59f227a6822e1d91
 			}
 		}
+	}
+	GeneratedArchetype 
+	{
+		var ResourceId = 0x59f227a682d42985
+	}
+	GeometryImport 
+	{
+		var OriginOffset = Real3{0, 0, 0}
+		var ScaleFactor = 0.00999999978
+		var ChangeBasis = true
+		var XBasisTo = BasisType.NegativeX
+		var YBasisTo = BasisType.PositiveY
+		var ZBasisTo = BasisType.NegativeZ
 	}
 	AnimationBuilder 
 	{

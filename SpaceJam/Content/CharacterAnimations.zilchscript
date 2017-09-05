@@ -1,6 +1,8 @@
 class CharacterAnimations : ZilchComponent
 {
   [Dependency]
+  var Transform : Transform;
+  [Dependency]
   var AnimationGraph : AnimationGraph;
   
   [Property]
@@ -33,7 +35,7 @@ class CharacterAnimations : ZilchComponent
   var Idle : BasicAnimation;
   var IdleBlend : CrossBlend;
   
-  var LastPos : Real2;
+  var LastPos : Real3;
   var LastMovement : Real2;
   var LastJumping : Boolean;
   
@@ -61,7 +63,7 @@ class CharacterAnimations : ZilchComponent
     
     this.AnimationGraph.ActiveNode = this.IdleBlend;
     
-    this.LastPos = this.Owner.Transform.WorldTranslation.XZ;
+    this.LastPos = this.Owner.Transform.WorldTranslation;
     
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
   }
@@ -69,18 +71,23 @@ class CharacterAnimations : ZilchComponent
   [Extension(typeid(BasicAnimation))]
   function SetAnimationPreserved(animation : Animation)
   {
-    var normalizedTime = this.GetNormalizedTime();
-    this.Animation = animation;
+    if (this.Animation != animation)
+    {
+      var normalizedTime = this.GetNormalizedTime();
+      this.Animation = animation;
+      this.SetNormalizedTime(normalizedTime);
+    }
     this.TimeScale = animation.Duration;
-    this.SetNormalizedTime(normalizedTime);
   }
 
   function OnLogicUpdate(event : UpdateEvent)
   {
-    var pos = this.Owner.Transform.WorldTranslation.XZ;
-    var movement = pos - this.LastPos;
+    var pos = this.Transform.WorldTranslation;
+    
+    var movement3D = this.Transform.TransformNormalInverse(pos - this.LastPos);
     this.LastPos = pos;
     
+    var movement = movement3D.XZ;
     movement = Math.Lerp(this.Movement, movement, this.Smoothing);
     
     var inverseSmoothing = 1.0 - this.Smoothing;
@@ -91,7 +98,7 @@ class CharacterAnimations : ZilchComponent
     var deltaAngle = Math.AngleBetween(this.Movement, movement);
     this.Movement = Math.RotateTowards(Math.Normalize(this.Movement), Math.Normalize(movement), Math.Abs(deltaAngle) * inverseSmoothing) * length;
     
-    var angle = Math.ATan2(-this.Movement.X, this.Movement.Y);
+    var angle = Math.ATan2(this.Movement.X, -this.Movement.Y);
     
     var pi = Math.Pi;
     var halfPi = Math.Pi / 2.0;
@@ -143,8 +150,15 @@ class CharacterAnimations : ZilchComponent
     this.Anim2.TimeScale *= speed;
     
     var spineTx = this.Spine.Cog.Transform;
-    spineTx.WorldRotation = Math.Multiply(Math.AxisAngle(Real3.XAxis, this.VerticalAngle), spineTx.WorldRotation);
-    spineTx.WorldRotation = Math.Multiply(Math.AxisAngle(Real3.YAxis, this.HorizontalAngle), spineTx.WorldRotation);
+    var verticalAxis = this.Transform.TransformNormal(Real3.XAxis);
+    spineTx.WorldRotation = Math.Multiply(Math.AxisAngle(verticalAxis, this.VerticalAngle), spineTx.WorldRotation);
+    //spineTx.WorldRotation = Math.Multiply(Math.AxisAngle(Real3.YAxis, this.HorizontalAngle), spineTx.WorldRotation);
+    
+    // This is really bad code
+    var camera = this.Owner.FindChildByName("Camera");
+    var yRot = Math.AxisAngle(Real3.XAxis, this.VerticalAngle);
+    var xRot = Math.AxisAngle(Real3.YAxis, -this.HorizontalAngle);
+    camera.Transform.WorldRotation = Math.Multiply(xRot, yRot);
     
     if (this.Jumping)
     {

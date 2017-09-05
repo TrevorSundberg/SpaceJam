@@ -1,14 +1,11 @@
 [Version:1]
 GeometryContent 
 {
-	GeometryImport 
+	ContentTags 
 	{
-		var OriginOffset = Real3{0, 0, 0}
-		var ScaleFactor = 0.00999999978
-		var ChangeBasis = false
-		var XBasisTo = BasisType.PositiveX
-		var YBasisTo = BasisType.PositiveY
-		var ZBasisTo = BasisType.PositiveZ
+		var Tags = Array
+		{
+		}
 	}
 	AnimationBuilder 
 	{
@@ -23,5 +20,14 @@ GeometryContent
 				var ResourceId = 0x59f2226afff0cd87
 			}
 		}
+	}
+	GeometryImport 
+	{
+		var OriginOffset = Real3{0, 0, 0}
+		var ScaleFactor = 0.00999999978
+		var ChangeBasis = true
+		var XBasisTo = BasisType.NegativeX
+		var YBasisTo = BasisType.PositiveY
+		var ZBasisTo = BasisType.NegativeZ
 	}
 }

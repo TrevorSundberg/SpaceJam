@@ -1,0 +1,18 @@
+[Version:1]
+DataContent 
+{
+	ContentTags 
+	{
+		var Tags = Array
+		{
+		}
+	}
+	DataBuilder 
+	{
+		var Name = "UvScaledZeroMaterial"
+		var ResourceId = 0x592788aca60c54a5
+		var LoaderType = "Material"
+		var Version = 0
+		var ShowInEditor = true
+	}
+}

@@ -2,7 +2,7 @@
 SoundCue 
 {
 	var PlayMode = SoundPlayMode.Single
-	var Volume = 0.25
+	var Volume = 1
 	var UseDecibelVariation = false
 	var VolumeVariation = 0
 	var DecibelVariation = 0
@@ -18,11 +18,11 @@ SoundCue
 	{
 		Object
 		{
-			var Sound = "59f3d759a9c83d71:Space Jam Theme Song"
+			var Sound = "5918baf7a747d07f:Gunshot"
 			var Weight = 1
 			var StartTime = 0
-			var EndTime = 250.14856
-			var LoopEndTime = 250.14856
+			var EndTime = 1.73660409
+			var LoopEndTime = 1.73660409
 			var LoopStartTime = 0
 			var LoopTailLength = 0
 			var CrossFadeLoopTail = false

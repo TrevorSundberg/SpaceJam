@@ -1,6 +1,7 @@
 class Player : ZilchComponent
 {
   // Dependencies
+  [Dependency] var Transform : Transform;
   [Dependency] var RigidBody : RigidBody;
   [Dependency] var NetUser : NetUser;
   [Dependency] var SweptController : SweptController;
@@ -34,6 +35,26 @@ class Player : ZilchComponent
   [NetProperty(netChannelConfig : "ClientAuthority")]
   var InputJump : Boolean;
   
+  [NetProperty(netChannelConfig : "ClientAuthority")]
+  var InputShoot : Boolean;
+  
+  var LastInputShoot : Boolean;
+  
+  [NetProperty(netChannelConfig : "ClientAuthority")]
+  var InputAngle : Real2
+  {
+    get { return this.InputAngleInternal; }
+    set
+    {
+      value.Y = Math.Clamp(value.Y, -Math.Pi / 2, Math.Pi / 2);
+      this.InputAngleInternal = value;
+    }
+  }
+  var InputAngleInternal : Real2;
+  
+  [Property]
+  var Sensativity : Real2 = Real2(0.005, 0.005);
+  
   function Initialize(init : CogInitializer)
   {
     // If we're the server, we're responsible for processing the player's inputs set by the owning client.
@@ -46,29 +67,62 @@ class Player : ZilchComponent
     // We are a client and this player belongs to us?
     // (Remember, this logic is being run by everyone, that includes the server
     // and other clients, so we must check to see if this player is specifically ours.)
-    if(this.NetUser.IsClientAndMine)
+    if(this.NetUser.IsClient)
     {
-      Zero.Connect(Zero.Keyboard, Events.KeyDown, this.Client_OnKeyDown);
-      Zero.Connect(Zero.Keyboard, Events.KeyUp, this.Client_OnKeyUp);
+      if (this.NetUser.IsMine)
+      {
+        Zero.Mouse.Trapped = true;
+        Zero.Connect(Zero.Keyboard, Events.KeyDown, this.MyClient_OnKeyDown);
+        Zero.Connect(Zero.Keyboard, Events.KeyUp, this.MyClient_OnKeyUp);
+        Zero.Connect(this.Space, Events.MouseMove, this.MyClient_OnMouseMove);
+        Zero.Connect(this.Owner, Events.CogDestroy, this.MyClient_OnCogDestroy);
+      }
+      // Other client
+      else
+      {
+        this.Owner.FindChildByName("Camera").CameraViewport.RenderInGame = false;
+      }
+      
+      Zero.Connect(this.Space, Events.LogicUpdate, this.Client_OnLogicUpdate);
     }
+  }
+
+  function MyClient_OnCogDestroy(event : ObjectEvent)
+  {
+    Zero.Mouse.Trapped = false;
+  }
+  
+  //
+  // Both-Sides
+  //
+  
+  function UpdateAngles()
+  {
+    this.Transform.WorldRotation = Math.AxisAngle(Real3.YAxis, -this.InputAngle.X);
     
+    var characterAnimations = this.Owner.FindChildByName("Character").CharacterAnimations;
+    characterAnimations.VerticalAngle = -this.InputAngle.Y;
+    characterAnimations.HorizontalAngle = this.InputAngle.X;
   }
   
   //
-  // Client-Side Input Events
+  // Client-Side
   //
   
-  function Client_OnKeyDown(event : KeyboardEvent)
+  function MyClient_OnMouseMove(event : ViewportMouseEvent)
   {
-    // Handle key state change.
-    this.Client_OnKeyChanged(event, true);
+    this.InputAngle += event.Movement * this.Sensativity;
   }
-  function Client_OnKeyUp(event : KeyboardEvent)
+  
+  function MyClient_OnKeyDown(event : KeyboardEvent)
   {
-    // Handle key state change.
-    this.Client_OnKeyChanged(event, false);
+    this.MyClient_OnKeyChanged(event, true);
   }
-  function Client_OnKeyChanged(event : KeyboardEvent, state : Boolean)
+  function MyClient_OnKeyUp(event : KeyboardEvent)
+  {
+    this.MyClient_OnKeyChanged(event, false);
+  }
+  function MyClient_OnKeyChanged(event : KeyboardEvent, state : Boolean)
   {
     // Set input state.
     // (Since these input properties are client authoritative, the network system will automatically replicate these
@@ -85,8 +139,33 @@ class Player : ZilchComponent
       this.InputJump = state;
   }
   
+  function Client_OnLogicUpdate(event : UpdateEvent)
+  {
+    this.UpdateAngles();
+    
+    if (this.NetUser.IsMine)
+      this.InputShoot = Zero.Mouse.IsButtonDown(MouseButtons.Left);
+    
+    if (this.InputShoot && !this.LastInputShoot)
+    {
+      var pistol = this.Owner.FindChildByName("Pistol");
+      var graph = pistol.AnimationGraph;
+      graph.ActiveNode = graph.CreateBasicNode(Animation.PistolShoot, AnimationPlayMode.PlayOnce);
+      
+      var flarePoint = pistol.FindChildByName("FlarePoint");
+      var flare = this.Space.Create(Archetype.MuzzleFlare);
+      flare.AttachTo(flarePoint);
+      flare.Transform.LocalScale = Real3(1, 1, 1);
+      flare.Transform.LocalTranslation = Real3.Zero;
+      flare.Transform.LocalRotation = Quaternion.Identity;
+      
+      pistol.SoundEmitter.PlayCue(SoundCue.Gunshot);
+    }
+    this.LastInputShoot = this.InputShoot;
+  }
+  
   //
-  // Server-Side Update Events
+  // Server-Side
   //
   
   function Server_OnLogicUpdate(event : UpdateEvent)
@@ -111,14 +190,19 @@ class Player : ZilchComponent
     movement = Math.Normalize(movement);
     
     // Apply a force to move the player in the direction the client intended.
+    movement = this.Transform.TransformNormal(movement);
     this.SweptController.Update(movement, event.Dt);
     
     //Handle Jumping
     if(this.InputJump)
       this.SweptController.Jump();
     
-    this.Owner.FindChildByName("Character").CharacterAnimations.Jumping = !this.SweptController.Grounded;
+    var characterAnimations = this.Owner.FindChildByName("Character").CharacterAnimations;
+    characterAnimations.Jumping = !this.SweptController.Grounded;
+    
+    this.UpdateAngles();
   }
+  
   function Server_OnNetChannelIncomingPropertyChanged(event : NetChannelPropertyChange)
   {
     // Ex. This is the best place to handle "toggled" property logic or property logic with a clear "begin" / "end".
