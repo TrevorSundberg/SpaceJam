@@ -1,6 +1,7 @@
 class Player : ZilchComponent
 {
   // Dependencies
+  [Dependency] var Transform : Transform;
   [Dependency] var RigidBody : RigidBody;
   [Dependency] var NetUser : NetUser;
   [Dependency] var SweptController : SweptController;
@@ -34,6 +35,21 @@ class Player : ZilchComponent
   [NetProperty(netChannelConfig : "ClientAuthority")]
   var InputJump : Boolean;
   
+  [NetProperty(netChannelConfig : "ClientAuthority")]
+  var InputAngle : Real2
+  {
+    get { return this.InputAngleInternal; }
+    set
+    {
+      value.Y = Math.Clamp(value.Y, -Math.Pi / 2, Math.Pi / 2);
+      this.InputAngleInternal = value;
+    }
+  }
+  var InputAngleInternal : Real2;
+  
+  [Property]
+  var Sensativity : Real2 = Real2(0.005, 0.005);
+  
   function Initialize(init : CogInitializer)
   {
     // If we're the server, we're responsible for processing the player's inputs set by the owning client.
@@ -48,15 +64,37 @@ class Player : ZilchComponent
     // and other clients, so we must check to see if this player is specifically ours.)
     if(this.NetUser.IsClientAndMine)
     {
+      Zero.Mouse.Trapped = true;
       Zero.Connect(Zero.Keyboard, Events.KeyDown, this.Client_OnKeyDown);
       Zero.Connect(Zero.Keyboard, Events.KeyUp, this.Client_OnKeyUp);
+      Zero.Connect(this.Space, Events.MouseMove, this.Client_OnMouseMove);
+      Zero.Connect(this.Space, Events.LogicUpdate, this.Client_OnLogicUpdate);
     }
     
   }
   
   //
-  // Client-Side Input Events
+  // Both-Sides
   //
+  
+  function UpdateAngles()
+  {
+    this.Transform.WorldRotation = Math.AxisAngle(Real3.YAxis, -this.InputAngle.X);
+    
+    var characterAnimations = this.Owner.FindChildByName("Character").CharacterAnimations;
+    characterAnimations.VerticalAngle = -this.InputAngle.Y;
+    characterAnimations.HorizontalAngle = this.InputAngle.X;
+  }
+  
+  //
+  // Client-Side
+  //
+  
+  function Client_OnMouseMove(event : ViewportMouseEvent)
+  {
+    this.InputAngle += event.Movement * this.Sensativity;
+    this.UpdateAngles();
+  }
   
   function Client_OnKeyDown(event : KeyboardEvent)
   {
@@ -85,8 +123,13 @@ class Player : ZilchComponent
       this.InputJump = state;
   }
   
+  function Client_OnLogicUpdate(event : UpdateEvent)
+  {
+    this.UpdateAngles();
+  }
+  
   //
-  // Server-Side Update Events
+  // Server-Side
   //
   
   function Server_OnLogicUpdate(event : UpdateEvent)
@@ -111,14 +154,19 @@ class Player : ZilchComponent
     movement = Math.Normalize(movement);
     
     // Apply a force to move the player in the direction the client intended.
+    movement = this.Transform.TransformNormal(movement);
     this.SweptController.Update(movement, event.Dt);
     
     //Handle Jumping
     if(this.InputJump)
       this.SweptController.Jump();
     
-    this.Owner.FindChildByName("Character").CharacterAnimations.Jumping = !this.SweptController.Grounded;
+    var characterAnimations = this.Owner.FindChildByName("Character").CharacterAnimations;
+    characterAnimations.Jumping = !this.SweptController.Grounded;
+    
+    this.UpdateAngles();
   }
+  
   function Server_OnNetChannelIncomingPropertyChanged(event : NetChannelPropertyChange)
   {
     // Ex. This is the best place to handle "toggled" property logic or property logic with a clear "begin" / "end".

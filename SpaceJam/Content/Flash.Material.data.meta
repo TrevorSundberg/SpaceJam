@@ -3,9 +3,9 @@ DataContent
 {
 	DataBuilder 
 	{
-		var Name = "Space Jam Theme Song"
-		var ResourceId = 0x59f3d75caaae58ac
-		var LoaderType = "SoundCue"
+		var Name = "Flash"
+		var ResourceId = 0x591b24358a69fb77
+		var LoaderType = "Material"
 		var Version = 0
 		var ShowInEditor = true
 	}

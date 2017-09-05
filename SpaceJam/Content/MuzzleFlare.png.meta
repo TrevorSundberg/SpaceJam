@@ -1,0 +1,27 @@
+[Version:1]
+ImageContent 
+{
+	ContentTags 
+	{
+		var Tags = Array
+		{
+		}
+	}
+	SpriteSourceBuilder 
+	{
+		var Name = "MuzzleFlare"
+		var ResourceId = 0x591b25f55e03e133
+		var AtlasId = 0x5274cf95e4a661fd
+		var FrameSizeX = 300
+		var FrameSizeY = 200
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 150
+		var OriginY = 100
+		var PixelsPerUnit = 64
+		var Sampling = SpriteSampling.Nearest
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

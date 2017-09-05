@@ -25,7 +25,7 @@ Level
 		}
 		GridDraw 
 		{
-			var Active = true
+			var Active = false
 			var HalfCellOffset = false
 			var CellSize = 1
 			var Axis = AxisDirection.Y
@@ -196,9 +196,9 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{-0.253781557, 6.33032894, 12.1152134}
+			var Translation = Real3{2.22963047, 4.4980011, -3.68156886}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{-0.170753747, -0.0103181386, -0.00178822293, 0.985258162}
+			var Rotation = Quaternion{-0.0154800871, 0.961565673, 0.0554436184, 0.268473148}
 		}
 		CameraViewport 
 		{
@@ -255,10 +255,10 @@ Level
 		{
 			var ControlMode = ControlMode.Orbit
 			var Previous3DMode = ControlMode.Orbit
-			var LookDistance = 12.8683548
-			var VerticalAngle = 0.343208194
-			var HorizontalAngle = 0.0209442824
-			var LookTarget = Real3{0, 2, 0}
+			var LookDistance = 4.33280563
+			var VerticalAngle = 0.115191922
+			var HorizontalAngle = 9.96931934
+			var LookTarget = Real3{0, 4, 0}
 			var MoveSensitivity = 1
 		}
 	}
@@ -407,18 +407,6 @@ Level
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
-		Model 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "583afb5e7bf75e18:ZeroMaterial"
-			var Mesh = "4de0354322b376ae:Sphere"
-		}
 		RigidBody 
 		{
 			var Velocity = Real3{0, 0, 0}
@@ -465,30 +453,17 @@ Level
 				}
 			}
 		}
-	}
-	Cog [ContextId:9]
-	{
-		var Name = "LevelMusic"
-		Transform 
+		Model 
 		{
-			var Translation = Real3{0, 0, 0}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		SoundEmitter 
-		{
-			var Volume = 1
-			var Pitch = 0
-			var Attenuator = "57ca8a6ad262efe5:DefaultNoAttenuation"
-			var Directional = false
-			var EmitAngle = 90
-			var RearVolume = 0.200000003
-		}
-		SimpleSound 
-		{
-			var StartPlaying = true
-			var Positional = false
-			var Cue = "59f3d75caaae58ac:Space Jam Theme Song"
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "583afb5e7bf75e18:ZeroMaterial"
+			var Mesh = "4de0354322b376ae:Sphere"
 		}
 	}
 }

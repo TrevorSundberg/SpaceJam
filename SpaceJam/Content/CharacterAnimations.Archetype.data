@@ -3,12 +3,53 @@ Cog [InheritId:"59f227a682d42985:Character"]
 {
 	Transform 
 	{
-		var Translation = Real3{0.404761791, 4.12542057, -0.93739152}
+		var Translation = Real3{0, 0, 0}
 		var Rotation = Quaternion{0, 0, 0, 1}
 		var Scale = Real3{1, 1, 1}
 	}
 	CharacterAnimations [LocallyAdded]
 	{
+		var Spine = CogPath
+		{
+			var Path = "mixamorigHips/mixamorigSpine"
+			var ErrorOnResolveToNull = false
+			var ErrorOnPathCantCompute = false
+			var ErrorOnDirectLinkFail = false
+			var UpdateCogOnPathChange = true
+			var UpdatePathOnCogChange = true
+			var UpdateCogOnInitialize = true
+			var ResolvedNullErrorOccurred = false
+			var Cog = 4294967293
+			var PathPreference0 = CogPathPreference.CogRelative
+			var PathPreference1 = CogPathPreference.SpaceRelative
+			var PathPreference2 = CogPathPreference.Absolute
+		}
+		var AnimationSpeed = Real2{0.75, 0.449999988}
+		var IdleSpeed = 0.899999976
+		var Smoothing = 0.800000012
+		var Movement = Real2{0, 0}
+		var VerticalAngle = 0
+		var HorizontalAngle = 0
+		var Jumping = false
+	}
+	Hierarchy 
+	{
+		Cog [Id:0x591b10805244ca8a]
+		{
+			SkinnedModel 
+			{
+				var OverrideBoundingBox = true
+				var LocalAabbCenter = Real3{0, 1, 0}
+			}
+		}
+		Cog [Id:0x591b10805244ca8c]
+		{
+			SkinnedModel 
+			{
+				var OverrideBoundingBox = true
+				var LocalAabbCenter = Real3{0, 1, 0}
+			}
+		}
 	}
 	SimpleAnimation [LocallyRemoved]
 	{

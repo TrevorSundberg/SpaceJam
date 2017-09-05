@@ -7,12 +7,6 @@ GeometryContent
 		{
 		}
 	}
-	RichAnimationBuilder 
-	{
-		var Name = "PistolReload"
-		var ResourceId = 0x59f3d1680d30f16e
-		var PreviewArchetype = ""
-	}
 	AnimationBuilder 
 	{
 		var Clips = Array
@@ -27,13 +21,19 @@ GeometryContent
 			}
 		}
 	}
+	RichAnimationBuilder 
+	{
+		var Name = "PistolReload"
+		var ResourceId = 0x59f3d1680d30f16e
+		var PreviewArchetype = ""
+	}
 	GeometryImport 
 	{
 		var OriginOffset = Real3{0, 0, 0}
 		var ScaleFactor = 0.00999999978
-		var ChangeBasis = false
-		var XBasisTo = BasisType.PositiveX
+		var ChangeBasis = true
+		var XBasisTo = BasisType.NegativeX
 		var YBasisTo = BasisType.PositiveY
-		var ZBasisTo = BasisType.PositiveZ
+		var ZBasisTo = BasisType.NegativeZ
 	}
 }

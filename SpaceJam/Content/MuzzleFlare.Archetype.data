@@ -1,0 +1,101 @@
+[Version:1]
+Cog 
+{
+	var Name = "MuzzleFlare"
+	Transform 
+	{
+		var Translation = Real3{0, 0, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Hierarchy 
+	{
+		Cog [Id:0x591b2901e562f984]
+		{
+			var Name = ""
+			Transform 
+			{
+				var Translation = Real3{0.200000003, 0, 0}
+				var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Sprite 
+			{
+				var Visible = true
+				var ViewCulling = true
+				var VisibilityEvents = true
+				var OverrideBoundingBox = false
+				var LocalAabbCenter = Real3{0, 0, 0}
+				var LocalAabbHalfExtents = Real3{1, 1, 1}
+				var GroupSortValue = 0
+				var Material = "582c50d330d372c3:AdditiveSprite"
+				var VertexColor = Real4{5, 2.42050028, 1.1500001, 1}
+				var GeometryMode = SpriteGeometryMode.ZPlane
+				var SpriteSource = "591b25f55e03e133:MuzzleFlare"
+				var FlipX = false
+				var FlipY = false
+				var AnimationActive = true
+				var AnimationSpeed = 1
+				var StartFrame = 0
+			}
+		}
+		Cog [Id:0x591b2901e562f987]
+		{
+			var Name = ""
+			Transform 
+			{
+				var Translation = Real3{0.200000003, 0, 0}
+				var Scale = Real3{0.100000001, 0.100000016, 0.100000016}
+				var Rotation = Quaternion{0.707106829, 0, 0, 0.707106769}
+			}
+			Sprite 
+			{
+				var Visible = true
+				var ViewCulling = true
+				var VisibilityEvents = true
+				var OverrideBoundingBox = false
+				var LocalAabbCenter = Real3{0, 0, 0}
+				var LocalAabbHalfExtents = Real3{1, 1, 1}
+				var GroupSortValue = 0
+				var Material = "582c50d330d372c3:AdditiveSprite"
+				var VertexColor = Real4{5, 2.42050028, 1.1500001, 1}
+				var GeometryMode = SpriteGeometryMode.ZPlane
+				var SpriteSource = "591b25f55e03e133:MuzzleFlare"
+				var FlipX = false
+				var FlipY = false
+				var AnimationActive = true
+				var AnimationSpeed = 1
+				var StartFrame = 0
+			}
+		}
+		Cog [Id:0x591b2901e562f988]
+		{
+			var Name = ""
+			Transform 
+			{
+				var Translation = Real3{0.100000001, 0, 0}
+				var Scale = Real3{0.100000016, 0.100000001, 0.100000016}
+				var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+			}
+			Sprite 
+			{
+				var Visible = true
+				var ViewCulling = true
+				var VisibilityEvents = true
+				var OverrideBoundingBox = false
+				var LocalAabbCenter = Real3{0, 0, 0}
+				var LocalAabbHalfExtents = Real3{1, 1, 1}
+				var GroupSortValue = 0
+				var Material = "582c50d330d372c3:AdditiveSprite"
+				var VertexColor = Real4{5, 2.42050028, 1.1500001, 1}
+				var GeometryMode = SpriteGeometryMode.ZPlane
+				var SpriteSource = "591b278b2764dde0:MuzzleFlareMiddle"
+				var FlipX = false
+				var FlipY = false
+				var AnimationActive = true
+				var AnimationSpeed = 1
+				var StartFrame = 0
+			}
+		}
+	}
+}

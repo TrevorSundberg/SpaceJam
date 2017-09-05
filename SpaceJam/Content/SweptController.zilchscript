@@ -189,10 +189,11 @@ class SweptController : ZilchComponent
     
     // Only want to resolve collision with static and kinematic.
     this.CastFilter = CastFilter();
-    this.CastFilter.IgnoreDynamic = true;
+    this.CastFilter.IgnoreDynamic = false;
     this.CastFilter.IgnoreGhost = true;
     this.CastFilter.IgnoreKinematic = false;
     this.CastFilter.IgnoreStatic = false;
+    this.CastFilter.IgnoreChildren = true;
     // Sets the collision group for the detection query.
     // Only detection settings from the collision table have any effect.
     this.CastFilter.CollisionGroup = this.Collider.CollisionGroup;
