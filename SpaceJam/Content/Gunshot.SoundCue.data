@@ -16,6 +16,17 @@ SoundCue
 	var TimeSigValue = 0
 	var Sounds = Array
 	{
+		Object
+		{
+			var Sound = "5918baf7a747d07f:Gunshot"
+			var Weight = 1
+			var StartTime = 0
+			var EndTime = 1.73660409
+			var LoopEndTime = 1.73660409
+			var LoopStartTime = 0
+			var LoopTailLength = 0
+			var CrossFadeLoopTail = false
+		}
 	}
 	var SoundTags = Array
 	{
