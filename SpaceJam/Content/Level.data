@@ -196,9 +196,9 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{-8.13671303, 17.8781071, -27.7827644}
+			var Translation = Real3{5.11556005, 7.85924673, -14.9871778}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0.057937596, 0.941718876, 0.247055233, -0.220845193}
+			var Rotation = Quaternion{-0.0289671887, 0.963474929, 0.239328399, 0.116614342}
 		}
 		CameraViewport 
 		{
@@ -255,10 +255,10 @@ Level
 		{
 			var ControlMode = ControlMode.Orbit
 			var Previous3DMode = ControlMode.Orbit
-			var LookDistance = 32.8706589
-			var VerticalAngle = 0.513126552
-			var HorizontalAngle = 27.813633
-			var LookTarget = Real3{4.59477758, 1.74178517, -2.13109064}
+			var LookDistance = 14.1118298
+			var VerticalAngle = 0.486946791
+			var HorizontalAngle = 28.5152321
+			var LookTarget = Real3{2.14016008, 1.25590169, -2.87575531}
 			var MoveSensitivity = 1
 		}
 	}
@@ -369,31 +369,6 @@ Level
 	}
 	Cog [ContextId:7]
 	{
-		var Name = "LevelMusic"
-		Transform 
-		{
-			var Translation = Real3{0, 0, 0}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		SoundEmitter 
-		{
-			var Volume = 1
-			var Pitch = 0
-			var Attenuator = "57ca8a6ad262efe5:DefaultNoAttenuation"
-			var Directional = false
-			var EmitAngle = 90
-			var RearVolume = 0.200000003
-		}
-		SimpleSound 
-		{
-			var StartPlaying = true
-			var Positional = false
-			var Cue = "59f3d75caaae58ac:Space Jam Theme Song"
-		}
-	}
-	Cog [ContextId:8]
-	{
 		var Name = "GunSize"
 		Transform 
 		{
@@ -433,7 +408,7 @@ Level
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog [ContextId:9]
+	Cog [ContextId:8]
 	{
 		var Name = "PlayerSize"
 		Transform 
@@ -466,7 +441,7 @@ Level
 			var Direction = AxisDirection.Y
 		}
 	}
-	Cog [InheritId:"59279c93d8f5e2a8:ThinWall4x4"][ContextId:10]
+	Cog [InheritId:"59279c93d8f5e2a8:ThinWall4x4"][ContextId:9]
 	{
 		Transform 
 		{
@@ -475,7 +450,7 @@ Level
 			var Scale = Real3{4, 4, 0.200000003}
 		}
 	}
-	Cog [InheritId:"592793c1c225580e:ThinWall2x4"][ContextId:11]
+	Cog [InheritId:"592793c1c225580e:ThinWall2x4"][ContextId:10]
 	{
 		var Name = "ThinWall2x4"
 		Transform 
@@ -485,7 +460,7 @@ Level
 			var Scale = Real3{2, 4, 0.200000003}
 		}
 	}
-	Cog [InheritId:"592793a13ec1b90a:ThinWall1x4"][ContextId:12]
+	Cog [InheritId:"592793a13ec1b90a:ThinWall1x4"][ContextId:11]
 	{
 		var Name = "ThinWall1x4"
 		Transform 
@@ -495,7 +470,7 @@ Level
 			var Scale = Real3{1, 4, 0.200000003}
 		}
 	}
-	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:13]
+	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:12]
 	{
 		var Name = "ThinGround4x4"
 		Transform 
@@ -505,7 +480,7 @@ Level
 			var Scale = Real3{4, 0.200000003, 4}
 		}
 	}
-	Cog [InheritId:"59278955ba26f34d:ThinGround2x2"][ContextId:14]
+	Cog [InheritId:"59278955ba26f34d:ThinGround2x2"][ContextId:13]
 	{
 		var Name = "ThinGround2x2"
 		Transform 
@@ -515,7 +490,7 @@ Level
 			var Scale = Real3{2, 0.200000003, 2}
 		}
 	}
-	Cog [InheritId:"59279550ce2110cf:ThinGround1x1"][ContextId:15]
+	Cog [InheritId:"59279550ce2110cf:ThinGround1x1"][ContextId:14]
 	{
 		var Name = "ThinGround1x1"
 		Transform 
@@ -525,7 +500,7 @@ Level
 			var Scale = Real3{1, 0.200000003, 1}
 		}
 	}
-	Cog [InheritId:"5927805ae88b7326:Box"][ContextId:16]
+	Cog [InheritId:"5927805ae88b7326:Box"][ContextId:15]
 	{
 		var Name = "Box"
 		Transform 
@@ -535,7 +510,7 @@ Level
 			var Scale = Real3{1, 1, 1}
 		}
 	}
-	Cog [InheritId:"592787fbde6fc0e4:Crate"][ContextId:17]
+	Cog [InheritId:"592787fbde6fc0e4:Crate"][ContextId:16]
 	{
 		var Name = "Crate"
 		Transform 
@@ -545,7 +520,7 @@ Level
 			var Scale = Real3{2, 2, 2}
 		}
 	}
-	Cog [InheritId:"5927870dc3b9af1a:ThinWall8x4"][ContextId:18]
+	Cog [InheritId:"5927870dc3b9af1a:ThinWall8x4"][ContextId:17]
 	{
 		var Name = "ThinWall8x4"
 		Transform 
@@ -555,7 +530,7 @@ Level
 			var Scale = Real3{8, 4, 0.200000003}
 		}
 	}
-	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:19]
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:18]
 	{
 		var Name = "ThinGround8x8"
 		Transform 
@@ -565,16 +540,7 @@ Level
 			var Scale = Real3{8, 0.200000003, 8}
 		}
 	}
-	Cog [InheritId:"5927b872c66ccfe0:Barrel"][ContextId:20]
-	{
-		Transform 
-		{
-			var Translation = Real3{2.14016008, 1.20000005, -2.87575531}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{0.699999988, 1, 0.699999988}
-		}
-	}
-	Cog [InheritId:"5927b0cf2daf34ac:Ramp"][ContextId:21]
+	Cog [InheritId:"5927b0cf2daf34ac:Ramp"][ContextId:19]
 	{
 		var Name = "Ramp"
 		Transform 
@@ -584,7 +550,7 @@ Level
 			var Scale = Real3{2, 2, 4}
 		}
 	}
-	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:22]
+	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:20]
 	{
 		var Name = "ThinGround4x4"
 		Transform 
@@ -594,7 +560,7 @@ Level
 			var Scale = Real3{4, 0.200000003, 4}
 		}
 	}
-	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:23]
+	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:21]
 	{
 		var Name = "ThinGround4x4"
 		Transform 
@@ -602,6 +568,15 @@ Level
 			var Translation = Real3{8.14015961, 2.60000014, -4.87575531}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{4, 0.200000003, 4}
+		}
+	}
+	Cog [InheritId:"5927b872c66ccfe0:Barrel"][ContextId:22]
+	{
+		Transform 
+		{
+			var Translation = Real3{2.86349082, 1.22826922, -3.40675282}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{0.699999988, 1, 0.699999988}
 		}
 	}
 }
