@@ -1,0 +1,20 @@
+[Version:1]
+DataContent 
+{
+	ContentTags 
+	{
+		var Tags = Array
+		{
+			"Archetype"
+			"Cog"
+		}
+	}
+	DataBuilder 
+	{
+		var Name = "ThinGround2x2"
+		var ResourceId = 0x59278955ba26f34d
+		var LoaderType = "Cog"
+		var Version = 0
+		var ShowInEditor = true
+	}
+}

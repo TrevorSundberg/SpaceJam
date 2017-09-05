@@ -1,0 +1,20 @@
+[Version:1]
+DataContent 
+{
+	ContentTags 
+	{
+		var Tags = Array
+		{
+			"Archetype"
+			"Cog"
+		}
+	}
+	DataBuilder 
+	{
+		var Name = "Crate"
+		var ResourceId = 0x592787fbde6fc0e4
+		var LoaderType = "Cog"
+		var Version = 0
+		var ShowInEditor = true
+	}
+}

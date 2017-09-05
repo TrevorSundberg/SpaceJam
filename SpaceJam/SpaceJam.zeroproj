@@ -29,7 +29,7 @@ Cog
 		var MajorVersion = 1
 		var MinorVersion = 0
 		var PatchVersion = 0
-		var RevisionId = 257
-		var ShortChangeSet = "f08a63ddcd77"
+		var RevisionId = 263
+		var ShortChangeSet = "9696192249c4"
 	}
 }

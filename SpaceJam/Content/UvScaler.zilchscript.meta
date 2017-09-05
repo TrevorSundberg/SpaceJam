@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "UvScaler"
+		var ResourceId = 0x592783f372c3c724
+	}
+}

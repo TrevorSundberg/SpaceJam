@@ -1,0 +1,6 @@
+class UvScaler : ZilchComponent
+{
+  // Mesh UV scale factor
+  [ShaderInput][Property]
+  var UvScale : Real2 = Real2(1, 1);
+}
