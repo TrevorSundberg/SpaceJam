@@ -42,6 +42,11 @@ Level
 	Cog [ContextId:2]
 	{
 		var Name = "Renderer"
+		EditorFlags 
+		{
+			var Locked = true
+			var Hidden = false
+		}
 		DeferredRenderer 
 		{
 			var GeometryDebug = GeometryValue.None
@@ -81,6 +86,11 @@ Level
 	Cog [ContextId:3]
 	{
 		var Name = "DirectionalLightShadows"
+		EditorFlags 
+		{
+			var Locked = true
+			var Hidden = false
+		}
 		Transform 
 		{
 			var Translation = Real3{0, 20, 20}
@@ -178,9 +188,9 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{5.42848396, 8.55372238, -16.2609406}
+			var Translation = Real3{-42.5260544, 13.1656017, -0.213856697}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{-0.0289671887, 0.963474929, 0.239328399, 0.116614342}
+			var Rotation = Quaternion{-0.031201791, -0.666334629, -0.0279268604, 0.744476199}
 		}
 		CameraViewport 
 		{
@@ -237,10 +247,10 @@ Level
 		{
 			var ControlMode = ControlMode.Orbit
 			var Previous3DMode = ControlMode.Orbit
-			var LookDistance = 15.5959749
-			var VerticalAngle = 0.486946791
-			var HorizontalAngle = 28.5152321
-			var LookTarget = Real3{2.14016008, 1.25590169, -2.87575531}
+			var LookDistance = 63.3019905
+			var VerticalAngle = 0.0837732702
+			var HorizontalAngle = 158.539764
+			var LookTarget = Real3{20.1680698, 7.86878777, -7.18033934}
 			var MoveSensitivity = 1
 		}
 	}
@@ -249,7 +259,7 @@ Level
 		var Name = "GunSize"
 		Transform 
 		{
-			var Translation = Real3{7.14015961, 2.79999995, -1.87575531}
+			var Translation = Real3{7.14015961, 2.79999995, 32.8947983}
 			var Scale = Real3{1, 0.100000001, 0.200000003}
 			var Rotation = Quaternion{-0.707106829, 0, 0, 0.707106829}
 		}
@@ -290,7 +300,7 @@ Level
 		var Name = "PlayerSize"
 		Transform 
 		{
-			var Translation = Real3{8.14015961, 3.70000005, -0.87575531}
+			var Translation = Real3{8.14015961, 3.70000005, 33.8947983}
 			var Scale = Real3{1, 2, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -322,7 +332,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-3.85984039, 2.5, 3.22424459}
+			var Translation = Real3{-3.85984039, 2.5, 37.9947968}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{4, 4, 0.200000003}
 		}
@@ -332,7 +342,7 @@ Level
 		var Name = "ThinWall2x4"
 		Transform 
 		{
-			var Translation = Real3{-6.85984039, 2.5, 3.22424459}
+			var Translation = Real3{-6.85984039, 2.5, 37.9947968}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{2, 4, 0.200000003}
 		}
@@ -342,7 +352,7 @@ Level
 		var Name = "ThinWall1x4"
 		Transform 
 		{
-			var Translation = Real3{-8.35984039, 2.5, 3.22424459}
+			var Translation = Real3{-8.35984039, 2.5, 37.9947968}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 4, 0.200000003}
 		}
@@ -352,7 +362,7 @@ Level
 		var Name = "ThinGround4x4"
 		Transform 
 		{
-			var Translation = Real3{-3.85984039, 0.600000024, 1.12424469}
+			var Translation = Real3{-3.85984039, 0.600000024, 35.8947983}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{4, 0.200000003, 4}
 		}
@@ -362,7 +372,7 @@ Level
 		var Name = "ThinGround2x2"
 		Transform 
 		{
-			var Translation = Real3{-6.85984039, 0.600000024, 2.12424469}
+			var Translation = Real3{-6.85984039, 0.600000024, 36.8947983}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{2, 0.200000003, 2}
 		}
@@ -372,7 +382,7 @@ Level
 		var Name = "ThinGround1x1"
 		Transform 
 		{
-			var Translation = Real3{-8.35984039, 0.600000024, 2.62424469}
+			var Translation = Real3{-8.35984039, 0.600000024, 37.3947983}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 0.200000003, 1}
 		}
@@ -382,7 +392,7 @@ Level
 		var Name = "Box"
 		Transform 
 		{
-			var Translation = Real3{-3.85984039, 3.20000005, 1.12424469}
+			var Translation = Real3{18.4500008, 2.60000014, 5.45000029}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -392,8 +402,8 @@ Level
 		var Name = "Crate"
 		Transform 
 		{
-			var Translation = Real3{-3.85984039, 1.70000005, 1.12424469}
-			var Rotation = Quaternion{0, 0, 0, 1}
+			var Translation = Real3{18.4500008, 1.10000002, 5.45000029}
+			var Rotation = Quaternion{0, -0.382683456, 0, 0.923879504}
 			var Scale = Real3{2, 2, 2}
 		}
 	}
@@ -402,7 +412,7 @@ Level
 		var Name = "ThinWall8x4"
 		Transform 
 		{
-			var Translation = Real3{2.14016008, 2.5, 3.22424459}
+			var Translation = Real3{2.14016008, 2.5, 37.9947968}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{8, 4, 0.200000003}
 		}
@@ -412,7 +422,7 @@ Level
 		var Name = "ThinGround8x8"
 		Transform 
 		{
-			var Translation = Real3{2.14016008, 0.600000024, -0.87575531}
+			var Translation = Real3{2.14016008, 0.600000024, 33.8947983}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{8, 0.200000003, 8}
 		}
@@ -422,7 +432,7 @@ Level
 		var Name = "Ramp"
 		Transform 
 		{
-			var Translation = Real3{4.14016008, 1.70000005, 0.12424469}
+			var Translation = Real3{4.14016008, 1.70000005, 34.8947983}
 			var Rotation = Quaternion{-0, 0.707106829, -0, -0.707106829}
 			var Scale = Real3{2, 2, 4}
 		}
@@ -432,7 +442,7 @@ Level
 		var Name = "ThinGround4x4"
 		Transform 
 		{
-			var Translation = Real3{8.14015961, 2.60000014, -0.87575531}
+			var Translation = Real3{8.14015961, 2.60000014, 33.8947983}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{4, 0.200000003, 4}
 		}
@@ -442,7 +452,7 @@ Level
 		var Name = "ThinGround4x4"
 		Transform 
 		{
-			var Translation = Real3{8.14015961, 2.60000014, -4.87575531}
+			var Translation = Real3{8.14015961, 2.60000014, 29.8947983}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{4, 0.200000003, 4}
 		}
@@ -451,9 +461,845 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{2.86349082, 1.22826922, -3.40675282}
+			var Translation = Real3{12.6999998, 2.6500001, -3.29999995}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{0.699999988, 1, 0.699999988}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:21]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{0, 0, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:22]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{-8, 0, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:23]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{-8, 0, -8}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:24]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{0, 0, -8}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:25]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{16, -1.89999998, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 8, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:26]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{8, 0, -8}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:27]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{16, 0, -8}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:28]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{16, 0, 16}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:29]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{0, 0, 16}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:30]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{-8, 0, 16}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:31]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{8, 0, 16}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:32]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{-8, 0, 8}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:33]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{8, 0, 8}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:34]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{16, 0, 8}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:35]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{0, 0, 8}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:36]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{-16, 0, 16}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:37]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{-16, 0, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:38]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{-16, 0, 8}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:39]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{-16, 0, -8}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:40]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{-16, 0, -16}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:41]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{-8, 0, -16}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:42]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{8, 0, -27.8999996}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:43]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{16, 0, -27.8999996}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:44]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{0, 0, -27.8999996}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:45]
+	{
+		var Name = "ThinGround4x4"
+		Transform 
+		{
+			var Translation = Real3{22, 0, 18}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{4, 0.200000003, 4}
+		}
+	}
+	Cog [InheritId:"5927b0cf2daf34ac:Ramp"][ContextId:46]
+	{
+		var Name = "Ramp"
+		Transform 
+		{
+			var Translation = Real3{10, 1.10000002, 2}
+			var Rotation = Quaternion{-0, 0.707106829, -0, -0.707106829}
+			var Scale = Real3{4, 2, 4}
+		}
+	}
+	Cog [InheritId:"5927870dc3b9af1a:ThinWall8x4"][ContextId:47]
+	{
+		var Name = "ThinWall8x4"
+		Transform 
+		{
+			var Translation = Real3{20.1000004, 2.10000014, 8}
+			var Rotation = Quaternion{0, -0.707106829, 0, 0.707106829}
+			var Scale = Real3{8, 4, 0.200000003}
+		}
+	}
+	Cog [InheritId:"5924647868459451:ThinWall8x2"][ContextId:48]
+	{
+		var Name = "ThinWall8x2"
+		Transform 
+		{
+			var Translation = Real3{20.1000004, 3.10000014, 0}
+			var Rotation = Quaternion{0, -0.707106829, 0, 0.707106829}
+			var Scale = Real3{8, 2, 0.200000003}
+		}
+	}
+	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:49]
+	{
+		var Name = "ThinGround4x4"
+		Transform 
+		{
+			var Translation = Real3{6, 0, -2}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{4, 0.200000003, 4}
+		}
+	}
+	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:50]
+	{
+		var Name = "ThinGround4x4"
+		Transform 
+		{
+			var Translation = Real3{10, 0, -2}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{4, 0.200000003, 4}
+		}
+	}
+	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:51]
+	{
+		var Name = "ThinGround4x4"
+		Transform 
+		{
+			var Translation = Real3{6, 0, 2}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{4, 0.200000003, 4}
+		}
+	}
+	Cog [InheritId:"5927b872c66ccfe0:Barrel"][ContextId:52]
+	{
+		Transform 
+		{
+			var Translation = Real3{12.6500006, 2.6500001, -2.54999995}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{0.699999988, 1, 0.699999988}
+		}
+	}
+	Cog [InheritId:"5927b872c66ccfe0:Barrel"][ContextId:53]
+	{
+		Transform 
+		{
+			var Translation = Real3{13.4499998, 2.6500001, -3.35000014}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{0.699999988, 1, 0.699999988}
+		}
+	}
+	Cog [InheritId:"5927b872c66ccfe0:Barrel"][ContextId:54]
+	{
+		Transform 
+		{
+			var Translation = Real3{12.9499998, 3.70000005, -3.10000014}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{0.699999988, 1, 0.699999988}
+		}
+	}
+	Cog [InheritId:"592464cd7f589ac4:ThinWall8x1"][ContextId:55]
+	{
+		var Name = "ThinWall8x1"
+		Transform 
+		{
+			var Translation = Real3{14, 2.60000014, -3.9000001}
+			var Rotation = Quaternion{0, -1, 0, 0}
+			var Scale = Real3{4, 1, 0.200000003}
+		}
+		UvScaler 
+		{
+			var UvScale = Real2{2, 0.5}
+		}
+	}
+	Cog [InheritId:"592464cd7f589ac4:ThinWall8x1"][ContextId:56]
+	{
+		var Name = "ThinWall8x1"
+		Transform 
+		{
+			var Translation = Real3{16, 2.60000014, 3.9000001}
+			var Rotation = Quaternion{0, -1, 0, 0}
+			var Scale = Real3{8, 1, 0.200000003}
+		}
+	}
+	Cog [InheritId:"592464cd7f589ac4:ThinWall8x1"][ContextId:57]
+	{
+		var Name = "ThinWall8x1"
+		Transform 
+		{
+			var Translation = Real3{14, 3.60000014, 3.9000001}
+			var Rotation = Quaternion{0, -1, 0, 0}
+			var Scale = Real3{4, 1, 0.200000003}
+		}
+		UvScaler 
+		{
+			var UvScale = Real2{2, 0.5}
+		}
+	}
+	Cog [InheritId:"5927870dc3b9af1a:ThinWall8x4"][ContextId:58]
+	{
+		var Name = "ThinWall8x4"
+		Transform 
+		{
+			var Translation = Real3{20.1000004, 6.0999999, 8}
+			var Rotation = Quaternion{0, -0.707106829, 0, 0.707106829}
+			var Scale = Real3{8, 4, 0.200000003}
+		}
+	}
+	Cog [InheritId:"5927870dc3b9af1a:ThinWall8x4"][ContextId:59]
+	{
+		var Name = "ThinWall8x4"
+		Transform 
+		{
+			var Translation = Real3{20.1000004, 6.0999999, 0}
+			var Rotation = Quaternion{0, -0.707106829, 0, 0.707106829}
+			var Scale = Real3{8, 4, 0.200000003}
+		}
+		Model 
+		{
+			var Material = "592412fa89a539c8:SpaceGlass"
+		}
+	}
+	Cog [InheritId:"5927870dc3b9af1a:ThinWall8x4"][ContextId:60]
+	{
+		var Name = "ThinWall8x4"
+		Transform 
+		{
+			var Translation = Real3{20.1000004, 10.1000004, 8}
+			var Rotation = Quaternion{0, -0.707106829, 0, 0.707106829}
+			var Scale = Real3{8, 4, 0.200000003}
+		}
+	}
+	Cog [InheritId:"5927870dc3b9af1a:ThinWall8x4"][ContextId:61]
+	{
+		var Name = "ThinWall8x4"
+		Transform 
+		{
+			var Translation = Real3{20.1000004, 10.1000004, 0}
+			var Rotation = Quaternion{0, -0.707106829, 0, 0.707106829}
+			var Scale = Real3{8, 4, 0.200000003}
+		}
+	}
+	Cog [InheritId:"592793c1c225580e:ThinWall2x4"][ContextId:62]
+	{
+		var Name = "ThinWall2x4"
+		Transform 
+		{
+			var Translation = Real3{20.1000004, 2.10000014, -5}
+			var Rotation = Quaternion{0, 0.707106829, 0, 0.707106829}
+			var Scale = Real3{2, 4, 0.200000003}
+		}
+	}
+	Cog [InheritId:"592793c1c225580e:ThinWall2x4"][ContextId:63]
+	{
+		var Name = "ThinWall2x4"
+		Transform 
+		{
+			var Translation = Real3{20.1000004, 6.0999999, -5}
+			var Rotation = Quaternion{0, 0.707106829, 0, 0.707106829}
+			var Scale = Real3{2, 4, 0.200000003}
+		}
+	}
+	Cog [InheritId:"592793c1c225580e:ThinWall2x4"][ContextId:64]
+	{
+		var Name = "ThinWall2x4"
+		Transform 
+		{
+			var Translation = Real3{20.1000004, 10.1000004, -5}
+			var Rotation = Quaternion{0, 0.707106829, 0, 0.707106829}
+			var Scale = Real3{2, 4, 0.200000003}
+		}
+	}
+	Cog [InheritId:"5927b872c66ccfe0:Barrel"][ContextId:65]
+	{
+		Transform 
+		{
+			var Translation = Real3{17.3500004, 0.650000036, 4.5}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{0.699999988, 1, 0.699999988}
+		}
+	}
+	Cog [InheritId:"5927b872c66ccfe0:Barrel"][ContextId:66]
+	{
+		Transform 
+		{
+			var Translation = Real3{16.5, 0.650000036, 4.5}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{0.699999988, 1, 0.699999988}
+		}
+	}
+	Cog [InheritId:"59279c93d8f5e2a8:ThinWall4x4"][ContextId:67]
+	{
+		Transform 
+		{
+			var Translation = Real3{18, 2.10000014, 12.1000004}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{4, 4, 0.200000003}
+		}
+	}
+	Cog [InheritId:"59279c93d8f5e2a8:ThinWall4x4"][ContextId:68]
+	{
+		Transform 
+		{
+			var Translation = Real3{18, 6.0999999, 12.1000004}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{4, 4, 0.200000003}
+		}
+	}
+	Cog [InheritId:"59279c93d8f5e2a8:ThinWall4x4"][ContextId:69]
+	{
+		Transform 
+		{
+			var Translation = Real3{18, 10.1000004, 12.1000004}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{4, 4, 0.200000003}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:70]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{16, 12.1999998, 8}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"5927b0cf2daf34ac:Ramp"][ContextId:71]
+	{
+		var Name = "Ramp"
+		Transform 
+		{
+			var Translation = Real3{18, 11.3000002, 2}
+			var Rotation = Quaternion{0.707106829, -3.09086232e-08, -0.707106829, -3.09086232e-08}
+			var Scale = Real3{4, 2, 4}
+		}
+	}
+	Cog [InheritId:"5927b0cf2daf34ac:Ramp"][ContextId:72]
+	{
+		var Name = "Ramp"
+		Transform 
+		{
+			var Translation = Real3{18, 11.3000002, -2}
+			var Rotation = Quaternion{0.707106829, -3.09086232e-08, -0.707106829, -3.09086232e-08}
+			var Scale = Real3{4, 2, 4}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:73]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{16, 12.1999998, -8}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"5927870dc3b9af1a:ThinWall8x4"][ContextId:74]
+	{
+		var Name = "ThinWall8x4"
+		Transform 
+		{
+			var Translation = Real3{2, 2.10000014, -23.8000011}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 4, 0.200000003}
+		}
+	}
+	Cog [InheritId:"592464cd7f589ac4:ThinWall8x1"][ContextId:75]
+	{
+		var Name = "ThinWall8x1"
+		Transform 
+		{
+			var Translation = Real3{10, 0.600000024, -23.8000011}
+			var Rotation = Quaternion{0, -1, 0, 0}
+			var Scale = Real3{8, 1, 0.200000003}
+		}
+	}
+	Cog [InheritId:"592464cd7f589ac4:ThinWall8x1"][ContextId:76]
+	{
+		var Name = "ThinWall8x1"
+		Transform 
+		{
+			var Translation = Real3{9, 1.60000002, -23.8000011}
+			var Rotation = Quaternion{0, -1, 0, 0}
+			var Scale = Real3{4, 1, 0.200000003}
+		}
+		UvScaler 
+		{
+			var UvScale = Real2{2, 0.5}
+		}
+	}
+	Cog [InheritId:"592464cd7f589ac4:ThinWall8x1"][ContextId:77]
+	{
+		var Name = "ThinWall8x1"
+		Transform 
+		{
+			var Translation = Real3{10, 2.60000014, -23.8000011}
+			var Rotation = Quaternion{0, -1, 0, 0}
+			var Scale = Real3{4, 1, 0.200000003}
+		}
+		UvScaler 
+		{
+			var UvScale = Real2{2, 0.5}
+		}
+	}
+	Cog [InheritId:"592464cd7f589ac4:ThinWall8x1"][ContextId:78]
+	{
+		var Name = "ThinWall8x1"
+		Transform 
+		{
+			var Translation = Real3{11, 3.60000014, -23.8000011}
+			var Rotation = Quaternion{0, -1, 0, 0}
+			var Scale = Real3{4, 1, 0.200000003}
+		}
+		UvScaler 
+		{
+			var UvScale = Real2{2, 0.5}
+		}
+	}
+	Cog [InheritId:"592409df34048a95:ThinGlass1x1"][ContextId:79]
+	{
+		var Name = "ThinGlass1x1"
+		Transform 
+		{
+			var Translation = Real3{7.5, 2.60000014, -23.8000011}
+			var Rotation = Quaternion{0, -1, 0, 0}
+			var Scale = Real3{3, 3, 0.100000001}
+		}
+	}
+	Cog [InheritId:"592409df34048a95:ThinGlass1x1"][ContextId:80]
+	{
+		var Name = "ThinGlass1x1"
+		Transform 
+		{
+			var Translation = Real3{12.5, 2.60000014, -23.8000011}
+			var Rotation = Quaternion{0, -1, 0, 0}
+			var Scale = Real3{3, 3, 0.100000001}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:81]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{10, 5.20000029, -27.8999996}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 0.200000003, 8}
+		}
+	}
+	Cog [InheritId:"592793c1c225580e:ThinWall2x4"][ContextId:82]
+	{
+		var Name = "ThinWall2x4"
+		Transform 
+		{
+			var Translation = Real3{15, 2.10000014, -23.8000011}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{2, 4, 0.200000003}
+		}
+	}
+	Cog [InheritId:"592464cd7f589ac4:ThinWall8x1"][ContextId:83]
+	{
+		var Name = "ThinWall8x1"
+		Transform 
+		{
+			var Translation = Real3{10, 4.5999999, -23.8000011}
+			var Rotation = Quaternion{0, -1, 0, 0}
+			var Scale = Real3{8, 1, 0.200000003}
+		}
+	}
+	Cog [InheritId:"59240e80bc2709d9:ThinRamp2x1"][ContextId:84]
+	{
+		var Name = "ThinRamp2x1"
+		Transform 
+		{
+			var Translation = Real3{15, 4.5999999, -23.8000011}
+			var Rotation = Quaternion{0, 0.707106829, 0, 0.707106829}
+			var Scale = Real3{0.200000003, 1, 2}
+		}
+	}
+	Cog [InheritId:"59240e80bc2709d9:ThinRamp2x1"][ContextId:85]
+	{
+		var Name = "ThinRamp2x1"
+		Transform 
+		{
+			var Translation = Real3{5, 4.5999999, -23.8000011}
+			var Rotation = Quaternion{0, -0.707106829, 0, 0.707106829}
+			var Scale = Real3{0.200000003, 1, 2}
+		}
+	}
+	Cog [InheritId:"5927870dc3b9af1a:ThinWall8x4"][ContextId:86]
+	{
+		var Name = "ThinWall8x4"
+		Transform 
+		{
+			var Translation = Real3{2, 2.10000014, -32}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 4, 0.200000003}
+		}
+	}
+	Cog [InheritId:"59240e80bc2709d9:ThinRamp2x1"][ContextId:87]
+	{
+		var Name = "ThinRamp2x1"
+		Transform 
+		{
+			var Translation = Real3{5, 4.5999999, -32}
+			var Rotation = Quaternion{0, -0.707106829, 0, 0.707106829}
+			var Scale = Real3{0.200000003, 1, 2}
+		}
+	}
+	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:88]
+	{
+		var Name = "ThinGround4x4"
+		Transform 
+		{
+			var Translation = Real3{-3.95000005, 0.200000003, -27.8999996}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{4, 0.200000003, 4}
+		}
+	}
+	Cog [InheritId:"592409df34048a95:ThinGlass1x1"][ContextId:89]
+	{
+		var Name = "ThinGlass1x1"
+		Transform 
+		{
+			var Translation = Real3{7.5, 1.25, -32.0499992}
+			var Rotation = Quaternion{0, -1, 0, 0}
+			var Scale = Real3{3, 3, 0.100000001}
+		}
+	}
+	Cog [InheritId:"592464cd7f589ac4:ThinWall8x1"][ContextId:90]
+	{
+		var Name = "ThinWall8x1"
+		Transform 
+		{
+			var Translation = Real3{10, 4.5999999, -32}
+			var Rotation = Quaternion{0, -1, 0, 0}
+			var Scale = Real3{8, 1, 0.200000003}
+		}
+	}
+	Cog [ContextId:91]
+	{
+		var Name = "Cube"
+		Transform 
+		{
+			var Translation = Real3{10.8500004, 0.600000024, -28.1000004}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Model 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "583afb5e7bf75e18:ZeroMaterial"
+			var Mesh = "4de0354322b345ae:Cube"
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		BoxCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var HalfSize = Real3{0.5, 0.5, 0.5}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:92]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{12, 12.3000002, -27.3000011}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{16, 16, 16}
+		}
+		Model 
+		{
+			var Material = "592412fa89a539c8:SpaceGlass"
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:93]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{18, 5.45000029, -5.9000001}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{2, 2, 2}
+		}
+		Model 
+		{
+			var Material = "592412fa89a539c8:SpaceGlass"
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:94]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{16.9500008, 6.3499999, -9}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{4, 4, 4}
+		}
+		Model 
+		{
+			var Material = "592412fa89a539c8:SpaceGlass"
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:95]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{17.25, 8.19999981, -15.0500002}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{8, 8, 8}
+		}
+		Model 
+		{
+			var Material = "592412fa89a539c8:SpaceGlass"
+		}
+	}
+	Cog [InheritId:"59030741d5756486:Player"][ContextId:96]
+	{
+		Transform 
+		{
+			var Translation = Real3{17.8999996, 5.3499999, -4.5}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+	}
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:97]
+	{
+		var Name = "ThinGround8x8"
+		Transform 
+		{
+			var Translation = Real3{16, 5.45000029, -5.9000001}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{2, 2, 2}
+		}
+		Model 
+		{
+			var Material = "592412fa89a539c8:SpaceGlass"
 		}
 	}
 }

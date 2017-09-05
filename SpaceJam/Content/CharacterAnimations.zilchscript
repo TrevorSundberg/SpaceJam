@@ -76,7 +76,7 @@ class CharacterAnimations : ZilchComponent
     this.TimeScale = animation.Duration;
     this.SetNormalizedTime(normalizedTime);
   }
-
+  
   function OnLogicUpdate(event : UpdateEvent)
   {
     var pos = this.Transform.WorldTranslation;
