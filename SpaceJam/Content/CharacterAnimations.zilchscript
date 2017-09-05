@@ -71,10 +71,13 @@ class CharacterAnimations : ZilchComponent
   [Extension(typeid(BasicAnimation))]
   function SetAnimationPreserved(animation : Animation)
   {
-    var normalizedTime = this.GetNormalizedTime();
-    this.Animation = animation;
+    if (this.Animation != animation)
+    {
+      var normalizedTime = this.GetNormalizedTime();
+      this.Animation = animation;
+      this.SetNormalizedTime(normalizedTime);
+    }
     this.TimeScale = animation.Duration;
-    this.SetNormalizedTime(normalizedTime);
   }
 
   function OnLogicUpdate(event : UpdateEvent)

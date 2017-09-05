@@ -9,9 +9,9 @@ DataContent
 	}
 	DataBuilder 
 	{
-		var Name = "MuzzleFlare"
-		var ResourceId = 0x591b290ce682ee58
-		var LoaderType = "Cog"
+		var Name = "Player"
+		var ResourceId = 0x591883fbbc28a3b7
+		var LoaderType = "Level"
 		var Version = 0
 		var ShowInEditor = true
 	}

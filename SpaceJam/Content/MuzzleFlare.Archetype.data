@@ -4,9 +4,13 @@ Cog
 	var Name = "MuzzleFlare"
 	Transform 
 	{
-		var Translation = Real3{0, 0, 0}
+		var Translation = Real3{0.244953394, 2.11820292, 0.000678062439}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	TimedDestroy 
+	{
+		var Time = 0.0500000007
 	}
 	Hierarchy 
 	{

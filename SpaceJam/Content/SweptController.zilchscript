@@ -381,7 +381,7 @@ class SweptController : ZilchComponent
     // using the velocity of that object. (for moving platforms and such)
     foreach (var cog in this.KinematicContacts)
     {
-      this.SweptCollision(cog.RigidBody.Velocity, dt, true);
+      //this.SweptCollision(cog.RigidBody.Velocity, dt, true);
     }
     
     // Done after the sweep to stay in contact with the ground when detected.

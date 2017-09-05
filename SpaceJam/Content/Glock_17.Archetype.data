@@ -1,0 +1,350 @@
+[Version:1]
+Cog 
+{
+	var Name = "Glock_17"
+	Transform 
+	{
+		var Translation = Real3{0, 0, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Hierarchy 
+	{
+		Cog [Id:0x591884825ee659df]
+		{
+			var Name = "framePreRotation"
+			Transform 
+			{
+				var Translation = Real3{0, 0, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{-0.707106829, 0, 0, 0.707106769}
+			}
+			Hierarchy 
+			{
+				Cog [Id:0x591884825ee65a16]
+				{
+					var Name = "frame"
+					Transform 
+					{
+						var Translation = Real3{0, 0, 0}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0, 1}
+					}
+					Model 
+					{
+						var Visible = true
+						var ViewCulling = true
+						var VisibilityEvents = true
+						var OverrideBoundingBox = false
+						var LocalAabbCenter = Real3{0, 0, 0}
+						var LocalAabbHalfExtents = Real3{1, 1, 1}
+						var GroupSortValue = 0
+						var Material = "583afb5e7bf75e18:ZeroMaterial"
+						var Mesh = "591880a6340a4e82:Glock_17_frame"
+					}
+				}
+			}
+		}
+		Cog [Id:0x591884825ee65a17]
+		{
+			var Name = "triggerPreRotation"
+			Transform 
+			{
+				var Translation = Real3{0, 0, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{-0.707106829, 0, 0, 0.707106769}
+			}
+			Hierarchy 
+			{
+				Cog [Id:0x591884825ee65a19]
+				{
+					var Name = "trigger"
+					Transform 
+					{
+						var Translation = Real3{0, 0, 0}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0, 1}
+					}
+					Model 
+					{
+						var Visible = true
+						var ViewCulling = true
+						var VisibilityEvents = true
+						var OverrideBoundingBox = false
+						var LocalAabbCenter = Real3{0, 0, 0}
+						var LocalAabbHalfExtents = Real3{1, 1, 1}
+						var GroupSortValue = 0
+						var Material = "583afb5e7bf75e18:ZeroMaterial"
+						var Mesh = "591880a6340a4e8b:Glock_17_trigger"
+					}
+				}
+			}
+		}
+		Cog [Id:0x591884825ee65a1a]
+		{
+			var Name = "slidePreRotation"
+			Transform 
+			{
+				var Translation = Real3{0, 0, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{-0.707106829, 0, 0, 0.707106769}
+			}
+			Hierarchy 
+			{
+				Cog [Id:0x591884825ee65a1b]
+				{
+					var Name = "slide"
+					Transform 
+					{
+						var Translation = Real3{0, 0, 0}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{0, 0, 0, 1}
+					}
+					Model 
+					{
+						var Visible = true
+						var ViewCulling = true
+						var VisibilityEvents = true
+						var OverrideBoundingBox = false
+						var LocalAabbCenter = Real3{0, 0, 0}
+						var LocalAabbHalfExtents = Real3{1, 1, 1}
+						var GroupSortValue = 0
+						var Material = "583afb5e7bf75e18:ZeroMaterial"
+						var Mesh = "591880a6340a4e8e:Glock_17_slide"
+					}
+				}
+			}
+		}
+		Cog [Id:0x591884825ee65a1c]
+		{
+			var Name = "magazineTranslation"
+			Transform 
+			{
+				var Translation = Real3{-0.375978023, 0.0124217952, 7.47536089e-10}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Hierarchy 
+			{
+				Cog [Id:0x591884825ee65a1d]
+				{
+					var Name = "magazinePreRotation"
+					Transform 
+					{
+						var Translation = Real3{0, 0, 0}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{-0.707106829, 0, 0, 0.707106769}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x591884825ee65a1f]
+						{
+							var Name = "magazine"
+							Transform 
+							{
+								var Translation = Real3{0, 0, 0}
+								var Scale = Real3{1, 1, 1}
+								var Rotation = Quaternion{0, 0, 0, 1}
+							}
+							Model 
+							{
+								var Visible = true
+								var ViewCulling = true
+								var VisibilityEvents = true
+								var OverrideBoundingBox = false
+								var LocalAabbCenter = Real3{0, 0, 0}
+								var LocalAabbHalfExtents = Real3{1, 1, 1}
+								var GroupSortValue = 0
+								var Material = "583afb5e7bf75e18:ZeroMaterial"
+								var Mesh = "591880a6340a4e92:Glock_17_magazine"
+							}
+						}
+					}
+				}
+			}
+		}
+		Cog [Id:0x591884825ee65a20]
+		{
+			var Name = "bullet_01Translation"
+			Transform 
+			{
+				var Translation = Real3{-0.24362874, 0.186420098, 0.00471533276}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Hierarchy 
+			{
+				Cog [Id:0x591884825ee65a21]
+				{
+					var Name = "bullet_01PreRotation"
+					Transform 
+					{
+						var Translation = Real3{0, 0, 0}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{-0.707106829, 0, 0, 0.707106769}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x591884825ee65a22]
+						{
+							var Name = "bullet_01Rotation"
+							Transform 
+							{
+								var Translation = Real3{0, 0, 0}
+								var Scale = Real3{1, 1, 1}
+								var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+							}
+							Hierarchy 
+							{
+								Cog [Id:0x591884825ee65a23]
+								{
+									var Name = "bullet_01"
+									Transform 
+									{
+										var Translation = Real3{0, 0, 0}
+										var Scale = Real3{1, 1, 1}
+										var Rotation = Quaternion{0, 0, 0, 1}
+									}
+									Model 
+									{
+										var Visible = true
+										var ViewCulling = true
+										var VisibilityEvents = true
+										var OverrideBoundingBox = false
+										var LocalAabbCenter = Real3{0, 0, 0}
+										var LocalAabbHalfExtents = Real3{1, 1, 1}
+										var GroupSortValue = 0
+										var Material = "583afb5e7bf75e18:ZeroMaterial"
+										var Mesh = "591880a6340a4e96:Glock_17_bullet_01"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		Cog [Id:0x591884825ee65a25]
+		{
+			var Name = "bullet_02Translation"
+			Transform 
+			{
+				var Translation = Real3{-0.246065378, 0.18333517, -0.00426732935}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Hierarchy 
+			{
+				Cog [Id:0x591884825ee65a26]
+				{
+					var Name = "bullet_02PreRotation"
+					Transform 
+					{
+						var Translation = Real3{0, 0, 0}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{-0.707106829, 0, 0, 0.707106769}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x591884825ee65a27]
+						{
+							var Name = "bullet_02Rotation"
+							Transform 
+							{
+								var Translation = Real3{0, 0, 0}
+								var Scale = Real3{1, 1, 1}
+								var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+							}
+							Hierarchy 
+							{
+								Cog [Id:0x591884825ee65a28]
+								{
+									var Name = "bullet_02"
+									Transform 
+									{
+										var Translation = Real3{0, 0, 0}
+										var Scale = Real3{1, 1, 1}
+										var Rotation = Quaternion{0, 0, 0, 1}
+									}
+									Model 
+									{
+										var Visible = true
+										var ViewCulling = true
+										var VisibilityEvents = true
+										var OverrideBoundingBox = false
+										var LocalAabbCenter = Real3{0, 0, 0}
+										var LocalAabbHalfExtents = Real3{1, 1, 1}
+										var GroupSortValue = 0
+										var Material = "583afb5e7bf75e18:ZeroMaterial"
+										var Mesh = "591880a6340a4e9a:Glock_17_bullet_02"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		Cog [Id:0x591884825ee65a29]
+		{
+			var Name = "bulletTranslation"
+			Transform 
+			{
+				var Translation = Real3{-0.24362874, 0.194560021, 7.47536089e-10}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Hierarchy 
+			{
+				Cog [Id:0x591884825ee65a2b]
+				{
+					var Name = "bulletPreRotation"
+					Transform 
+					{
+						var Translation = Real3{0, 0, 0}
+						var Scale = Real3{1, 1, 1}
+						var Rotation = Quaternion{-0.707106829, 0, 0, 0.707106769}
+					}
+					Hierarchy 
+					{
+						Cog [Id:0x591884825ee65a2c]
+						{
+							var Name = "bulletRotation"
+							Transform 
+							{
+								var Translation = Real3{0, 0, 0}
+								var Scale = Real3{1, 1, 1}
+								var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+							}
+							Hierarchy 
+							{
+								Cog [Id:0x591884825ee65a2d]
+								{
+									var Name = "bullet"
+									Transform 
+									{
+										var Translation = Real3{0, 0, 0}
+										var Scale = Real3{1, 1, 1}
+										var Rotation = Quaternion{0, 0, 0, 1}
+									}
+									Model 
+									{
+										var Visible = true
+										var ViewCulling = true
+										var VisibilityEvents = true
+										var OverrideBoundingBox = false
+										var LocalAabbCenter = Real3{0, 0, 0}
+										var LocalAabbHalfExtents = Real3{1, 1, 1}
+										var GroupSortValue = 0
+										var Material = "583afb5e7bf75e18:ZeroMaterial"
+										var Mesh = "591880a6340a4e9d:Glock_17_bullet"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

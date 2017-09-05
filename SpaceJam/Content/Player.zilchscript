@@ -36,6 +36,11 @@ class Player : ZilchComponent
   var InputJump : Boolean;
   
   [NetProperty(netChannelConfig : "ClientAuthority")]
+  var InputShoot : Boolean;
+  
+  var LastInputShoot : Boolean;
+  
+  [NetProperty(netChannelConfig : "ClientAuthority")]
   var InputAngle : Real2
   {
     get { return this.InputAngleInternal; }
@@ -67,17 +72,24 @@ class Player : ZilchComponent
       if (this.NetUser.IsMine)
       {
         Zero.Mouse.Trapped = true;
-        Zero.Connect(Zero.Keyboard, Events.KeyDown, this.Client_OnKeyDown);
-        Zero.Connect(Zero.Keyboard, Events.KeyUp, this.Client_OnKeyUp);
-        Zero.Connect(this.Space, Events.MouseMove, this.Client_OnMouseMove);
-        Zero.Connect(this.Space, Events.LogicUpdate, this.Client_OnLogicUpdate);
+        Zero.Connect(Zero.Keyboard, Events.KeyDown, this.MyClient_OnKeyDown);
+        Zero.Connect(Zero.Keyboard, Events.KeyUp, this.MyClient_OnKeyUp);
+        Zero.Connect(this.Space, Events.MouseMove, this.MyClient_OnMouseMove);
+        Zero.Connect(this.Owner, Events.CogDestroy, this.MyClient_OnCogDestroy);
       }
       // Other client
       else
       {
         this.Owner.FindChildByName("Camera").CameraViewport.RenderInGame = false;
       }
+      
+      Zero.Connect(this.Space, Events.LogicUpdate, this.Client_OnLogicUpdate);
     }
+  }
+
+  function MyClient_OnCogDestroy(event : ObjectEvent)
+  {
+    Zero.Mouse.Trapped = false;
   }
   
   //
@@ -97,23 +109,20 @@ class Player : ZilchComponent
   // Client-Side
   //
   
-  function Client_OnMouseMove(event : ViewportMouseEvent)
+  function MyClient_OnMouseMove(event : ViewportMouseEvent)
   {
     this.InputAngle += event.Movement * this.Sensativity;
-    this.UpdateAngles();
   }
   
-  function Client_OnKeyDown(event : KeyboardEvent)
+  function MyClient_OnKeyDown(event : KeyboardEvent)
   {
-    // Handle key state change.
-    this.Client_OnKeyChanged(event, true);
+    this.MyClient_OnKeyChanged(event, true);
   }
-  function Client_OnKeyUp(event : KeyboardEvent)
+  function MyClient_OnKeyUp(event : KeyboardEvent)
   {
-    // Handle key state change.
-    this.Client_OnKeyChanged(event, false);
+    this.MyClient_OnKeyChanged(event, false);
   }
-  function Client_OnKeyChanged(event : KeyboardEvent, state : Boolean)
+  function MyClient_OnKeyChanged(event : KeyboardEvent, state : Boolean)
   {
     // Set input state.
     // (Since these input properties are client authoritative, the network system will automatically replicate these
@@ -133,6 +142,25 @@ class Player : ZilchComponent
   function Client_OnLogicUpdate(event : UpdateEvent)
   {
     this.UpdateAngles();
+    
+    this.InputShoot = Zero.Mouse.IsButtonDown(MouseButtons.Left);
+    
+    if (this.InputShoot && !this.LastInputShoot)
+    {
+      var pistol = this.Owner.FindChildByName("Pistol");
+      var graph = pistol.AnimationGraph;
+      graph.ActiveNode = graph.CreateBasicNode(Animation.PistolShoot, AnimationPlayMode.PlayOnce);
+      
+      var flarePoint = pistol.FindChildByName("FlarePoint");
+      var flare = this.Space.Create(Archetype.MuzzleFlare);
+      flare.AttachTo(flarePoint);
+      flare.Transform.LocalScale = Real3(1, 1, 1);
+      flare.Transform.LocalTranslation = Real3.Zero;
+      flare.Transform.LocalRotation = Quaternion.Identity;
+      
+      pistol.SoundEmitter.PlayCue(SoundCue.Gunshot);
+    }
+    this.LastInputShoot = this.InputShoot;
   }
   
   //

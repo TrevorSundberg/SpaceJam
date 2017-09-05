@@ -1,0 +1,70 @@
+[Version:1]
+GeometryContent 
+{
+	ContentTags 
+	{
+		var Tags = Array
+		{
+		}
+	}
+	MeshBuilder 
+	{
+		var GenerateSmoothNormals = false
+		var SmoothingAngleDegreesThreshold = 30
+		var GenerateTangentSpace = true
+		var InvertUvYAxis = false
+		var FlipWindingOrder = false
+		var FlipNormals = false
+		var Meshes = Array
+		{
+			Object
+			{
+				var Name = "Glock_17_frame"
+				var ResourceId = 0x591880a6340a4e82
+			}
+			Object
+			{
+				var Name = "Glock_17_trigger"
+				var ResourceId = 0x591880a6340a4e8b
+			}
+			Object
+			{
+				var Name = "Glock_17_slide"
+				var ResourceId = 0x591880a6340a4e8e
+			}
+			Object
+			{
+				var Name = "Glock_17_magazine"
+				var ResourceId = 0x591880a6340a4e92
+			}
+			Object
+			{
+				var Name = "Glock_17_bullet_01"
+				var ResourceId = 0x591880a6340a4e96
+			}
+			Object
+			{
+				var Name = "Glock_17_bullet_02"
+				var ResourceId = 0x591880a6340a4e9a
+			}
+			Object
+			{
+				var Name = "Glock_17_bullet"
+				var ResourceId = 0x591880a6340a4e9d
+			}
+		}
+	}
+	GeneratedArchetype 
+	{
+		var ResourceId = 0x591880a6341e4825
+	}
+	GeometryImport 
+	{
+		var OriginOffset = Real3{0, 0, 0}
+		var ScaleFactor = 0.0120000001
+		var ChangeBasis = false
+		var XBasisTo = BasisType.PositiveX
+		var YBasisTo = BasisType.PositiveY
+		var ZBasisTo = BasisType.PositiveZ
+	}
+}

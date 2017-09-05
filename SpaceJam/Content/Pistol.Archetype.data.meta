@@ -9,8 +9,8 @@ DataContent
 	}
 	DataBuilder 
 	{
-		var Name = "MuzzleFlare"
-		var ResourceId = 0x591b290ce682ee58
+		var Name = "Pistol"
+		var ResourceId = 0x5918b7167f652b76
 		var LoaderType = "Cog"
 		var Version = 0
 		var ShowInEditor = true

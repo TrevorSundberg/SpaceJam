@@ -1,0 +1,12 @@
+class TimedDestroy : ZilchComponent
+{
+  [Property]
+  var Time : Real = 1.0;
+  
+  function Initialize(init : CogInitializer)
+  {
+    var seq = Action.Sequence(this.Owner.Actions);
+    Action.Delay(seq, this.Time);
+    Action.Call(seq, this.Owner.Destroy);
+  }
+}

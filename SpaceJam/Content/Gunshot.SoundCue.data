@@ -1,0 +1,24 @@
+[Version:1]
+SoundCue 
+{
+	var PlayMode = SoundPlayMode.Single
+	var Volume = 1
+	var UseDecibelVariation = false
+	var VolumeVariation = 0
+	var DecibelVariation = 0
+	var Pitch = 0
+	var UseSemitoneVariation = false
+	var PitchVariation = 0
+	var SemitoneVariation = 0
+	var ShowMusicOptions = false
+	var BeatsPerMinute = 0
+	var TimeSigBeats = 0
+	var TimeSigValue = 0
+	var Sounds = Array
+	{
+	}
+	var SoundTags = Array
+	{
+	}
+	var Attenuator = "57ca8a6ad262efe5:DefaultNoAttenuation"
+}

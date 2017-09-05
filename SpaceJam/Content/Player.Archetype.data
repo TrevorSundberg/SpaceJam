@@ -200,8 +200,38 @@ Cog
 																	{
 																		var Active = true
 																	}
-																	Upright 
+																}
+															}
+														}
+													}
+												}
+												Cog [Id:0x591b10805244ca61]
+												{
+													Hierarchy 
+													{
+														Cog [Id:0x591b10805244ca63]
+														{
+															Hierarchy 
+															{
+																Cog [Id:0x591b10805244ca64]
+																{
+																	Hierarchy 
 																	{
+																		Cog [Id:0x591b10805244ca65]
+																		{
+																			Hierarchy 
+																			{
+																				Cog [Id:0x591881e3efa8c3ac][InheritId:"5918b7167f652b76:Pistol"][LocallyAdded]
+																				{
+																					Transform 
+																					{
+																						var Translation = Real3{0.0642082691, -0.0259609222, 0.0616958141}
+																						var Rotation = Quaternion{-0.703266382, 0.0735967308, -0.0735967308, 0.703266382}
+																						var Scale = Real3{1, 1, 1}
+																					}
+																				}
+																			}
+																		}
 																	}
 																}
 															}
