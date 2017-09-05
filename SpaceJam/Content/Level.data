@@ -38,26 +38,8 @@ Level
 			var HighlightInterval = 10
 			var FollowEditorCamera = false
 		}
-		WorldLogic 
-		{
-			var PeerInfoText = CogPath
-			{
-				var Path = ":/GameCamera/PeerInfoText"
-				var ErrorOnResolveToNull = false
-				var ErrorOnPathCantCompute = false
-				var ErrorOnDirectLinkFail = false
-				var UpdateCogOnPathChange = true
-				var UpdatePathOnCogChange = true
-				var UpdateCogOnInitialize = true
-				var ResolvedNullErrorOccurred = false
-				var Cog = 2
-				var PathPreference0 = CogPathPreference.CogRelative
-				var PathPreference1 = CogPathPreference.SpaceRelative
-				var PathPreference2 = CogPathPreference.Absolute
-			}
-		}
 	}
-	Cog [ContextId:3]
+	Cog [ContextId:2]
 	{
 		var Name = "Renderer"
 		DeferredRenderer 
@@ -96,7 +78,7 @@ Level
 			var DebugBuffer = false
 		}
 	}
-	Cog [ContextId:4]
+	Cog [ContextId:3]
 	{
 		var Name = "DirectionalLightShadows"
 		Transform 
@@ -146,7 +128,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var Cog = 4
+				var Cog = 3
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -161,7 +143,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var Cog = 4
+				var Cog = 3
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -191,12 +173,12 @@ Level
 		{
 		}
 	}
-	Cog [ContextId:5]
+	Cog [ContextId:4]
 	{
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{5.11556005, 7.85924673, -14.9871778}
+			var Translation = Real3{5.42848396, 8.55372238, -16.2609406}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{-0.0289671887, 0.963474929, 0.239328399, 0.116614342}
 		}
@@ -215,7 +197,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var Cog = 5
+				var Cog = 4
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -230,7 +212,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var Cog = 3
+				var Cog = 2
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -255,119 +237,14 @@ Level
 		{
 			var ControlMode = ControlMode.Orbit
 			var Previous3DMode = ControlMode.Orbit
-			var LookDistance = 14.1118298
+			var LookDistance = 15.5959749
 			var VerticalAngle = 0.486946791
 			var HorizontalAngle = 28.5152321
 			var LookTarget = Real3{2.14016008, 1.25590169, -2.87575531}
 			var MoveSensitivity = 1
 		}
 	}
-	Cog [ContextId:6]
-	{
-		var Name = "GameCamera"
-		Transform 
-		{
-			var Translation = Real3{0, 2, -22.1499996}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{-4.37113883e-08, 1, -4.37113883e-08, 1.91068547e-15}
-		}
-		CameraViewport 
-		{
-			var RenderInEditor = false
-			var RenderInGame = true
-			var RenderOrder = 0
-			var CameraPath = CogPath
-			{
-				var Path = "."
-				var ErrorOnResolveToNull = false
-				var ErrorOnPathCantCompute = false
-				var ErrorOnDirectLinkFail = false
-				var UpdateCogOnPathChange = true
-				var UpdatePathOnCogChange = true
-				var UpdateCogOnInitialize = true
-				var ResolvedNullErrorOccurred = false
-				var Cog = 6
-				var PathPreference0 = CogPathPreference.CogRelative
-				var PathPreference1 = CogPathPreference.SpaceRelative
-				var PathPreference2 = CogPathPreference.Absolute
-			}
-			var RendererPath = CogPath
-			{
-				var Path = ":/Renderer"
-				var ErrorOnResolveToNull = false
-				var ErrorOnPathCantCompute = false
-				var ErrorOnDirectLinkFail = false
-				var UpdateCogOnPathChange = true
-				var UpdatePathOnCogChange = true
-				var UpdateCogOnInitialize = true
-				var ResolvedNullErrorOccurred = false
-				var Cog = 3
-				var PathPreference0 = CogPathPreference.CogRelative
-				var PathPreference1 = CogPathPreference.SpaceRelative
-				var PathPreference2 = CogPathPreference.Absolute
-			}
-			var ResolutionOrAspect = Integer2{1920, 1080}
-			var RenderToViewport = true
-			var ForwardViewportEvents = false
-			var ViewportScaling = ViewportScaling.Letterbox
-			var MarginColor = Real4{0, 0, 0, 1}
-			var NormalizedSize = Real2{1, 1}
-			var NormalizedOffset = Real2{0, 0}
-		}
-		Camera 
-		{
-			var NearPlane = 0.100000001
-			var FarPlane = 200
-			var PerspectiveMode = PerspectiveMode.Perspective
-			var FieldOfView = 60
-			var Size = 20
-		}
-		SoundListener 
-		{
-			var Active = true
-		}
-		SelectionIcon 
-		{
-			var Visible = true
-			var VisibilityEvents = true
-			var Material = "56581e2bb81777be:DebugDrawOnTop"
-			var SpriteSource = "58f8e4be7360cf7c:CameraIcon"
-			var ViewScale = 1
-			var OverrideSelections = true
-		}
-		Hierarchy 
-		{
-			Cog [ContextId:2]
-			{
-				var Name = "PeerInfoText"
-				Transform 
-				{
-					var Translation = Real3{-2, 1.04999995, -2}
-					var Scale = Real3{1, 1, 1}
-					var Rotation = Quaternion{0, 0, 0, 1}
-				}
-				SpriteText 
-				{
-					var Visible = true
-					var ViewCulling = true
-					var VisibilityEvents = true
-					var OverrideBoundingBox = false
-					var LocalAabbCenter = Real3{0, 0, 0}
-					var LocalAabbHalfExtents = Real3{1, 1, 1}
-					var GroupSortValue = 0
-					var Material = "582c575af53d18c9:AlphaSprite"
-					var VertexColor = Real4{1, 1, 1, 1}
-					var GeometryMode = SpriteGeometryMode.ViewPlane
-					var Text = "Peer Info Text"
-					var Font = "57343753bb4eaaec:NotoSans-Regular"
-					var FontSize = 64
-					var PixelsPerUnit = 512
-					var TextAlign = TextAlign.Left
-				}
-			}
-		}
-	}
-	Cog [ContextId:7]
+	Cog [ContextId:5]
 	{
 		var Name = "GunSize"
 		Transform 
@@ -408,7 +285,7 @@ Level
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog [ContextId:8]
+	Cog [ContextId:6]
 	{
 		var Name = "PlayerSize"
 		Transform 
@@ -441,7 +318,7 @@ Level
 			var Direction = AxisDirection.Y
 		}
 	}
-	Cog [InheritId:"59279c93d8f5e2a8:ThinWall4x4"][ContextId:9]
+	Cog [InheritId:"59279c93d8f5e2a8:ThinWall4x4"][ContextId:7]
 	{
 		Transform 
 		{
@@ -450,7 +327,7 @@ Level
 			var Scale = Real3{4, 4, 0.200000003}
 		}
 	}
-	Cog [InheritId:"592793c1c225580e:ThinWall2x4"][ContextId:10]
+	Cog [InheritId:"592793c1c225580e:ThinWall2x4"][ContextId:8]
 	{
 		var Name = "ThinWall2x4"
 		Transform 
@@ -460,7 +337,7 @@ Level
 			var Scale = Real3{2, 4, 0.200000003}
 		}
 	}
-	Cog [InheritId:"592793a13ec1b90a:ThinWall1x4"][ContextId:11]
+	Cog [InheritId:"592793a13ec1b90a:ThinWall1x4"][ContextId:9]
 	{
 		var Name = "ThinWall1x4"
 		Transform 
@@ -470,7 +347,7 @@ Level
 			var Scale = Real3{1, 4, 0.200000003}
 		}
 	}
-	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:12]
+	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:10]
 	{
 		var Name = "ThinGround4x4"
 		Transform 
@@ -480,7 +357,7 @@ Level
 			var Scale = Real3{4, 0.200000003, 4}
 		}
 	}
-	Cog [InheritId:"59278955ba26f34d:ThinGround2x2"][ContextId:13]
+	Cog [InheritId:"59278955ba26f34d:ThinGround2x2"][ContextId:11]
 	{
 		var Name = "ThinGround2x2"
 		Transform 
@@ -490,7 +367,7 @@ Level
 			var Scale = Real3{2, 0.200000003, 2}
 		}
 	}
-	Cog [InheritId:"59279550ce2110cf:ThinGround1x1"][ContextId:14]
+	Cog [InheritId:"59279550ce2110cf:ThinGround1x1"][ContextId:12]
 	{
 		var Name = "ThinGround1x1"
 		Transform 
@@ -500,7 +377,7 @@ Level
 			var Scale = Real3{1, 0.200000003, 1}
 		}
 	}
-	Cog [InheritId:"5927805ae88b7326:Box"][ContextId:15]
+	Cog [InheritId:"5927805ae88b7326:Box"][ContextId:13]
 	{
 		var Name = "Box"
 		Transform 
@@ -510,7 +387,7 @@ Level
 			var Scale = Real3{1, 1, 1}
 		}
 	}
-	Cog [InheritId:"592787fbde6fc0e4:Crate"][ContextId:16]
+	Cog [InheritId:"592787fbde6fc0e4:Crate"][ContextId:14]
 	{
 		var Name = "Crate"
 		Transform 
@@ -520,7 +397,7 @@ Level
 			var Scale = Real3{2, 2, 2}
 		}
 	}
-	Cog [InheritId:"5927870dc3b9af1a:ThinWall8x4"][ContextId:17]
+	Cog [InheritId:"5927870dc3b9af1a:ThinWall8x4"][ContextId:15]
 	{
 		var Name = "ThinWall8x4"
 		Transform 
@@ -530,7 +407,7 @@ Level
 			var Scale = Real3{8, 4, 0.200000003}
 		}
 	}
-	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:18]
+	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:16]
 	{
 		var Name = "ThinGround8x8"
 		Transform 
@@ -540,7 +417,7 @@ Level
 			var Scale = Real3{8, 0.200000003, 8}
 		}
 	}
-	Cog [InheritId:"5927b0cf2daf34ac:Ramp"][ContextId:19]
+	Cog [InheritId:"5927b0cf2daf34ac:Ramp"][ContextId:17]
 	{
 		var Name = "Ramp"
 		Transform 
@@ -550,7 +427,7 @@ Level
 			var Scale = Real3{2, 2, 4}
 		}
 	}
-	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:20]
+	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:18]
 	{
 		var Name = "ThinGround4x4"
 		Transform 
@@ -560,7 +437,7 @@ Level
 			var Scale = Real3{4, 0.200000003, 4}
 		}
 	}
-	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:21]
+	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:19]
 	{
 		var Name = "ThinGround4x4"
 		Transform 
@@ -570,7 +447,7 @@ Level
 			var Scale = Real3{4, 0.200000003, 4}
 		}
 	}
-	Cog [InheritId:"5927b872c66ccfe0:Barrel"][ContextId:22]
+	Cog [InheritId:"5927b872c66ccfe0:Barrel"][ContextId:20]
 	{
 		Transform 
 		{

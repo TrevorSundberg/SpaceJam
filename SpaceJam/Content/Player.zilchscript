@@ -62,15 +62,22 @@ class Player : ZilchComponent
     // We are a client and this player belongs to us?
     // (Remember, this logic is being run by everyone, that includes the server
     // and other clients, so we must check to see if this player is specifically ours.)
-    if(this.NetUser.IsClientAndMine)
+    if(this.NetUser.IsClient)
     {
-      Zero.Mouse.Trapped = true;
-      Zero.Connect(Zero.Keyboard, Events.KeyDown, this.Client_OnKeyDown);
-      Zero.Connect(Zero.Keyboard, Events.KeyUp, this.Client_OnKeyUp);
-      Zero.Connect(this.Space, Events.MouseMove, this.Client_OnMouseMove);
-      Zero.Connect(this.Space, Events.LogicUpdate, this.Client_OnLogicUpdate);
+      if (this.NetUser.IsMine)
+      {
+        Zero.Mouse.Trapped = true;
+        Zero.Connect(Zero.Keyboard, Events.KeyDown, this.Client_OnKeyDown);
+        Zero.Connect(Zero.Keyboard, Events.KeyUp, this.Client_OnKeyUp);
+        Zero.Connect(this.Space, Events.MouseMove, this.Client_OnMouseMove);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.Client_OnLogicUpdate);
+      }
+      // Other client
+      else
+      {
+        this.Owner.FindChildByName("Camera").CameraViewport.RenderInGame = false;
+      }
     }
-    
   }
   
   //
