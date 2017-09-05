@@ -100,6 +100,26 @@ Cog
 				var Rotation = Quaternion{0, 0, 0, 1}
 				var Scale = Real3{1, 1, 1}
 			}
+			NetObject [LocallyAdded]
+			{
+				var DetectOutgoingChanges = true
+				var AcceptIncomingChanges = true
+				var AllowNapping = true
+				var AccurateTimestampOnOnline = false
+				var AccurateTimestampOnChange = false
+				var AccurateTimestampOnOffline = false
+				var AutomaticChannel = "56f22bdc94800e65:Default"
+				var NetPropertyInfos = Array
+				{
+					Object
+					{
+						var ComponentName = "CharacterAnimations"
+						var PropertyName = "Jumping"
+						var NetChannelConfig = "56f22bdc94800e65:Default"
+						var NetPropertyConfig = "74f23adc1a810b95:Default"
+					}
+				}
+			}
 		}
 	}
 }

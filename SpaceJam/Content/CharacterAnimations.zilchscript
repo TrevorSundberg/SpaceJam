@@ -155,7 +155,7 @@ class CharacterAnimations : ZilchComponent
         var blend = this.AnimationGraph.CreateCrossBlendNode();
         blend.From = this.AnimationGraph.ActiveNode;
         blend.To = jump;
-        blend.Duration = 0.3;
+        blend.Duration = 0.2;
         
         this.AnimationGraph.ActiveNode = blend;
       }
@@ -168,7 +168,7 @@ class CharacterAnimations : ZilchComponent
         var blend = this.AnimationGraph.CreateCrossBlendNode();
         blend.From = this.AnimationGraph.ActiveNode;
         blend.To = this.IdleBlend;
-        blend.Duration = 0.5;
+        blend.Duration = 0.2;
         
         this.AnimationGraph.ActiveNode = blend;
       }
