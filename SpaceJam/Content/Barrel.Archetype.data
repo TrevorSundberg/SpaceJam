@@ -4,7 +4,7 @@ Cog
 	var Name = "Barrel"
 	Transform 
 	{
-		var Translation = Real3{2.14016008, 1.25590158, -2.87575531}
+		var Translation = Real3{0.889035463, 1.31738353, -2.4294579}
 		var Scale = Real3{0.699999988, 1, 0.699999988}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -37,7 +37,7 @@ Cog
 		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 		var CollisionGroup = "4e740859314e5515:DefaultGroup"
 		var Offset = Real3{0, 0, 0}
-		var Radius = 0.50999999
+		var Radius = 0.519999981
 		var Height = 1
 		var Direction = AxisDirection.Y
 	}

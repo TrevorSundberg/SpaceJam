@@ -65,7 +65,7 @@ class HeldItemGun : HeldItem
         if (this.Automatic)
           result.ObjectHit.RigidBody.ApplyForceAtPoint(ray.Direction * 5, result.WorldPosition);
         else
-          result.ObjectHit.RigidBody.ApplyForceAtPoint(ray.Direction * 10, result.WorldPosition);
+          result.ObjectHit.RigidBody.ApplyForceAtPoint(ray.Direction * 200, result.WorldPosition);
       }
     }
   }

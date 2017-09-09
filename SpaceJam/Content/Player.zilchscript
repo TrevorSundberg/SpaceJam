@@ -18,6 +18,7 @@ class Player : ZilchComponent
   [Property] var MoveBackKey : Keys = Keys.S;
   [Property] var MoveRightKey : Keys = Keys.D;
   
+  [Property] var RunKey : Keys = Keys.Shift;
   [Property] var JumpKey : Keys = Keys.Space;
   [Property] var InteractKey : Keys = Keys.F;
   
@@ -35,6 +36,8 @@ class Player : ZilchComponent
   var InputRight : Boolean;
   [NetProperty(netChannelConfig : "ClientAuthority")]
   var InputJump : Boolean;
+  [NetProperty(netChannelConfig : "ClientAuthority")]
+  var InputRun : Boolean;
   
   [NetProperty(netChannelConfig : "ClientAuthority")]
   var InputActivatePrimary : Boolean;
@@ -63,6 +66,8 @@ class Player : ZilchComponent
   
   var Sensativity : Real2 = Real2(0.005, 0.005);
   var InteractDistance : Real = 5.0;
+  var NormalSpeed : Real = 4.0;
+  var RunSpeed : Real = 6.0;
   
   var CameraCog : Cog;
   
@@ -174,6 +179,7 @@ class Player : ZilchComponent
         this.InputRight = Zero.Keyboard.KeyIsDown(this.MoveRightKey);
         this.InputJump = Zero.Keyboard.KeyIsDown(this.JumpKey);
         this.InputInteract = Zero.Keyboard.KeyIsDown(this.InteractKey);
+        this.InputRun = Zero.Keyboard.KeyIsDown(this.RunKey);
         this.InputActivatePrimary = Zero.Mouse.IsButtonDown(MouseButtons.Left);
         this.InputActivateSecondary = Zero.Mouse.IsButtonDown(MouseButtons.Right);
         
@@ -217,6 +223,12 @@ class Player : ZilchComponent
       
       // Apply a force to move the player in the direction the client intended.
       movement = this.Transform.TransformNormal(movement);
+      
+      if (this.InputRun)
+        this.SweptController.MaxMoveSpeed = this.RunSpeed;
+      else
+        this.SweptController.MaxMoveSpeed = this.NormalSpeed;
+      
       this.SweptController.Update(movement, event.Dt);
       
       //Handle Jumping
