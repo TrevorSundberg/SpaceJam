@@ -1,9 +1,0 @@
-[Version:1]
-TextContent 
-{
-	ZilchScriptBuilder 
-	{
-		var Name = "PlayerCharacterController"
-		var ResourceId = 0x59f22b3aa9c840ad
-	}
-}

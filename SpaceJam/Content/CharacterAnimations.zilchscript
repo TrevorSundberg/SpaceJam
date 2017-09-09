@@ -28,6 +28,9 @@ class CharacterAnimations : ZilchComponent
   [Property]
   var Jumping : Boolean;
   
+  [Property]
+  var AutomaticUpdate : Boolean = true;
+  
   var Anim1 : BasicAnimation;
   var Anim2 : BasicAnimation;
   var Blend : CrossBlend;
@@ -65,7 +68,8 @@ class CharacterAnimations : ZilchComponent
     
     this.LastPos = this.Owner.Transform.WorldTranslation;
     
-    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    if (this.AutomaticUpdate)
+      Zero.Connect(this.Space, Events.LogicUpdate, this.Update);
   }
   
   [Extension(typeid(BasicAnimation))]
@@ -80,7 +84,7 @@ class CharacterAnimations : ZilchComponent
     this.TimeScale = animation.Duration;
   }
 
-  function OnLogicUpdate(event : UpdateEvent)
+  function Update(event : UpdateEvent)
   {
     var pos = this.Transform.WorldTranslation;
     

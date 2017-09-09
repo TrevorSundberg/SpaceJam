@@ -19,6 +19,7 @@ class Player : ZilchComponent
   [Property] var MoveRightKey : Keys = Keys.D;
   
   [Property] var JumpKey : Keys = Keys.Space;
+  [Property] var InteractKey : Keys = Keys.F;
   
   // Player input set by the owning client.
   // (Here we specify in the NetProperty attribute that these properties should replicate over the ClientAuthority NetChannel.
@@ -36,9 +37,15 @@ class Player : ZilchComponent
   var InputJump : Boolean;
   
   [NetProperty(netChannelConfig : "ClientAuthority")]
-  var InputShoot : Boolean;
+  var InputActivatePrimary : Boolean;
+  var LastInputActivatePrimary : Boolean;
+  [NetProperty(netChannelConfig : "ClientAuthority")]
+  var InputActivateSecondary : Boolean;
+  var LastInputActivateSecondary : Boolean;
   
-  var LastInputShoot : Boolean;
+  [NetProperty(netChannelConfig : "ClientAuthority")]
+  var InputInteract : Boolean;
+  var LastInputInteract : Boolean;
   
   [NetProperty(netChannelConfig : "ClientAuthority")]
   var InputAngle : Real2
@@ -52,16 +59,43 @@ class Player : ZilchComponent
   }
   var InputAngleInternal : Real2;
   
-  [Property]
   var Sensativity : Real2 = Real2(0.005, 0.005);
+  var InteractDistance : Real = 5.0;
+  
+  var CameraCog : Cog;
+  
+  var CharacterAnimations : CharacterAnimations;
+  
+  var HeldItemParent : Cog;
+  var HeldItem : HeldItem
+  {
+    get
+    {
+      foreach (var child in this.HeldItemParent.Children)
+      {
+        return child.HeldItem;
+      }
+      return null;
+    }
+  }
   
   function Initialize(init : CogInitializer)
   {
+    this.CharacterAnimations = this.Owner.FindChildByName("Character").CharacterAnimations;
+    
+    this.CameraCog = this.Owner.FindChildByName("Camera");
+    
+    this.HeldItemParent = this.Owner.FindChildByName("HeldItemParent");
+    
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    Zero.Connect(this.Owner, Events.CogDestroy, this.OnCogDestroy);
+    
+    this.Transform.WorldTranslation = Real3(0, 5, 0);
+    
     // If we're the server, we're responsible for processing the player's inputs set by the owning client.
     if(this.NetUser.IsServer)
     {
-      Zero.Connect(this.Owner, Events.NetChannelIncomingPropertyChanged, this.Server_OnNetChannelIncomingPropertyChanged);
-      Zero.Connect(this.Space, Events.LogicUpdate, this.Server_OnLogicUpdate);
+      this.Space.SoundSpace.Volume = 0;
     }
     
     // We are a client and this player belongs to us?
@@ -72,159 +106,169 @@ class Player : ZilchComponent
       if (this.NetUser.IsMine)
       {
         Zero.Mouse.Trapped = true;
-        Zero.Connect(Zero.Keyboard, Events.KeyDown, this.MyClient_OnKeyDown);
-        Zero.Connect(Zero.Keyboard, Events.KeyUp, this.MyClient_OnKeyUp);
-        Zero.Connect(this.Space, Events.MouseMove, this.MyClient_OnMouseMove);
-        Zero.Connect(this.Owner, Events.CogDestroy, this.MyClient_OnCogDestroy);
       }
       // Other client
       else
       {
-        this.Owner.FindChildByName("Camera").CameraViewport.RenderInGame = false;
+        this.CameraCog.CameraViewport.RenderInGame = false;
       }
-      
-      Zero.Connect(this.Space, Events.LogicUpdate, this.Client_OnLogicUpdate);
     }
   }
 
-  function MyClient_OnCogDestroy(event : ObjectEvent)
+  function OnCogDestroy(event : ObjectEvent)
   {
-    Zero.Mouse.Trapped = false;
+    if (this.NetUser.IsMine)
+    {
+      Zero.Mouse.Trapped = false;
+    }
   }
   
-  //
-  // Both-Sides
-  //
-  
-  function UpdateAngles()
+  function UpdateCharacter(event : UpdateEvent)
   {
     this.Transform.WorldRotation = Math.AxisAngle(Real3.YAxis, -this.InputAngle.X);
     
-    var characterAnimations = this.Owner.FindChildByName("Character").CharacterAnimations;
+    var characterAnimations = this.CharacterAnimations;
     characterAnimations.VerticalAngle = -this.InputAngle.Y;
     characterAnimations.HorizontalAngle = this.InputAngle.X;
-  }
-  
-  //
-  // Client-Side
-  //
-  
-  function MyClient_OnMouseMove(event : ViewportMouseEvent)
-  {
-    this.InputAngle += event.Movement * this.Sensativity;
-  }
-  
-  function MyClient_OnKeyDown(event : KeyboardEvent)
-  {
-    this.MyClient_OnKeyChanged(event, true);
-  }
-  function MyClient_OnKeyUp(event : KeyboardEvent)
-  {
-    this.MyClient_OnKeyChanged(event, false);
-  }
-  function MyClient_OnKeyChanged(event : KeyboardEvent, state : Boolean)
-  {
-    // Set input state.
-    // (Since these input properties are client authoritative, the network system will automatically replicate these
-    // changes to the server, which will accept the changes without question.)
-    if(event.Key == this.MoveForwardKey)
-      this.InputUp = state;
-    else if(event.Key == this.MoveBackKey)
-      this.InputDown = state;
-    else if(event.Key == this.MoveLeftKey)
-      this.InputLeft = state;
-    else if(event.Key == this.MoveRightKey)
-      this.InputRight = state;
-    else if(event.Key == this.JumpKey)
-      this.InputJump = state;
-  }
-  
-  function Client_OnLogicUpdate(event : UpdateEvent)
-  {
-    this.UpdateAngles();
     
-    if (this.NetUser.IsMine)
-      this.InputShoot = Zero.Mouse.IsButtonDown(MouseButtons.Left);
+    characterAnimations.Update(event);
+  }
+  
+  function FindInteract() : Interact
+  {
+    var segment = Segment();
+    segment.Start = this.CameraCog.Transform.WorldTranslation;
+    segment.End = segment.Start + this.CameraCog.Orientation.WorldForward * this.InteractDistance;
+    var castFilter = CastFilter();
+    castFilter.IgnoreStatic = false;
     
-    if (this.InputShoot && !this.LastInputShoot)
+    var range = this.Space.PhysicsSpace.CastSegment(segment, 100, castFilter);
+    
+    foreach (var result in range)
     {
-      var pistol = this.Owner.FindChildByName("Pistol");
-      var graph = pistol.AnimationGraph;
-      graph.ActiveNode = graph.CreateBasicNode(Animation.PistolShoot, AnimationPlayMode.PlayOnce);
-      
-      var flarePoint = pistol.FindChildByName("FlarePoint");
-      var flare = this.Space.Create(Archetype.MuzzleFlare);
-      flare.AttachTo(flarePoint);
-      flare.Transform.LocalScale = Real3(1, 1, 1);
-      flare.Transform.LocalTranslation = Real3.Zero;
-      flare.Transform.LocalRotation = Quaternion.Identity;
-      
-      pistol.SoundEmitter.PlayCue(SoundCue.Gunshot);
+      var interact = result.ObjectHit.Interact;
+      if (interact != null && interact.CanInteract)
+      {
+        return interact;
+      }
     }
-    this.LastInputShoot = this.InputShoot;
+    
+    return null;
   }
   
-  //
-  // Server-Side
-  //
-  
-  function Server_OnLogicUpdate(event : UpdateEvent)
+  function OnLogicUpdate(event : UpdateEvent)
   {
-    // Compute the player movement vector based on the client's input.
-    var movement = Real3(0, 0, 0);
-    
-    // (These input property values are replicated to us from the owning client whenever their state changes.
-    // We are still authoritative over the player's other properties, such as Translation and Rotation,
-    // so clients are unable to cheat by trying to set their own position / orientation.)
-    if(this.InputUp)
-      movement -= Real3.ZAxis;
-    if(this.InputDown)
-      movement += Real3.ZAxis;
-    if(this.InputLeft)
-      movement -= Real3.XAxis;
-    if(this.InputRight)
-      movement += Real3.XAxis;
-    
-    // Normalize the movement vector (so player's can't move faster diagonally)
-    // and scale it by our movement scalar so our player's go as fast we want them to.
-    movement = Math.Normalize(movement);
-    
-    // Apply a force to move the player in the direction the client intended.
-    movement = this.Transform.TransformNormal(movement);
-    this.SweptController.Update(movement, event.Dt);
-    
-    //Handle Jumping
-    if(this.InputJump)
-      this.SweptController.Jump();
-    
-    var characterAnimations = this.Owner.FindChildByName("Character").CharacterAnimations;
-    characterAnimations.Jumping = !this.SweptController.Grounded;
-    
-    this.UpdateAngles();
-  }
-  
-  function Server_OnNetChannelIncomingPropertyChanged(event : NetChannelPropertyChange)
-  {
-    // Ex. This is the best place to handle "toggled" property logic or property logic with a clear "begin" / "end".
-    // This could include things like player crouching ("toggled") or starting an attack and ending an attack (clear "begin" / "end").
-    
-    // Get the current property value from the property that was just changed.
-    var propertyValue : Boolean = false;
-    if(event.PropertyName == "InputUp")
-      propertyValue = this.InputUp;
-    else if(event.PropertyName == "InputDown")
-      propertyValue = this.InputDown;
-    else if(event.PropertyName == "InputLeft")
-      propertyValue = this.InputLeft;
-    else if(event.PropertyName == "InputRight")
-      propertyValue = this.InputRight;
+    if (this.NetUser.IsClient)
+    {
+      if (this.NetUser.IsMine)
+      {
+        this.InputAngle += Zero.Mouse.RawMovement * this.Sensativity;
+        this.InputUp = Zero.Keyboard.KeyIsDown(this.MoveForwardKey);
+        this.InputDown = Zero.Keyboard.KeyIsDown(this.MoveBackKey);
+        this.InputLeft = Zero.Keyboard.KeyIsDown(this.MoveLeftKey);
+        this.InputRight = Zero.Keyboard.KeyIsDown(this.MoveRightKey);
+        this.InputJump = Zero.Keyboard.KeyIsDown(this.JumpKey);
+        this.InputInteract = Zero.Keyboard.KeyIsDown(this.InteractKey);
+        this.InputActivatePrimary = Zero.Mouse.IsButtonDown(MouseButtons.Left);
+        this.InputActivateSecondary = Zero.Mouse.IsButtonDown(MouseButtons.Right);
+        
+        this.UpdateCharacter(event);
+        
+        var interact = this.FindInteract();
+        if (interact != null)
+        {
+          Console.WriteLine(interact.Info);
+        }
+        else
+        {
+          Console.WriteLine("-------------------");
+        }
+      }
+      else
+      {
+        this.UpdateCharacter(event);
+      }
+    }
     else
-      return;
+    {
+      // Compute the player movement vector based on the client's input.
+      var movement = Real3(0, 0, 0);
+      
+      // (These input property values are replicated to us from the owning client whenever their state changes.
+      // We are still authoritative over the player's other properties, such as Translation and Rotation,
+      // so clients are unable to cheat by trying to set their own position / orientation.)
+      if(this.InputUp)
+        movement -= Real3.ZAxis;
+      if(this.InputDown)
+        movement += Real3.ZAxis;
+      if(this.InputLeft)
+        movement -= Real3.XAxis;
+      if(this.InputRight)
+        movement += Real3.XAxis;
+      
+      // Normalize the movement vector (so player's can't move faster diagonally)
+      // and scale it by our movement scalar so our player's go as fast we want them to.
+      movement = Math.Normalize(movement);
+      
+      // Apply a force to move the player in the direction the client intended.
+      movement = this.Transform.TransformNormal(movement);
+      this.SweptController.Update(movement, event.Dt);
+      
+      //Handle Jumping
+      if(this.InputJump)
+        this.SweptController.Jump();
+      
+      this.CharacterAnimations.Jumping = !this.SweptController.Grounded;
+      this.UpdateCharacter(event);
+    }
     
-    // Print whether or not that input was pressed or released.
-    if(propertyValue)
-      this.GameSession.GameLogger.WriteLine("`this.PlayerInfo` Pressed `event.PropertyName` at `event.Timestamp`s.");
-    else
-      this.GameSession.GameLogger.WriteLine("`this.PlayerInfo` Released `event.PropertyName` at `event.Timestamp`s.");
+    // Primary
+    if (this.InputActivatePrimary && !this.LastInputActivatePrimary)
+    {
+      if (this.HeldItem != null)
+      {
+        this.HeldItem.PrimaryActive = true;
+        this.HeldItem.ActivatePrimary(this.Owner);
+      }
+    }
+    else if (!this.InputActivatePrimary && this.LastInputActivatePrimary)
+    {
+      if (this.HeldItem != null)
+      {
+        this.HeldItem.PrimaryActive = false;
+        this.HeldItem.DeactivatePrimary(this.Owner);
+      }
+    }
+    this.LastInputActivatePrimary = this.InputActivatePrimary;
+    
+    // Secondary
+    if (this.InputActivateSecondary && !this.LastInputActivateSecondary)
+    {
+      if (this.HeldItem != null)
+      {
+        this.HeldItem.SecondaryActive = true;
+        this.HeldItem.ActivateSecondary(this.Owner);
+      }
+    }
+    else if (!this.InputActivateSecondary && this.LastInputActivateSecondary)
+    {
+      if (this.HeldItem != null)
+      {
+        this.HeldItem.SecondaryActive = false;
+        this.HeldItem.DeactivateSecondary(this.Owner);
+      }
+    }
+    this.LastInputActivateSecondary = this.InputActivateSecondary;
+    
+    // Interact
+    if (this.InputInteract && !this.LastInputInteract)
+    {
+      var interact = this.FindInteract();
+      if (interact != null)
+      {
+        interact.Interact(this.Owner);
+      }
+    }
+    this.LastInputInteract = this.InputInteract;
   }
 }

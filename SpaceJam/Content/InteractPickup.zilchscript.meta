@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "InteractPickup"
+		var ResourceId = 0x59e56fc655528336
+	}
+}

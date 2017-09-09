@@ -1,0 +1,36 @@
+[ComponentInterface]
+class HeldItem : ZilchComponent
+{
+  var PrimaryActive : Boolean;
+  var SecondaryActive : Boolean;
+  
+  function Initialize(init : CogInitializer)
+  {
+    //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  [Virtual]
+  function ActivatePrimary(playerCog : Cog)
+  {
+  }
+
+  [Virtual]
+  function DeactivatePrimary(playerCog : Cog)
+  {
+  }
+
+  [Virtual]
+  function ActivateSecondary(playerCog : Cog)
+  {
+  }
+
+  [Virtual]
+  function DeactivateSecondary(playerCog : Cog)
+  {
+  }
+  
+  [Virtual]
+  function Reload()
+  {
+  }
+}

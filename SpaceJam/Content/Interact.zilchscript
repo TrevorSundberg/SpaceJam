@@ -1,0 +1,25 @@
+[ComponentInterface]
+class Interact : ZilchComponent
+{
+  function Initialize(init : CogInitializer)
+  {
+    //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  [Virtual]
+  function Interact(playerCog : Cog)
+  {
+  }
+  
+  [Virtual]
+  var Info : String
+  {
+    get { return ""; }
+  }
+  
+  [Virtual]
+  var CanInteract : Boolean
+  {
+    get { return false; }
+  }
+}

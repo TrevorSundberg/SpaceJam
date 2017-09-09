@@ -4,7 +4,7 @@ Cog
 	var Name = "Pistol"
 	Transform 
 	{
-		var Translation = Real3{0.484516203, 2.46053624, -0.021361962}
+		var Translation = Real3{0, 0, 0}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -24,6 +24,38 @@ Cog
 		var Directional = false
 		var EmitAngle = 90
 		var RearVolume = 0.200000003
+	}
+	NetObject 
+	{
+		var DetectOutgoingChanges = true
+		var AcceptIncomingChanges = true
+		var AllowNapping = true
+		var AccurateTimestampOnOnline = false
+		var AccurateTimestampOnChange = false
+		var AccurateTimestampOnOffline = false
+		var AutomaticChannel = "56f22bdc94800e65:Default"
+		var NetPropertyInfos = Array
+		{
+			Object
+			{
+				var ComponentName = "Transform"
+				var PropertyName = "Translation"
+				var NetChannelConfig = "56f22bdc957a8572:Transform"
+				var NetPropertyConfig = "74f23adc1a810b95:Default"
+			}
+			Object
+			{
+				var ComponentName = "Transform"
+				var PropertyName = "Rotation"
+				var NetChannelConfig = "56f22bdc957a8572:Transform"
+				var NetPropertyConfig = "74f23adc1a810b95:Default"
+			}
+		}
+	}
+	HeldItemGun 
+	{
+		var FireAnimation = "591885b30f040ffe:PistolShoot"
+		var FireSound = "5918baf7a745d9ab:Gunshot"
 	}
 	Hierarchy 
 	{

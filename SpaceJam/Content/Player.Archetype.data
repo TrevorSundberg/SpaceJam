@@ -4,7 +4,7 @@ Cog
 	var Name = "Player"
 	Transform 
 	{
-		var Translation = Real3{0, 4, 0}
+		var Translation = Real3{0, 0, 0}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -86,7 +86,7 @@ Cog
 		var MoveBackKey = Keys.S
 		var MoveRightKey = Keys.D
 		var JumpKey = Keys.Space
-		var Sensativity = Real2{0.00499999989, 0.00499999989}
+		var InteractKey = Keys.F
 	}
 	CustomCollisionEventTracker 
 	{
@@ -101,32 +101,179 @@ Cog
 				var Rotation = Quaternion{0, 0, 0, 1}
 				var Scale = Real3{1, 1, 1}
 			}
+			AnimationGraph 
+			{
+				var Active = true
+			}
+			CharacterAnimations 
+			{
+				var AutomaticUpdate = false
+			}
+			NetObject [LocallyAdded]
+			{
+				var DetectOutgoingChanges = true
+				var AcceptIncomingChanges = true
+				var AllowNapping = true
+				var AccurateTimestampOnOnline = false
+				var AccurateTimestampOnChange = false
+				var AccurateTimestampOnOffline = false
+				var AutomaticChannel = "56f22bdc94800e65:Default"
+				var NetPropertyInfos = Array
+				{
+				}
+			}
 			Hierarchy 
 			{
 				Cog [Id:0x591b10805244ca37]
 				{
+					NetObject [LocallyAdded]
+					{
+						var DetectOutgoingChanges = true
+						var AcceptIncomingChanges = true
+						var AllowNapping = true
+						var AccurateTimestampOnOnline = false
+						var AccurateTimestampOnChange = false
+						var AccurateTimestampOnOffline = false
+						var AutomaticChannel = "56f22bdc94800e65:Default"
+						var NetPropertyInfos = Array
+						{
+						}
+					}
 					Hierarchy 
 					{
 						Cog [Id:0x591b10805244ca3b]
 						{
+							NetObject [LocallyAdded]
+							{
+								var DetectOutgoingChanges = true
+								var AcceptIncomingChanges = true
+								var AllowNapping = true
+								var AccurateTimestampOnOnline = false
+								var AccurateTimestampOnChange = false
+								var AccurateTimestampOnOffline = false
+								var AutomaticChannel = "56f22bdc94800e65:Default"
+								var NetPropertyInfos = Array
+								{
+								}
+							}
 							Hierarchy 
 							{
 								Cog [Id:0x591b10805244ca3c]
 								{
+									NetObject [LocallyAdded]
+									{
+										var DetectOutgoingChanges = true
+										var AcceptIncomingChanges = true
+										var AllowNapping = true
+										var AccurateTimestampOnOnline = false
+										var AccurateTimestampOnChange = false
+										var AccurateTimestampOnOffline = false
+										var AutomaticChannel = "56f22bdc94800e65:Default"
+										var NetPropertyInfos = Array
+										{
+										}
+									}
 									Hierarchy 
 									{
 										Cog [Id:0x591b10805244ca3d]
 										{
+											NetObject [LocallyAdded]
+											{
+												var DetectOutgoingChanges = true
+												var AcceptIncomingChanges = true
+												var AllowNapping = true
+												var AccurateTimestampOnOnline = false
+												var AccurateTimestampOnChange = false
+												var AccurateTimestampOnOffline = false
+												var AutomaticChannel = "56f22bdc94800e65:Default"
+												var NetPropertyInfos = Array
+												{
+												}
+											}
 											Hierarchy 
 											{
 												Cog [Id:0x591b10805244ca3f]
 												{
+													NetObject [LocallyAdded]
+													{
+														var DetectOutgoingChanges = true
+														var AcceptIncomingChanges = true
+														var AllowNapping = true
+														var AccurateTimestampOnOnline = false
+														var AccurateTimestampOnChange = false
+														var AccurateTimestampOnOffline = false
+														var AutomaticChannel = "56f22bdc94800e65:Default"
+														var NetPropertyInfos = Array
+														{
+														}
+													}
 													Hierarchy 
 													{
 														Cog [Id:0x591b10805244ca40]
 														{
+															NetObject [LocallyAdded]
+															{
+																var DetectOutgoingChanges = true
+																var AcceptIncomingChanges = true
+																var AllowNapping = true
+																var AccurateTimestampOnOnline = false
+																var AccurateTimestampOnChange = false
+																var AccurateTimestampOnOffline = false
+																var AutomaticChannel = "56f22bdc94800e65:Default"
+																var NetPropertyInfos = Array
+																{
+																}
+															}
 															Hierarchy 
 															{
+																Cog [Id:0x591b10805244ca41]
+																{
+																	NetObject [LocallyAdded]
+																	{
+																		var DetectOutgoingChanges = true
+																		var AcceptIncomingChanges = true
+																		var AllowNapping = true
+																		var AccurateTimestampOnOnline = false
+																		var AccurateTimestampOnChange = false
+																		var AccurateTimestampOnOffline = false
+																		var AutomaticChannel = "56f22bdc94800e65:Default"
+																		var NetPropertyInfos = Array
+																		{
+																		}
+																	}
+																}
+																Cog [Id:0x591b10805244ca42]
+																{
+																	NetObject [LocallyAdded]
+																	{
+																		var DetectOutgoingChanges = true
+																		var AcceptIncomingChanges = true
+																		var AllowNapping = true
+																		var AccurateTimestampOnOnline = false
+																		var AccurateTimestampOnChange = false
+																		var AccurateTimestampOnOffline = false
+																		var AutomaticChannel = "56f22bdc94800e65:Default"
+																		var NetPropertyInfos = Array
+																		{
+																		}
+																	}
+																}
+																Cog [Id:0x591b10805244ca43]
+																{
+																	NetObject [LocallyAdded]
+																	{
+																		var DetectOutgoingChanges = true
+																		var AcceptIncomingChanges = true
+																		var AllowNapping = true
+																		var AccurateTimestampOnOnline = false
+																		var AccurateTimestampOnChange = false
+																		var AccurateTimestampOnOffline = false
+																		var AutomaticChannel = "56f22bdc94800e65:Default"
+																		var NetPropertyInfos = Array
+																		{
+																		}
+																	}
+																}
 																Cog [Id:0x591b1400eba9e3e3][LocallyAdded]
 																{
 																	var Name = "Camera"
@@ -200,6 +347,466 @@ Cog
 																	{
 																		var Active = true
 																	}
+																	Orientation 
+																	{
+																		var GlobalUp = Real3{0, 1, 0}
+																		var LocalOrientationBasis = Quaternion{0, 0, 0, 1}
+																		var DefaultBases = OrientationBases.ForwardNegativeZUpY
+																	}
+																	NetObject 
+																	{
+																		var DetectOutgoingChanges = true
+																		var AcceptIncomingChanges = true
+																		var AllowNapping = true
+																		var AccurateTimestampOnOnline = false
+																		var AccurateTimestampOnChange = false
+																		var AccurateTimestampOnOffline = false
+																		var AutomaticChannel = "56f22bdc94800e65:Default"
+																		var NetPropertyInfos = Array
+																		{
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+												Cog [Id:0x591b10805244ca45]
+												{
+													NetObject [LocallyAdded]
+													{
+														var DetectOutgoingChanges = true
+														var AcceptIncomingChanges = true
+														var AllowNapping = true
+														var AccurateTimestampOnOnline = false
+														var AccurateTimestampOnChange = false
+														var AccurateTimestampOnOffline = false
+														var AutomaticChannel = "56f22bdc94800e65:Default"
+														var NetPropertyInfos = Array
+														{
+														}
+													}
+													Hierarchy 
+													{
+														Cog [Id:0x591b10805244ca46]
+														{
+															NetObject [LocallyAdded]
+															{
+																var DetectOutgoingChanges = true
+																var AcceptIncomingChanges = true
+																var AllowNapping = true
+																var AccurateTimestampOnOnline = false
+																var AccurateTimestampOnChange = false
+																var AccurateTimestampOnOffline = false
+																var AutomaticChannel = "56f22bdc94800e65:Default"
+																var NetPropertyInfos = Array
+																{
+																}
+															}
+															Hierarchy 
+															{
+																Cog [Id:0x591b10805244ca47]
+																{
+																	NetObject [LocallyAdded]
+																	{
+																		var DetectOutgoingChanges = true
+																		var AcceptIncomingChanges = true
+																		var AllowNapping = true
+																		var AccurateTimestampOnOnline = false
+																		var AccurateTimestampOnChange = false
+																		var AccurateTimestampOnOffline = false
+																		var AutomaticChannel = "56f22bdc94800e65:Default"
+																		var NetPropertyInfos = Array
+																		{
+																		}
+																	}
+																	Hierarchy 
+																	{
+																		Cog [Id:0x591b10805244ca48]
+																		{
+																			NetObject [LocallyAdded]
+																			{
+																				var DetectOutgoingChanges = true
+																				var AcceptIncomingChanges = true
+																				var AllowNapping = true
+																				var AccurateTimestampOnOnline = false
+																				var AccurateTimestampOnChange = false
+																				var AccurateTimestampOnOffline = false
+																				var AutomaticChannel = "56f22bdc94800e65:Default"
+																				var NetPropertyInfos = Array
+																				{
+																				}
+																			}
+																			Hierarchy 
+																			{
+																				Cog [Id:0x591b10805244ca49]
+																				{
+																					NetObject [LocallyAdded]
+																					{
+																						var DetectOutgoingChanges = true
+																						var AcceptIncomingChanges = true
+																						var AllowNapping = true
+																						var AccurateTimestampOnOnline = false
+																						var AccurateTimestampOnChange = false
+																						var AccurateTimestampOnOffline = false
+																						var AutomaticChannel = "56f22bdc94800e65:Default"
+																						var NetPropertyInfos = Array
+																						{
+																						}
+																					}
+																					Hierarchy 
+																					{
+																						Cog [Id:0x591b10805244ca4b]
+																						{
+																							NetObject [LocallyAdded]
+																							{
+																								var DetectOutgoingChanges = true
+																								var AcceptIncomingChanges = true
+																								var AllowNapping = true
+																								var AccurateTimestampOnOnline = false
+																								var AccurateTimestampOnChange = false
+																								var AccurateTimestampOnOffline = false
+																								var AutomaticChannel = "56f22bdc94800e65:Default"
+																								var NetPropertyInfos = Array
+																								{
+																								}
+																							}
+																							Hierarchy 
+																							{
+																								Cog [Id:0x591b10805244ca4c]
+																								{
+																									NetObject [LocallyAdded]
+																									{
+																										var DetectOutgoingChanges = true
+																										var AcceptIncomingChanges = true
+																										var AllowNapping = true
+																										var AccurateTimestampOnOnline = false
+																										var AccurateTimestampOnChange = false
+																										var AccurateTimestampOnOffline = false
+																										var AutomaticChannel = "56f22bdc94800e65:Default"
+																										var NetPropertyInfos = Array
+																										{
+																										}
+																									}
+																									Hierarchy 
+																									{
+																										Cog [Id:0x591b10805244ca4d]
+																										{
+																											NetObject [LocallyAdded]
+																											{
+																												var DetectOutgoingChanges = true
+																												var AcceptIncomingChanges = true
+																												var AllowNapping = true
+																												var AccurateTimestampOnOnline = false
+																												var AccurateTimestampOnChange = false
+																												var AccurateTimestampOnOffline = false
+																												var AutomaticChannel = "56f22bdc94800e65:Default"
+																												var NetPropertyInfos = Array
+																												{
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																				Cog [Id:0x591b10805244ca4e]
+																				{
+																					NetObject [LocallyAdded]
+																					{
+																						var DetectOutgoingChanges = true
+																						var AcceptIncomingChanges = true
+																						var AllowNapping = true
+																						var AccurateTimestampOnOnline = false
+																						var AccurateTimestampOnChange = false
+																						var AccurateTimestampOnOffline = false
+																						var AutomaticChannel = "56f22bdc94800e65:Default"
+																						var NetPropertyInfos = Array
+																						{
+																						}
+																					}
+																					Hierarchy 
+																					{
+																						Cog [Id:0x591b10805244ca4f]
+																						{
+																							NetObject [LocallyAdded]
+																							{
+																								var DetectOutgoingChanges = true
+																								var AcceptIncomingChanges = true
+																								var AllowNapping = true
+																								var AccurateTimestampOnOnline = false
+																								var AccurateTimestampOnChange = false
+																								var AccurateTimestampOnOffline = false
+																								var AutomaticChannel = "56f22bdc94800e65:Default"
+																								var NetPropertyInfos = Array
+																								{
+																								}
+																							}
+																							Hierarchy 
+																							{
+																								Cog [Id:0x591b10805244ca51]
+																								{
+																									NetObject [LocallyAdded]
+																									{
+																										var DetectOutgoingChanges = true
+																										var AcceptIncomingChanges = true
+																										var AllowNapping = true
+																										var AccurateTimestampOnOnline = false
+																										var AccurateTimestampOnChange = false
+																										var AccurateTimestampOnOffline = false
+																										var AutomaticChannel = "56f22bdc94800e65:Default"
+																										var NetPropertyInfos = Array
+																										{
+																										}
+																									}
+																									Hierarchy 
+																									{
+																										Cog [Id:0x591b10805244ca52]
+																										{
+																											NetObject [LocallyAdded]
+																											{
+																												var DetectOutgoingChanges = true
+																												var AcceptIncomingChanges = true
+																												var AllowNapping = true
+																												var AccurateTimestampOnOnline = false
+																												var AccurateTimestampOnChange = false
+																												var AccurateTimestampOnOffline = false
+																												var AutomaticChannel = "56f22bdc94800e65:Default"
+																												var NetPropertyInfos = Array
+																												{
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																				Cog [Id:0x591b10805244ca53]
+																				{
+																					NetObject [LocallyAdded]
+																					{
+																						var DetectOutgoingChanges = true
+																						var AcceptIncomingChanges = true
+																						var AllowNapping = true
+																						var AccurateTimestampOnOnline = false
+																						var AccurateTimestampOnChange = false
+																						var AccurateTimestampOnOffline = false
+																						var AutomaticChannel = "56f22bdc94800e65:Default"
+																						var NetPropertyInfos = Array
+																						{
+																						}
+																					}
+																					Hierarchy 
+																					{
+																						Cog [Id:0x591b10805244ca54]
+																						{
+																							NetObject [LocallyAdded]
+																							{
+																								var DetectOutgoingChanges = true
+																								var AcceptIncomingChanges = true
+																								var AllowNapping = true
+																								var AccurateTimestampOnOnline = false
+																								var AccurateTimestampOnChange = false
+																								var AccurateTimestampOnOffline = false
+																								var AutomaticChannel = "56f22bdc94800e65:Default"
+																								var NetPropertyInfos = Array
+																								{
+																								}
+																							}
+																							Hierarchy 
+																							{
+																								Cog [Id:0x591b10805244ca55]
+																								{
+																									NetObject [LocallyAdded]
+																									{
+																										var DetectOutgoingChanges = true
+																										var AcceptIncomingChanges = true
+																										var AllowNapping = true
+																										var AccurateTimestampOnOnline = false
+																										var AccurateTimestampOnChange = false
+																										var AccurateTimestampOnOffline = false
+																										var AutomaticChannel = "56f22bdc94800e65:Default"
+																										var NetPropertyInfos = Array
+																										{
+																										}
+																									}
+																									Hierarchy 
+																									{
+																										Cog [Id:0x591b10805244ca57]
+																										{
+																											NetObject [LocallyAdded]
+																											{
+																												var DetectOutgoingChanges = true
+																												var AcceptIncomingChanges = true
+																												var AllowNapping = true
+																												var AccurateTimestampOnOnline = false
+																												var AccurateTimestampOnChange = false
+																												var AccurateTimestampOnOffline = false
+																												var AutomaticChannel = "56f22bdc94800e65:Default"
+																												var NetPropertyInfos = Array
+																												{
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																				Cog [Id:0x591b10805244ca58]
+																				{
+																					NetObject [LocallyAdded]
+																					{
+																						var DetectOutgoingChanges = true
+																						var AcceptIncomingChanges = true
+																						var AllowNapping = true
+																						var AccurateTimestampOnOnline = false
+																						var AccurateTimestampOnChange = false
+																						var AccurateTimestampOnOffline = false
+																						var AutomaticChannel = "56f22bdc94800e65:Default"
+																						var NetPropertyInfos = Array
+																						{
+																						}
+																					}
+																					Hierarchy 
+																					{
+																						Cog [Id:0x591b10805244ca59]
+																						{
+																							NetObject [LocallyAdded]
+																							{
+																								var DetectOutgoingChanges = true
+																								var AcceptIncomingChanges = true
+																								var AllowNapping = true
+																								var AccurateTimestampOnOnline = false
+																								var AccurateTimestampOnChange = false
+																								var AccurateTimestampOnOffline = false
+																								var AutomaticChannel = "56f22bdc94800e65:Default"
+																								var NetPropertyInfos = Array
+																								{
+																								}
+																							}
+																							Hierarchy 
+																							{
+																								Cog [Id:0x591b10805244ca5a]
+																								{
+																									NetObject [LocallyAdded]
+																									{
+																										var DetectOutgoingChanges = true
+																										var AcceptIncomingChanges = true
+																										var AllowNapping = true
+																										var AccurateTimestampOnOnline = false
+																										var AccurateTimestampOnChange = false
+																										var AccurateTimestampOnOffline = false
+																										var AutomaticChannel = "56f22bdc94800e65:Default"
+																										var NetPropertyInfos = Array
+																										{
+																										}
+																									}
+																									Hierarchy 
+																									{
+																										Cog [Id:0x591b10805244ca5b]
+																										{
+																											NetObject [LocallyAdded]
+																											{
+																												var DetectOutgoingChanges = true
+																												var AcceptIncomingChanges = true
+																												var AllowNapping = true
+																												var AccurateTimestampOnOnline = false
+																												var AccurateTimestampOnChange = false
+																												var AccurateTimestampOnOffline = false
+																												var AutomaticChannel = "56f22bdc94800e65:Default"
+																												var NetPropertyInfos = Array
+																												{
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																				Cog [Id:0x591b10805244ca5d]
+																				{
+																					NetObject [LocallyAdded]
+																					{
+																						var DetectOutgoingChanges = true
+																						var AcceptIncomingChanges = true
+																						var AllowNapping = true
+																						var AccurateTimestampOnOnline = false
+																						var AccurateTimestampOnChange = false
+																						var AccurateTimestampOnOffline = false
+																						var AutomaticChannel = "56f22bdc94800e65:Default"
+																						var NetPropertyInfos = Array
+																						{
+																						}
+																					}
+																					Hierarchy 
+																					{
+																						Cog [Id:0x591b10805244ca5e]
+																						{
+																							NetObject [LocallyAdded]
+																							{
+																								var DetectOutgoingChanges = true
+																								var AcceptIncomingChanges = true
+																								var AllowNapping = true
+																								var AccurateTimestampOnOnline = false
+																								var AccurateTimestampOnChange = false
+																								var AccurateTimestampOnOffline = false
+																								var AutomaticChannel = "56f22bdc94800e65:Default"
+																								var NetPropertyInfos = Array
+																								{
+																								}
+																							}
+																							Hierarchy 
+																							{
+																								Cog [Id:0x591b10805244ca5f]
+																								{
+																									NetObject [LocallyAdded]
+																									{
+																										var DetectOutgoingChanges = true
+																										var AcceptIncomingChanges = true
+																										var AllowNapping = true
+																										var AccurateTimestampOnOnline = false
+																										var AccurateTimestampOnChange = false
+																										var AccurateTimestampOnOffline = false
+																										var AutomaticChannel = "56f22bdc94800e65:Default"
+																										var NetPropertyInfos = Array
+																										{
+																										}
+																									}
+																									Hierarchy 
+																									{
+																										Cog [Id:0x591b10805244ca60]
+																										{
+																											NetObject [LocallyAdded]
+																											{
+																												var DetectOutgoingChanges = true
+																												var AcceptIncomingChanges = true
+																												var AllowNapping = true
+																												var AccurateTimestampOnOnline = false
+																												var AccurateTimestampOnChange = false
+																												var AccurateTimestampOnOffline = false
+																												var AutomaticChannel = "56f22bdc94800e65:Default"
+																												var NetPropertyInfos = Array
+																												{
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
 																}
 															}
 														}
@@ -207,27 +814,458 @@ Cog
 												}
 												Cog [Id:0x591b10805244ca61]
 												{
+													NetObject [LocallyAdded]
+													{
+														var DetectOutgoingChanges = true
+														var AcceptIncomingChanges = true
+														var AllowNapping = true
+														var AccurateTimestampOnOnline = false
+														var AccurateTimestampOnChange = false
+														var AccurateTimestampOnOffline = false
+														var AutomaticChannel = "56f22bdc94800e65:Default"
+														var NetPropertyInfos = Array
+														{
+														}
+													}
 													Hierarchy 
 													{
 														Cog [Id:0x591b10805244ca63]
 														{
+															NetObject [LocallyAdded]
+															{
+																var DetectOutgoingChanges = true
+																var AcceptIncomingChanges = true
+																var AllowNapping = true
+																var AccurateTimestampOnOnline = false
+																var AccurateTimestampOnChange = false
+																var AccurateTimestampOnOffline = false
+																var AutomaticChannel = "56f22bdc94800e65:Default"
+																var NetPropertyInfos = Array
+																{
+																}
+															}
 															Hierarchy 
 															{
 																Cog [Id:0x591b10805244ca64]
 																{
+																	NetObject [LocallyAdded]
+																	{
+																		var DetectOutgoingChanges = true
+																		var AcceptIncomingChanges = true
+																		var AllowNapping = true
+																		var AccurateTimestampOnOnline = false
+																		var AccurateTimestampOnChange = false
+																		var AccurateTimestampOnOffline = false
+																		var AutomaticChannel = "56f22bdc94800e65:Default"
+																		var NetPropertyInfos = Array
+																		{
+																		}
+																	}
 																	Hierarchy 
 																	{
 																		Cog [Id:0x591b10805244ca65]
 																		{
-																			Hierarchy 
+																			NetObject [LocallyAdded]
 																			{
-																				Cog [Id:0x591881e3efa8c3ac][InheritId:"5918b7167f652b76:Pistol"][LocallyAdded]
+																				var DetectOutgoingChanges = true
+																				var AcceptIncomingChanges = true
+																				var AllowNapping = true
+																				var AccurateTimestampOnOnline = false
+																				var AccurateTimestampOnChange = false
+																				var AccurateTimestampOnOffline = false
+																				var AutomaticChannel = "56f22bdc94800e65:Default"
+																				var NetPropertyInfos = Array
 																				{
+																				}
+																			}
+																			Hierarchy [ChildOrderOverride]
+																			{
+																				Cog [Id:0x591b10805244ca66]
+																				{
+																					NetObject [LocallyAdded]
+																					{
+																						var DetectOutgoingChanges = true
+																						var AcceptIncomingChanges = true
+																						var AllowNapping = true
+																						var AccurateTimestampOnOnline = false
+																						var AccurateTimestampOnChange = false
+																						var AccurateTimestampOnOffline = false
+																						var AutomaticChannel = "56f22bdc94800e65:Default"
+																						var NetPropertyInfos = Array
+																						{
+																						}
+																					}
+																					Hierarchy 
+																					{
+																						Cog [Id:0x591b10805244ca67]
+																						{
+																							NetObject [LocallyAdded]
+																							{
+																								var DetectOutgoingChanges = true
+																								var AcceptIncomingChanges = true
+																								var AllowNapping = true
+																								var AccurateTimestampOnOnline = false
+																								var AccurateTimestampOnChange = false
+																								var AccurateTimestampOnOffline = false
+																								var AutomaticChannel = "56f22bdc94800e65:Default"
+																								var NetPropertyInfos = Array
+																								{
+																								}
+																							}
+																							Hierarchy 
+																							{
+																								Cog [Id:0x591b10805244ca69]
+																								{
+																									NetObject [LocallyAdded]
+																									{
+																										var DetectOutgoingChanges = true
+																										var AcceptIncomingChanges = true
+																										var AllowNapping = true
+																										var AccurateTimestampOnOnline = false
+																										var AccurateTimestampOnChange = false
+																										var AccurateTimestampOnOffline = false
+																										var AutomaticChannel = "56f22bdc94800e65:Default"
+																										var NetPropertyInfos = Array
+																										{
+																										}
+																									}
+																									Hierarchy 
+																									{
+																										Cog [Id:0x591b10805244ca6a]
+																										{
+																											NetObject [LocallyAdded]
+																											{
+																												var DetectOutgoingChanges = true
+																												var AcceptIncomingChanges = true
+																												var AllowNapping = true
+																												var AccurateTimestampOnOnline = false
+																												var AccurateTimestampOnChange = false
+																												var AccurateTimestampOnOffline = false
+																												var AutomaticChannel = "56f22bdc94800e65:Default"
+																												var NetPropertyInfos = Array
+																												{
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																				Cog [Id:0x591b10805244ca6b]
+																				{
+																					NetObject [LocallyAdded]
+																					{
+																						var DetectOutgoingChanges = true
+																						var AcceptIncomingChanges = true
+																						var AllowNapping = true
+																						var AccurateTimestampOnOnline = false
+																						var AccurateTimestampOnChange = false
+																						var AccurateTimestampOnOffline = false
+																						var AutomaticChannel = "56f22bdc94800e65:Default"
+																						var NetPropertyInfos = Array
+																						{
+																						}
+																					}
+																					Hierarchy 
+																					{
+																						Cog [Id:0x591b10805244ca6c]
+																						{
+																							NetObject [LocallyAdded]
+																							{
+																								var DetectOutgoingChanges = true
+																								var AcceptIncomingChanges = true
+																								var AllowNapping = true
+																								var AccurateTimestampOnOnline = false
+																								var AccurateTimestampOnChange = false
+																								var AccurateTimestampOnOffline = false
+																								var AutomaticChannel = "56f22bdc94800e65:Default"
+																								var NetPropertyInfos = Array
+																								{
+																								}
+																							}
+																							Hierarchy 
+																							{
+																								Cog [Id:0x591b10805244ca6d]
+																								{
+																									NetObject [LocallyAdded]
+																									{
+																										var DetectOutgoingChanges = true
+																										var AcceptIncomingChanges = true
+																										var AllowNapping = true
+																										var AccurateTimestampOnOnline = false
+																										var AccurateTimestampOnChange = false
+																										var AccurateTimestampOnOffline = false
+																										var AutomaticChannel = "56f22bdc94800e65:Default"
+																										var NetPropertyInfos = Array
+																										{
+																										}
+																									}
+																									Hierarchy 
+																									{
+																										Cog [Id:0x591b10805244ca6f]
+																										{
+																											NetObject [LocallyAdded]
+																											{
+																												var DetectOutgoingChanges = true
+																												var AcceptIncomingChanges = true
+																												var AllowNapping = true
+																												var AccurateTimestampOnOnline = false
+																												var AccurateTimestampOnChange = false
+																												var AccurateTimestampOnOffline = false
+																												var AutomaticChannel = "56f22bdc94800e65:Default"
+																												var NetPropertyInfos = Array
+																												{
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																				Cog [Id:0x591b10805244ca70]
+																				{
+																					NetObject [LocallyAdded]
+																					{
+																						var DetectOutgoingChanges = true
+																						var AcceptIncomingChanges = true
+																						var AllowNapping = true
+																						var AccurateTimestampOnOnline = false
+																						var AccurateTimestampOnChange = false
+																						var AccurateTimestampOnOffline = false
+																						var AutomaticChannel = "56f22bdc94800e65:Default"
+																						var NetPropertyInfos = Array
+																						{
+																						}
+																					}
+																					Hierarchy 
+																					{
+																						Cog [Id:0x591b10805244ca71]
+																						{
+																							NetObject [LocallyAdded]
+																							{
+																								var DetectOutgoingChanges = true
+																								var AcceptIncomingChanges = true
+																								var AllowNapping = true
+																								var AccurateTimestampOnOnline = false
+																								var AccurateTimestampOnChange = false
+																								var AccurateTimestampOnOffline = false
+																								var AutomaticChannel = "56f22bdc94800e65:Default"
+																								var NetPropertyInfos = Array
+																								{
+																								}
+																							}
+																							Hierarchy 
+																							{
+																								Cog [Id:0x591b10805244ca72]
+																								{
+																									NetObject [LocallyAdded]
+																									{
+																										var DetectOutgoingChanges = true
+																										var AcceptIncomingChanges = true
+																										var AllowNapping = true
+																										var AccurateTimestampOnOnline = false
+																										var AccurateTimestampOnChange = false
+																										var AccurateTimestampOnOffline = false
+																										var AutomaticChannel = "56f22bdc94800e65:Default"
+																										var NetPropertyInfos = Array
+																										{
+																										}
+																									}
+																									Hierarchy 
+																									{
+																										Cog [Id:0x591b10805244ca73]
+																										{
+																											NetObject [LocallyAdded]
+																											{
+																												var DetectOutgoingChanges = true
+																												var AcceptIncomingChanges = true
+																												var AllowNapping = true
+																												var AccurateTimestampOnOnline = false
+																												var AccurateTimestampOnChange = false
+																												var AccurateTimestampOnOffline = false
+																												var AutomaticChannel = "56f22bdc94800e65:Default"
+																												var NetPropertyInfos = Array
+																												{
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																				Cog [Id:0x591b10805244ca75]
+																				{
+																					NetObject [LocallyAdded]
+																					{
+																						var DetectOutgoingChanges = true
+																						var AcceptIncomingChanges = true
+																						var AllowNapping = true
+																						var AccurateTimestampOnOnline = false
+																						var AccurateTimestampOnChange = false
+																						var AccurateTimestampOnOffline = false
+																						var AutomaticChannel = "56f22bdc94800e65:Default"
+																						var NetPropertyInfos = Array
+																						{
+																						}
+																					}
+																					Hierarchy 
+																					{
+																						Cog [Id:0x591b10805244ca76]
+																						{
+																							NetObject [LocallyAdded]
+																							{
+																								var DetectOutgoingChanges = true
+																								var AcceptIncomingChanges = true
+																								var AllowNapping = true
+																								var AccurateTimestampOnOnline = false
+																								var AccurateTimestampOnChange = false
+																								var AccurateTimestampOnOffline = false
+																								var AutomaticChannel = "56f22bdc94800e65:Default"
+																								var NetPropertyInfos = Array
+																								{
+																								}
+																							}
+																							Hierarchy 
+																							{
+																								Cog [Id:0x591b10805244ca77]
+																								{
+																									NetObject [LocallyAdded]
+																									{
+																										var DetectOutgoingChanges = true
+																										var AcceptIncomingChanges = true
+																										var AllowNapping = true
+																										var AccurateTimestampOnOnline = false
+																										var AccurateTimestampOnChange = false
+																										var AccurateTimestampOnOffline = false
+																										var AutomaticChannel = "56f22bdc94800e65:Default"
+																										var NetPropertyInfos = Array
+																										{
+																										}
+																									}
+																									Hierarchy 
+																									{
+																										Cog [Id:0x591b10805244ca78]
+																										{
+																											NetObject [LocallyAdded]
+																											{
+																												var DetectOutgoingChanges = true
+																												var AcceptIncomingChanges = true
+																												var AllowNapping = true
+																												var AccurateTimestampOnOnline = false
+																												var AccurateTimestampOnChange = false
+																												var AccurateTimestampOnOffline = false
+																												var AutomaticChannel = "56f22bdc94800e65:Default"
+																												var NetPropertyInfos = Array
+																												{
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																				Cog [Id:0x591b10805244ca79]
+																				{
+																					NetObject [LocallyAdded]
+																					{
+																						var DetectOutgoingChanges = true
+																						var AcceptIncomingChanges = true
+																						var AllowNapping = true
+																						var AccurateTimestampOnOnline = false
+																						var AccurateTimestampOnChange = false
+																						var AccurateTimestampOnOffline = false
+																						var AutomaticChannel = "56f22bdc94800e65:Default"
+																						var NetPropertyInfos = Array
+																						{
+																						}
+																					}
+																					Hierarchy 
+																					{
+																						Cog [Id:0x591b10805244ca7b]
+																						{
+																							NetObject [LocallyAdded]
+																							{
+																								var DetectOutgoingChanges = true
+																								var AcceptIncomingChanges = true
+																								var AllowNapping = true
+																								var AccurateTimestampOnOnline = false
+																								var AccurateTimestampOnChange = false
+																								var AccurateTimestampOnOffline = false
+																								var AutomaticChannel = "56f22bdc94800e65:Default"
+																								var NetPropertyInfos = Array
+																								{
+																								}
+																							}
+																							Hierarchy 
+																							{
+																								Cog [Id:0x591b10805244ca7c]
+																								{
+																									NetObject [LocallyAdded]
+																									{
+																										var DetectOutgoingChanges = true
+																										var AcceptIncomingChanges = true
+																										var AllowNapping = true
+																										var AccurateTimestampOnOnline = false
+																										var AccurateTimestampOnChange = false
+																										var AccurateTimestampOnOffline = false
+																										var AutomaticChannel = "56f22bdc94800e65:Default"
+																										var NetPropertyInfos = Array
+																										{
+																										}
+																									}
+																									Hierarchy 
+																									{
+																										Cog [Id:0x591b10805244ca7d]
+																										{
+																											NetObject [LocallyAdded]
+																											{
+																												var DetectOutgoingChanges = true
+																												var AcceptIncomingChanges = true
+																												var AllowNapping = true
+																												var AccurateTimestampOnOnline = false
+																												var AccurateTimestampOnChange = false
+																												var AccurateTimestampOnOffline = false
+																												var AutomaticChannel = "56f22bdc94800e65:Default"
+																												var NetPropertyInfos = Array
+																												{
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																				Cog [Id:0x59e546752fe8df19][LocallyAdded]
+																				{
+																					var Name = "HeldItemParent"
 																					Transform 
 																					{
-																						var Translation = Real3{0.0642082691, -0.0259609222, 0.0616958141}
-																						var Rotation = Quaternion{-0.703266382, 0.0735967308, -0.0735967308, 0.703266382}
+																						var Translation = Real3{0.0642082989, -0.0259608999, 0.0616957992}
 																						var Scale = Real3{1, 1, 1}
+																						var Rotation = Quaternion{-0.703297436, 0.0732990652, -0.0732990652, 0.703297436}
+																					}
+																					NetObject 
+																					{
+																						var DetectOutgoingChanges = true
+																						var AcceptIncomingChanges = true
+																						var AllowNapping = true
+																						var AccurateTimestampOnOnline = false
+																						var AccurateTimestampOnChange = false
+																						var AccurateTimestampOnOffline = false
+																						var AutomaticChannel = "56f22bdc94800e65:Default"
+																						var NetPropertyInfos = Array
+																						{
+																						}
 																					}
 																				}
 																			}
@@ -243,6 +1281,222 @@ Cog
 									}
 								}
 							}
+						}
+						Cog [Id:0x591b10805244ca7e]
+						{
+							NetObject [LocallyAdded]
+							{
+								var DetectOutgoingChanges = true
+								var AcceptIncomingChanges = true
+								var AllowNapping = true
+								var AccurateTimestampOnOnline = false
+								var AccurateTimestampOnChange = false
+								var AccurateTimestampOnOffline = false
+								var AutomaticChannel = "56f22bdc94800e65:Default"
+								var NetPropertyInfos = Array
+								{
+								}
+							}
+							Hierarchy 
+							{
+								Cog [Id:0x591b10805244ca7f]
+								{
+									NetObject [LocallyAdded]
+									{
+										var DetectOutgoingChanges = true
+										var AcceptIncomingChanges = true
+										var AllowNapping = true
+										var AccurateTimestampOnOnline = false
+										var AccurateTimestampOnChange = false
+										var AccurateTimestampOnOffline = false
+										var AutomaticChannel = "56f22bdc94800e65:Default"
+										var NetPropertyInfos = Array
+										{
+										}
+									}
+									Hierarchy 
+									{
+										Cog [Id:0x591b10805244ca81]
+										{
+											NetObject [LocallyAdded]
+											{
+												var DetectOutgoingChanges = true
+												var AcceptIncomingChanges = true
+												var AllowNapping = true
+												var AccurateTimestampOnOnline = false
+												var AccurateTimestampOnChange = false
+												var AccurateTimestampOnOffline = false
+												var AutomaticChannel = "56f22bdc94800e65:Default"
+												var NetPropertyInfos = Array
+												{
+												}
+											}
+											Hierarchy 
+											{
+												Cog [Id:0x591b10805244ca82]
+												{
+													NetObject [LocallyAdded]
+													{
+														var DetectOutgoingChanges = true
+														var AcceptIncomingChanges = true
+														var AllowNapping = true
+														var AccurateTimestampOnOnline = false
+														var AccurateTimestampOnChange = false
+														var AccurateTimestampOnOffline = false
+														var AutomaticChannel = "56f22bdc94800e65:Default"
+														var NetPropertyInfos = Array
+														{
+														}
+													}
+													Hierarchy 
+													{
+														Cog [Id:0x591b10805244ca83]
+														{
+															NetObject [LocallyAdded]
+															{
+																var DetectOutgoingChanges = true
+																var AcceptIncomingChanges = true
+																var AllowNapping = true
+																var AccurateTimestampOnOnline = false
+																var AccurateTimestampOnChange = false
+																var AccurateTimestampOnOffline = false
+																var AutomaticChannel = "56f22bdc94800e65:Default"
+																var NetPropertyInfos = Array
+																{
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						Cog [Id:0x591b10805244ca84]
+						{
+							NetObject [LocallyAdded]
+							{
+								var DetectOutgoingChanges = true
+								var AcceptIncomingChanges = true
+								var AllowNapping = true
+								var AccurateTimestampOnOnline = false
+								var AccurateTimestampOnChange = false
+								var AccurateTimestampOnOffline = false
+								var AutomaticChannel = "56f22bdc94800e65:Default"
+								var NetPropertyInfos = Array
+								{
+								}
+							}
+							Hierarchy 
+							{
+								Cog [Id:0x591b10805244ca86]
+								{
+									NetObject [LocallyAdded]
+									{
+										var DetectOutgoingChanges = true
+										var AcceptIncomingChanges = true
+										var AllowNapping = true
+										var AccurateTimestampOnOnline = false
+										var AccurateTimestampOnChange = false
+										var AccurateTimestampOnOffline = false
+										var AutomaticChannel = "56f22bdc94800e65:Default"
+										var NetPropertyInfos = Array
+										{
+										}
+									}
+									Hierarchy 
+									{
+										Cog [Id:0x591b10805244ca87]
+										{
+											NetObject [LocallyAdded]
+											{
+												var DetectOutgoingChanges = true
+												var AcceptIncomingChanges = true
+												var AllowNapping = true
+												var AccurateTimestampOnOnline = false
+												var AccurateTimestampOnChange = false
+												var AccurateTimestampOnOffline = false
+												var AutomaticChannel = "56f22bdc94800e65:Default"
+												var NetPropertyInfos = Array
+												{
+												}
+											}
+											Hierarchy 
+											{
+												Cog [Id:0x591b10805244ca88]
+												{
+													NetObject [LocallyAdded]
+													{
+														var DetectOutgoingChanges = true
+														var AcceptIncomingChanges = true
+														var AllowNapping = true
+														var AccurateTimestampOnOnline = false
+														var AccurateTimestampOnChange = false
+														var AccurateTimestampOnOffline = false
+														var AutomaticChannel = "56f22bdc94800e65:Default"
+														var NetPropertyInfos = Array
+														{
+														}
+													}
+													Hierarchy 
+													{
+														Cog [Id:0x591b10805244ca89]
+														{
+															NetObject [LocallyAdded]
+															{
+																var DetectOutgoingChanges = true
+																var AcceptIncomingChanges = true
+																var AllowNapping = true
+																var AccurateTimestampOnOnline = false
+																var AccurateTimestampOnChange = false
+																var AccurateTimestampOnOffline = false
+																var AutomaticChannel = "56f22bdc94800e65:Default"
+																var NetPropertyInfos = Array
+																{
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				Cog [Id:0x591b10805244ca8a]
+				{
+					NetObject [LocallyAdded]
+					{
+						var DetectOutgoingChanges = true
+						var AcceptIncomingChanges = true
+						var AllowNapping = true
+						var AccurateTimestampOnOnline = false
+						var AccurateTimestampOnChange = false
+						var AccurateTimestampOnOffline = false
+						var AutomaticChannel = "56f22bdc94800e65:Default"
+						var NetPropertyInfos = Array
+						{
+						}
+					}
+				}
+				Cog [Id:0x591b10805244ca8c]
+				{
+					NetObject [LocallyAdded]
+					{
+						var DetectOutgoingChanges = true
+						var AcceptIncomingChanges = true
+						var AllowNapping = true
+						var AccurateTimestampOnOnline = false
+						var AccurateTimestampOnChange = false
+						var AccurateTimestampOnOffline = false
+						var AutomaticChannel = "56f22bdc94800e65:Default"
+						var NetPropertyInfos = Array
+						{
 						}
 					}
 				}

@@ -1,6 +1,12 @@
 [Version:1]
 AudioContent 
 {
+	ContentTags 
+	{
+		var Tags = Array
+		{
+		}
+	}
 	SoundBuilder 
 	{
 		var Name = "Gunshot"
