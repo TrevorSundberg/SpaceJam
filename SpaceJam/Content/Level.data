@@ -46,7 +46,7 @@ Level
 		{
 			var GeometryDebug = GeometryValue.None
 			var EditorDebugDraw = true
-			var GameDebugDraw = true
+			var GameDebugDraw = false
 			var RenderDiffuse = true
 			var RenderSpecular = true
 			var RenderSkybox = true
