@@ -4,7 +4,7 @@ Cog
 	var Name = "MuzzleFlare"
 	Transform 
 	{
-		var Translation = Real3{0.244953394, 2.11820292, 0.000678062439}
+		var Translation = Real3{0.99271661, 2.47814178, 0.0251250267}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -99,6 +99,47 @@ Cog
 				var AnimationActive = true
 				var AnimationSpeed = 1
 				var StartFrame = 0
+			}
+		}
+		Cog [Id:0x5918bfa9e94f1e3f]
+		{
+			var Name = "PointLight"
+			Transform 
+			{
+				var Translation = Real3{0, 0, 0}
+				var Scale = Real3{12, 12, 12}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			SelectionIcon 
+			{
+				var Visible = true
+				var VisibilityEvents = true
+				var Material = "56581e2bb81777be:DebugDrawOnTop"
+				var SpriteSource = "58f8e4be736f5ea2:LightIcon"
+				var ViewScale = 1
+				var OverrideSelections = true
+			}
+			Model 
+			{
+				var Visible = true
+				var ViewCulling = true
+				var VisibilityEvents = true
+				var OverrideBoundingBox = false
+				var LocalAabbCenter = Real3{0, 0, 0}
+				var LocalAabbHalfExtents = Real3{1, 1, 1}
+				var GroupSortValue = 0
+				var Material = "580644d674646690:PointLight"
+				var Mesh = "4de0354322b376ae:Sphere"
+			}
+			PointLight 
+			{
+				var LightColor = Real4{1, 0.868399978, 0.529999971, 1}
+				var LightIntensity = 15
+				var FalloffRadius = 6
+				var LightRadius = 0
+			}
+			Hierarchy 
+			{
 			}
 		}
 	}

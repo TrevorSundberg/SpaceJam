@@ -4,7 +4,7 @@ Cog
 	var Name = "Box"
 	Transform 
 	{
-		var Translation = Real3{8, 3.20000005, 6.0999999}
+		var Translation = Real3{18.3500004, 2.6500001, 5.70000029}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -32,5 +32,32 @@ Cog
 	UvScaler 
 	{
 		var UvScale = Real2{0.25, 0.25}
+	}
+	NetObject 
+	{
+		var DetectOutgoingChanges = true
+		var AcceptIncomingChanges = true
+		var AllowNapping = true
+		var AccurateTimestampOnOnline = false
+		var AccurateTimestampOnChange = false
+		var AccurateTimestampOnOffline = false
+		var AutomaticChannel = "56f22bdc94800e65:Default"
+		var NetPropertyInfos = Array
+		{
+			Object
+			{
+				var ComponentName = "Transform"
+				var PropertyName = "Translation"
+				var NetChannelConfig = "56f22bdc957a8572:Transform"
+				var NetPropertyConfig = "74f23adc1a810b95:Default"
+			}
+			Object
+			{
+				var ComponentName = "Transform"
+				var PropertyName = "Rotation"
+				var NetChannelConfig = "56f22bdc957a8572:Transform"
+				var NetPropertyConfig = "74f23adc1a810b95:Default"
+			}
+		}
 	}
 }

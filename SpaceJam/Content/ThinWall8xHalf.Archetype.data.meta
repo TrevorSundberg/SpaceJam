@@ -3,16 +3,10 @@ DataContent
 {
 	DataBuilder 
 	{
-		var Name = "MuzzleFlare"
-		var ResourceId = 0x591b290ce682ee58
+		var Name = "ThinWall8xHalf"
+		var ResourceId = 0x592464696dc83375
 		var LoaderType = "Cog"
 		var Version = 0
 		var ShowInEditor = true
-	}
-	ContentTags 
-	{
-		var Tags = Array
-		{
-		}
 	}
 }
