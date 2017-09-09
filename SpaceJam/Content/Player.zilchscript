@@ -245,7 +245,8 @@ class Player : ZilchComponent
       if (this.HeldItem != null)
       {
         this.HeldItem.PrimaryActive = true;
-        this.HeldItem.ActivatePrimary(this.Owner);
+        this.HeldItem.PlayerCog = this.Owner;
+        this.HeldItem.ActivatePrimary();
       }
     }
     else if (!this.InputActivatePrimary && this.LastInputActivatePrimary)
@@ -253,7 +254,11 @@ class Player : ZilchComponent
       if (this.HeldItem != null)
       {
         this.HeldItem.PrimaryActive = false;
-        this.HeldItem.DeactivatePrimary(this.Owner);
+        
+        if (!this.HeldItem.SecondaryActive)
+          this.HeldItem.PlayerCog = null;
+        
+        this.HeldItem.DeactivatePrimary();
       }
     }
     this.LastInputActivatePrimary = this.InputActivatePrimary;
@@ -264,7 +269,8 @@ class Player : ZilchComponent
       if (this.HeldItem != null)
       {
         this.HeldItem.SecondaryActive = true;
-        this.HeldItem.ActivateSecondary(this.Owner);
+        this.HeldItem.PlayerCog = this.Owner;
+        this.HeldItem.ActivateSecondary();
       }
     }
     else if (!this.InputActivateSecondary && this.LastInputActivateSecondary)
@@ -272,7 +278,11 @@ class Player : ZilchComponent
       if (this.HeldItem != null)
       {
         this.HeldItem.SecondaryActive = false;
-        this.HeldItem.DeactivateSecondary(this.Owner);
+        
+        if (!this.HeldItem.PrimaryActive)
+          this.HeldItem.PlayerCog = null;
+          
+        this.HeldItem.DeactivateSecondary();
       }
     }
     this.LastInputActivateSecondary = this.InputActivateSecondary;

@@ -3,6 +3,7 @@ class HeldItem : ZilchComponent
 {
   var PrimaryActive : Boolean;
   var SecondaryActive : Boolean;
+  var PlayerCog : Cog;
   
   function Initialize(init : CogInitializer)
   {
@@ -10,22 +11,22 @@ class HeldItem : ZilchComponent
   }
 
   [Virtual]
-  function ActivatePrimary(playerCog : Cog)
+  function ActivatePrimary()
   {
   }
 
   [Virtual]
-  function DeactivatePrimary(playerCog : Cog)
+  function DeactivatePrimary()
   {
   }
 
   [Virtual]
-  function ActivateSecondary(playerCog : Cog)
+  function ActivateSecondary()
   {
   }
 
   [Virtual]
-  function DeactivateSecondary(playerCog : Cog)
+  function DeactivateSecondary()
   {
   }
   
