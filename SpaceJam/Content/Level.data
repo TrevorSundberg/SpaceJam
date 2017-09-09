@@ -178,9 +178,9 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{3.61182475, 3.21886349, -7.54104519}
+			var Translation = Real3{41.7212448, 30.6999168, -20.4582462}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{-0.010362396, 0.952108085, 0.303856045, 0.0324695855}
+			var Rotation = Quaternion{-0.171628967, 0.798861802, 0.268846542, 0.509985268}
 		}
 		CameraViewport 
 		{
@@ -237,10 +237,10 @@ Level
 		{
 			var ControlMode = ControlMode.Orbit
 			var Previous3DMode = ControlMode.Orbit
-			var LookDistance = 4.25058079
-			var VerticalAngle = 0.617845774
-			var HorizontalAngle = 34.6256981
-			var LookTarget = Real3{3.37578368, 0.756584764, -4.08432627}
+			var LookDistance = 46.4769669
+			var VerticalAngle = 0.649262011
+			var HorizontalAngle = 35.6938591
+			var LookTarget = Real3{8.14015961, 2.60000014, -4.87575531}
 			var MoveSensitivity = 1
 		}
 	}
@@ -347,37 +347,7 @@ Level
 			var Scale = Real3{1, 4, 0.200000003}
 		}
 	}
-	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:10]
-	{
-		var Name = "ThinGround4x4"
-		Transform 
-		{
-			var Translation = Real3{-3.85984039, 0.600000024, 1.12424469}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{4, 0.200000003, 4}
-		}
-	}
-	Cog [InheritId:"59278955ba26f34d:ThinGround2x2"][ContextId:11]
-	{
-		var Name = "ThinGround2x2"
-		Transform 
-		{
-			var Translation = Real3{-6.85984039, 0.600000024, 2.12424469}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{2, 0.200000003, 2}
-		}
-	}
-	Cog [InheritId:"59279550ce2110cf:ThinGround1x1"][ContextId:12]
-	{
-		var Name = "ThinGround1x1"
-		Transform 
-		{
-			var Translation = Real3{-8.35984039, 0.600000024, 2.62424469}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 0.200000003, 1}
-		}
-	}
-	Cog [InheritId:"5927805ae88b7326:Box"][ContextId:13]
+	Cog [InheritId:"5927805ae88b7326:Box"][ContextId:10]
 	{
 		var Name = "Box"
 		Transform 
@@ -387,7 +357,7 @@ Level
 			var Scale = Real3{1, 1, 1}
 		}
 	}
-	Cog [InheritId:"592787fbde6fc0e4:Crate"][ContextId:14]
+	Cog [InheritId:"592787fbde6fc0e4:Crate"][ContextId:11]
 	{
 		var Name = "Crate"
 		Transform 
@@ -397,7 +367,7 @@ Level
 			var Scale = Real3{2, 2, 2}
 		}
 	}
-	Cog [InheritId:"5927870dc3b9af1a:ThinWall8x4"][ContextId:15]
+	Cog [InheritId:"5927870dc3b9af1a:ThinWall8x4"][ContextId:12]
 	{
 		var Name = "ThinWall8x4"
 		Transform 
@@ -407,17 +377,42 @@ Level
 			var Scale = Real3{8, 4, 0.200000003}
 		}
 	}
-	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:16]
+	Cog [ContextId:13]
 	{
-		var Name = "ThinGround8x8"
+		var Name = "Ground"
 		Transform 
 		{
 			var Translation = Real3{2.14016008, 0.600000024, -0.87575531}
+			var Scale = Real3{128, 0.200000003, 128}
 			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{8, 0.200000003, 8}
+		}
+		Model 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "592788aca60c54a5:UvScaledZeroMaterial"
+			var Mesh = "4de0354322b345ae:Cube"
+		}
+		BoxCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var HalfSize = Real3{0.5, 0.5, 0.5}
+		}
+		UvScaler 
+		{
+			var UvScale = Real2{32, 32}
 		}
 	}
-	Cog [InheritId:"5927b0cf2daf34ac:Ramp"][ContextId:17]
+	Cog [InheritId:"5927b0cf2daf34ac:Ramp"][ContextId:14]
 	{
 		var Name = "Ramp"
 		Transform 
@@ -427,7 +422,7 @@ Level
 			var Scale = Real3{2, 2, 4}
 		}
 	}
-	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:18]
+	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:15]
 	{
 		var Name = "ThinGround4x4"
 		Transform 
@@ -437,7 +432,7 @@ Level
 			var Scale = Real3{4, 0.200000003, 4}
 		}
 	}
-	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:19]
+	Cog [InheritId:"5927897fbcb9c7a0:ThinGround4x4"][ContextId:16]
 	{
 		var Name = "ThinGround4x4"
 		Transform 
@@ -447,7 +442,7 @@ Level
 			var Scale = Real3{4, 0.200000003, 4}
 		}
 	}
-	Cog [InheritId:"5927b872c66ccfe0:Barrel"][ContextId:20]
+	Cog [InheritId:"5927b872c66ccfe0:Barrel"][ContextId:17]
 	{
 		Transform 
 		{
@@ -456,7 +451,7 @@ Level
 			var Scale = Real3{0.699999988, 1, 0.699999988}
 		}
 	}
-	Cog [ContextId:21]
+	Cog [ContextId:18]
 	{
 		var Name = "Cube"
 		Transform 
@@ -527,7 +522,7 @@ Level
 		{
 		}
 	}
-	Cog [ContextId:22]
+	Cog [ContextId:19]
 	{
 		var Name = "Pistol"
 		Transform 
@@ -588,7 +583,7 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [InheritId:"591880a6341e4825:Glock_17"][ContextId:23]
+			Cog [InheritId:"591880a6341e4825:Glock_17"][ContextId:20]
 			{
 				Transform 
 				{
@@ -599,7 +594,7 @@ Level
 			}
 		}
 	}
-	Cog [ContextId:24]
+	Cog [ContextId:21]
 	{
 		var Name = "AutoPistol"
 		Transform 
@@ -660,13 +655,761 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [InheritId:"591880a6341e4825:Glock_17"][ContextId:25]
+			Cog [InheritId:"591880a6341e4825:Glock_17"][ContextId:22]
 			{
 				Transform 
 				{
 					var Translation = Real3{-0.105778456, -0.0737591982, 0}
 					var Rotation = Quaternion{0, 0, 0, 1}
 					var Scale = Real3{1, 1, 1}
+				}
+			}
+		}
+	}
+	Cog [ContextId:23]
+	{
+		var Name = "Sphere"
+		Transform 
+		{
+			var Translation = Real3{3.37578368, 1.47793067, -16.0121136}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Model 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "583afb5e7bf75e18:ZeroMaterial"
+			var Mesh = "4de0354322b376ae:Sphere"
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		SphereCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var Radius = 0.5
+		}
+		NetObject 
+		{
+			var DetectOutgoingChanges = true
+			var AcceptIncomingChanges = true
+			var AllowNapping = true
+			var AccurateTimestampOnOnline = false
+			var AccurateTimestampOnChange = false
+			var AccurateTimestampOnOffline = false
+			var AutomaticChannel = "56f22bdc94800e65:Default"
+			var NetPropertyInfos = Array
+			{
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Translation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
+				}
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Rotation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
+				}
+			}
+		}
+	}
+	Cog [ContextId:24]
+	{
+		var Name = "Sphere"
+		Transform 
+		{
+			var Translation = Real3{-19.8683529, 1.47793067, -16.0121136}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Model 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "583afb5e7bf75e18:ZeroMaterial"
+			var Mesh = "4de0354322b376ae:Sphere"
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		SphereCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var Radius = 0.5
+		}
+		NetObject 
+		{
+			var DetectOutgoingChanges = true
+			var AcceptIncomingChanges = true
+			var AllowNapping = true
+			var AccurateTimestampOnOnline = false
+			var AccurateTimestampOnChange = false
+			var AccurateTimestampOnOffline = false
+			var AutomaticChannel = "56f22bdc94800e65:Default"
+			var NetPropertyInfos = Array
+			{
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Translation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
+				}
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Rotation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
+				}
+			}
+		}
+	}
+	Cog [ContextId:25]
+	{
+		var Name = "Sphere"
+		Transform 
+		{
+			var Translation = Real3{-19.8683529, 1.47793067, 21.0314922}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Model 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "583afb5e7bf75e18:ZeroMaterial"
+			var Mesh = "4de0354322b376ae:Sphere"
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		SphereCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var Radius = 0.5
+		}
+		NetObject 
+		{
+			var DetectOutgoingChanges = true
+			var AcceptIncomingChanges = true
+			var AllowNapping = true
+			var AccurateTimestampOnOnline = false
+			var AccurateTimestampOnChange = false
+			var AccurateTimestampOnOffline = false
+			var AutomaticChannel = "56f22bdc94800e65:Default"
+			var NetPropertyInfos = Array
+			{
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Translation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
+				}
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Rotation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
+				}
+			}
+		}
+	}
+	Cog [ContextId:26]
+	{
+		var Name = "Sphere"
+		Transform 
+		{
+			var Translation = Real3{18.832674, 1.47793067, 21.0314922}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Model 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "583afb5e7bf75e18:ZeroMaterial"
+			var Mesh = "4de0354322b376ae:Sphere"
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		SphereCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var Radius = 0.5
+		}
+		NetObject 
+		{
+			var DetectOutgoingChanges = true
+			var AcceptIncomingChanges = true
+			var AllowNapping = true
+			var AccurateTimestampOnOnline = false
+			var AccurateTimestampOnChange = false
+			var AccurateTimestampOnOffline = false
+			var AutomaticChannel = "56f22bdc94800e65:Default"
+			var NetPropertyInfos = Array
+			{
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Translation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
+				}
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Rotation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
+				}
+			}
+		}
+	}
+	Cog [ContextId:27]
+	{
+		var Name = "Sphere"
+		Transform 
+		{
+			var Translation = Real3{18.832674, 1.47793067, -31.7646313}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Model 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "583afb5e7bf75e18:ZeroMaterial"
+			var Mesh = "4de0354322b376ae:Sphere"
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		SphereCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var Radius = 0.5
+		}
+		NetObject 
+		{
+			var DetectOutgoingChanges = true
+			var AcceptIncomingChanges = true
+			var AllowNapping = true
+			var AccurateTimestampOnOnline = false
+			var AccurateTimestampOnChange = false
+			var AccurateTimestampOnOffline = false
+			var AutomaticChannel = "56f22bdc94800e65:Default"
+			var NetPropertyInfos = Array
+			{
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Translation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
+				}
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Rotation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
+				}
+			}
+		}
+	}
+	Cog [ContextId:28]
+	{
+		var Name = "Sphere"
+		Transform 
+		{
+			var Translation = Real3{36.4436035, 1.47792685, 1.91633797}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Model 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "583afb5e7bf75e18:ZeroMaterial"
+			var Mesh = "4de0354322b376ae:Sphere"
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		SphereCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var Radius = 0.5
+		}
+		NetObject 
+		{
+			var DetectOutgoingChanges = true
+			var AcceptIncomingChanges = true
+			var AllowNapping = true
+			var AccurateTimestampOnOnline = false
+			var AccurateTimestampOnChange = false
+			var AccurateTimestampOnOffline = false
+			var AutomaticChannel = "56f22bdc94800e65:Default"
+			var NetPropertyInfos = Array
+			{
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Translation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
+				}
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Rotation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
+				}
+			}
+		}
+	}
+	Cog [ContextId:29]
+	{
+		var Name = "Sphere"
+		Transform 
+		{
+			var Translation = Real3{46.0394173, 1.47792685, 34.4535217}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Model 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "583afb5e7bf75e18:ZeroMaterial"
+			var Mesh = "4de0354322b376ae:Sphere"
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		SphereCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var Radius = 0.5
+		}
+		NetObject 
+		{
+			var DetectOutgoingChanges = true
+			var AcceptIncomingChanges = true
+			var AllowNapping = true
+			var AccurateTimestampOnOnline = false
+			var AccurateTimestampOnChange = false
+			var AccurateTimestampOnOffline = false
+			var AutomaticChannel = "56f22bdc94800e65:Default"
+			var NetPropertyInfos = Array
+			{
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Translation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
+				}
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Rotation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
+				}
+			}
+		}
+	}
+	Cog [ContextId:30]
+	{
+		var Name = "Sphere"
+		Transform 
+		{
+			var Translation = Real3{-31.1591606, 1.47792685, 1.61569595}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Model 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "583afb5e7bf75e18:ZeroMaterial"
+			var Mesh = "4de0354322b376ae:Sphere"
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		SphereCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var Radius = 0.5
+		}
+		NetObject 
+		{
+			var DetectOutgoingChanges = true
+			var AcceptIncomingChanges = true
+			var AllowNapping = true
+			var AccurateTimestampOnOnline = false
+			var AccurateTimestampOnChange = false
+			var AccurateTimestampOnOffline = false
+			var AutomaticChannel = "56f22bdc94800e65:Default"
+			var NetPropertyInfos = Array
+			{
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Translation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
+				}
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Rotation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
+				}
+			}
+		}
+	}
+	Cog [ContextId:31]
+	{
+		var Name = "Sphere"
+		Transform 
+		{
+			var Translation = Real3{-31.8116035, 1.47792685, -36.1586151}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Model 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "583afb5e7bf75e18:ZeroMaterial"
+			var Mesh = "4de0354322b376ae:Sphere"
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		SphereCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var Radius = 0.5
+		}
+		NetObject 
+		{
+			var DetectOutgoingChanges = true
+			var AcceptIncomingChanges = true
+			var AllowNapping = true
+			var AccurateTimestampOnOnline = false
+			var AccurateTimestampOnChange = false
+			var AccurateTimestampOnOffline = false
+			var AutomaticChannel = "56f22bdc94800e65:Default"
+			var NetPropertyInfos = Array
+			{
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Translation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
+				}
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Rotation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
+				}
+			}
+		}
+	}
+	Cog [ContextId:32]
+	{
+		var Name = "Sphere"
+		Transform 
+		{
+			var Translation = Real3{43.1245995, 1.47792685, -22.2420368}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Model 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "583afb5e7bf75e18:ZeroMaterial"
+			var Mesh = "4de0354322b376ae:Sphere"
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		SphereCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var Radius = 0.5
+		}
+		NetObject 
+		{
+			var DetectOutgoingChanges = true
+			var AcceptIncomingChanges = true
+			var AllowNapping = true
+			var AccurateTimestampOnOnline = false
+			var AccurateTimestampOnChange = false
+			var AccurateTimestampOnOffline = false
+			var AutomaticChannel = "56f22bdc94800e65:Default"
+			var NetPropertyInfos = Array
+			{
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Translation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
+				}
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Rotation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
+				}
+			}
+		}
+	}
+	Cog [ContextId:33]
+	{
+		var Name = "Sphere"
+		Transform 
+		{
+			var Translation = Real3{10.3165627, 1.47792304, 42.1679764}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Model 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "583afb5e7bf75e18:ZeroMaterial"
+			var Mesh = "4de0354322b376ae:Sphere"
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		SphereCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var Radius = 0.5
+		}
+		NetObject 
+		{
+			var DetectOutgoingChanges = true
+			var AcceptIncomingChanges = true
+			var AllowNapping = true
+			var AccurateTimestampOnOnline = false
+			var AccurateTimestampOnChange = false
+			var AccurateTimestampOnOffline = false
+			var AutomaticChannel = "56f22bdc94800e65:Default"
+			var NetPropertyInfos = Array
+			{
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Translation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
+				}
+				Object
+				{
+					var ComponentName = "Transform"
+					var PropertyName = "Rotation"
+					var NetChannelConfig = "56f22bdc957a8572:Transform"
+					var NetPropertyConfig = "74f23adc1a810b95:Default"
 				}
 			}
 		}

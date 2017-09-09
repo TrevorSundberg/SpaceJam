@@ -15,6 +15,8 @@ class HeldItemGun : HeldItem
   
   var Counter : Integer;
   
+  var PlayerCog : Cog;
+  
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -25,7 +27,7 @@ class HeldItemGun : HeldItem
     if (this.Automatic && this.PrimaryActive)
     {
       if (this.Counter % 5 == 0)
-        this.ActivatePrimary(null);
+        this.ActivatePrimary(this.PlayerCog);
       ++this.Counter;
     }
   }
@@ -33,6 +35,8 @@ class HeldItemGun : HeldItem
   [Override]
   function ActivatePrimary(playerCog : Cog)
   {
+    this.PlayerCog = playerCog;
+    
     var graph = this.AnimationGraph;
     graph.ActiveNode = graph.CreateBasicNode(this.FireAnimation, AnimationPlayMode.PlayOnce);
     
@@ -47,5 +51,22 @@ class HeldItemGun : HeldItem
     }
     
     this.SoundEmitter.PlayCue(this.FireSound);
+    
+    var cameraCog = playerCog.Player.CameraCog;
+    var ray = Ray();
+    ray.Start = cameraCog.Transform.WorldTranslation;
+    ray.Direction = cameraCog.Orientation.WorldForward;
+    
+    foreach (var result in this.Space.PhysicsSpace.CastRay(ray, 100))
+    {
+      if (result.ObjectHit.RigidBody != null)
+      {
+        result.ObjectHit.RigidBody.ForceAwake();
+        if (this.Automatic)
+          result.ObjectHit.RigidBody.ApplyForceAtPoint(ray.Direction * 5, result.WorldPosition);
+        else
+          result.ObjectHit.RigidBody.ApplyForceAtPoint(ray.Direction * 10, result.WorldPosition);
+      }
+    }
   }
 }
