@@ -1,12 +1,12 @@
 [Version:1]
 Cog 
 {
-	var Name = "Crate"
+	var Name = "ThinRamp2x1"
 	Transform 
 	{
-		var Translation = Real3{18.3000011, 1.10000002, 5.45000029}
-		var Scale = Real3{2, 2, 2}
-		var Rotation = Quaternion{0, 0, 0, 1}
+		var Translation = Real3{15, 4.5999999, -12}
+		var Scale = Real3{0.200000003, 1, 2}
+		var Rotation = Quaternion{0, 0.707106829, 0, 0.707106829}
 	}
 	Model 
 	{
@@ -18,7 +18,7 @@ Cog
 		var LocalAabbHalfExtents = Real3{1, 1, 1}
 		var GroupSortValue = 0
 		var Material = "592788aca60c54a5:UvScaledZeroMaterial"
-		var Mesh = "4de0354322b345ae:Cube"
+		var Mesh = "57b24459d8122a05:Wedge"
 	}
 	BoxCollider 
 	{
@@ -31,6 +31,6 @@ Cog
 	}
 	UvScaler 
 	{
-		var UvScale = Real2{0.5, 0.5}
+		var UvScale = Real2{1, 1}
 	}
 }

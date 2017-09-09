@@ -79,7 +79,7 @@ class CharacterAnimations : ZilchComponent
     }
     this.TimeScale = animation.Duration;
   }
-
+  
   function OnLogicUpdate(event : UpdateEvent)
   {
     var pos = this.Transform.WorldTranslation;
