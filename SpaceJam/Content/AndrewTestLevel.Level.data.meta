@@ -4,7 +4,7 @@ DataContent
 	DataBuilder 
 	{
 		var Name = "AndrewTestLevel"
-		var ResourceId = 0x576f215c0825c3a8
+		var ResourceId = 0x586f215c0825c3a8
 		var LoaderType = "Level"
 		var Version = 0
 		var ShowInEditor = true
