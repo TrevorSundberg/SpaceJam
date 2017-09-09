@@ -9,7 +9,7 @@ TextContent
 	}
 	ZilchScriptBuilder 
 	{
-		var Name = "Player"
-		var ResourceId = 0x594fe16aa603914f
+		var Name = "InteractDestroy"
+		var ResourceId = 0x59e57baef4cced68
 	}
 }

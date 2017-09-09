@@ -1,0 +1,41 @@
+class InteractPickup : Interact
+{
+  [Dependency]
+  var NetObject : NetObject;
+  
+  [Property]
+  var HeldItem : Archetype = Archetype.Pistol;
+  
+  function Initialize(init : CogInitializer)
+  {
+    //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+  
+  [Override]
+  function Interact(playerCog : Cog)
+  {
+    if (!this.NetObject.IsServer)
+      return;
+      
+    // This happens on both client and server
+    var heldItem = this.Space.Create(this.HeldItem);
+    heldItem.AttachToPreserveLocal(playerCog.Player.HeldItemParent);
+    heldItem.Transform.LocalTranslation = Real3.Zero;
+    heldItem.Transform.LocalScale = Real3(1, 1, 1);
+    heldItem.Transform.LocalRotation = Quaternion.Identity;
+    
+    this.Owner.Destroy();
+  }
+  
+  [Override]
+  var Info : String
+  {
+    get { return "Pickup the `this.HeldItem.Name`"; }
+  }
+  
+  [Override]
+  var CanInteract : Boolean
+  {
+    get { return true; }
+  }
+}

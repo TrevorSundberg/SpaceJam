@@ -1,0 +1,28 @@
+class InteractDestroy : Interact
+{
+  [Dependency]
+  var NetObject : NetObject;
+  
+  function Initialize(init : CogInitializer)
+  {
+  }
+
+  [Override]
+  function Interact(playerCog : Cog)
+  {
+    if (this.NetObject.IsServer)
+      this.Owner.Destroy();
+  }
+  
+  [Override]
+  var Info : String
+  {
+    get { return "Destroy the `this.Owner.Name`"; }
+  }
+  
+  [Override]
+  var CanInteract : Boolean
+  {
+    get { return true; }
+  }
+}

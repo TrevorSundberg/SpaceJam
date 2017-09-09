@@ -1,12 +1,12 @@
 [Version:1]
 Cog 
 {
-	var Name = "Crate"
+	var Name = "ThinWall8x2"
 	Transform 
 	{
-		var Translation = Real3{18.3000011, 1.10000002, 5.45000029}
-		var Scale = Real3{2, 2, 2}
-		var Rotation = Quaternion{0, 0, 0, 1}
+		var Translation = Real3{19.8999996, 3.10000014, 0}
+		var Scale = Real3{8, 2, 0.200000003}
+		var Rotation = Quaternion{0, -0.707106829, 0, 0.707106829}
 	}
 	Model 
 	{
@@ -31,6 +31,6 @@ Cog
 	}
 	UvScaler 
 	{
-		var UvScale = Real2{0.5, 0.5}
+		var UvScale = Real2{4, 1}
 	}
 }

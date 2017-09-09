@@ -4,8 +4,8 @@ Cog
 	var Name = "Ramp"
 	Transform 
 	{
-		var Translation = Real3{11, 1.70000005, 6.0999999}
-		var Scale = Real3{2, 2, 4}
+		var Translation = Real3{10, 1.10000002, 2}
+		var Scale = Real3{4, 2, 4}
 		var Rotation = Quaternion{-0, 0.707106829, -0, -0.707106829}
 	}
 	Model 
@@ -22,7 +22,7 @@ Cog
 	}
 	UvScaler 
 	{
-		var UvScale = Real2{0.5, 0.5}
+		var UvScale = Real2{1, 1}
 	}
 	ConvexMeshCollider 
 	{

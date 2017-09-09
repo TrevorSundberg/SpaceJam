@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "Interact"
+		var ResourceId = 0x59e5577f1ff2adf7
+	}
+}

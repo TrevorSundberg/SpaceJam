@@ -3,9 +3,9 @@ DataContent
 {
 	DataBuilder 
 	{
-		var Name = "ThinGround8x8"
-		var ResourceId = 0x592786e739b4f563
-		var LoaderType = "Cog"
+		var Name = "SpaceGlass"
+		var ResourceId = 0x592412fa89a539c8
+		var LoaderType = "Material"
 		var Version = 0
 		var ShowInEditor = true
 	}
@@ -13,8 +13,6 @@ DataContent
 	{
 		var Tags = Array
 		{
-			"Archetype"
-			"Cog"
 		}
 	}
 }

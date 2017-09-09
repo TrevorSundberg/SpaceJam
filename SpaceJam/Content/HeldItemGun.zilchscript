@@ -1,0 +1,51 @@
+class HeldItemGun : HeldItem
+{
+  [Dependency]
+  var AnimationGraph : AnimationGraph;
+  [Dependency]
+  var SoundEmitter : SoundEmitter;
+  
+  [Property]
+  var FireAnimation : Animation = Animation.PistolShoot;
+  [Property]
+  var FireSound : SoundCue = SoundCue.Gunshot;
+  
+  [Property]
+  var Automatic : Boolean;
+  
+  var Counter : Integer;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if (this.Automatic && this.PrimaryActive)
+    {
+      if (this.Counter % 5 == 0)
+        this.ActivatePrimary(null);
+      ++this.Counter;
+    }
+  }
+
+  [Override]
+  function ActivatePrimary(playerCog : Cog)
+  {
+    var graph = this.AnimationGraph;
+    graph.ActiveNode = graph.CreateBasicNode(this.FireAnimation, AnimationPlayMode.PlayOnce);
+    
+    var flarePoint = this.Owner.FindChildByName("FlarePoint");
+    if (flarePoint != null)
+    {
+      var flare = this.Space.Create(Archetype.MuzzleFlare);
+      flare.AttachTo(flarePoint);
+      flare.Transform.LocalScale = Real3(1, 1, 1);
+      flare.Transform.LocalTranslation = Real3.Zero;
+      flare.Transform.LocalRotation = Quaternion.Identity;
+    }
+    
+    this.SoundEmitter.PlayCue(this.FireSound);
+  }
+}

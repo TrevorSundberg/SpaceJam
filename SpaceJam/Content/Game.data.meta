@@ -1,6 +1,18 @@
 [Version:1]
 DataContent 
 {
+	ContentTags 
+	{
+		var Tags = Array
+		{
+		}
+	}
+	ContentTags 
+	{
+		var Tags = Array
+		{
+		}
+	}
 	DataBuilder 
 	{
 		var Name = "Game"
@@ -8,17 +20,5 @@ DataContent
 		var LoaderType = "GameSession"
 		var Version = 0
 		var ShowInEditor = true
-	}
-	ContentTags 
-	{
-		var Tags = Array
-		{
-		}
-	}
-	ContentTags 
-	{
-		var Tags = Array
-		{
-		}
 	}
 }

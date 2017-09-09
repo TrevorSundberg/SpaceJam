@@ -3,9 +3,9 @@ DataContent
 {
 	DataBuilder 
 	{
-		var Name = "ThinGround8x8"
-		var ResourceId = 0x592786e739b4f563
-		var LoaderType = "Cog"
+		var Name = "AndrewTestLevel"
+		var ResourceId = 0x586f215c0825c3a8
+		var LoaderType = "Level"
 		var Version = 0
 		var ShowInEditor = true
 	}
@@ -13,8 +13,6 @@ DataContent
 	{
 		var Tags = Array
 		{
-			"Archetype"
-			"Cog"
 		}
 	}
 }

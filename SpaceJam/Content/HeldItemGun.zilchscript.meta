@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "HeldItemGun"
+		var ResourceId = 0x59e56e7409764f04
+	}
+}

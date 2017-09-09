@@ -1,0 +1,14 @@
+[Version:1]
+Cog [InheritId:"5918b7167f652b76:Pistol"]
+{
+	Transform 
+	{
+		var Translation = Real3{0, 0, 0}
+		var Rotation = Quaternion{0, 0, 0, 1}
+		var Scale = Real3{1, 1, 1}
+	}
+	HeldItemGun 
+	{
+		var Automatic = true
+	}
+}

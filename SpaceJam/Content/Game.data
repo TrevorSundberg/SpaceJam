@@ -30,7 +30,7 @@ GameSession
 	}
 	GameLogger 
 	{
-		var Active = true
+		var Active = false
 	}
 	GameSetup 
 	{

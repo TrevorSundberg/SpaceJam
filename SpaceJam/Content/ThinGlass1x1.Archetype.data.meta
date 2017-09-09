@@ -3,8 +3,8 @@ DataContent
 {
 	DataBuilder 
 	{
-		var Name = "ThinGround8x8"
-		var ResourceId = 0x592786e739b4f563
+		var Name = "ThinGlass1x1"
+		var ResourceId = 0x592409df34048a95
 		var LoaderType = "Cog"
 		var Version = 0
 		var ShowInEditor = true
