@@ -13,7 +13,7 @@ class GameSetup : ZilchComponent
   // Lobby Space Archetype to be created by clients during OnGameSetup.
   // The server does not need a lobby so it does not create one.
   [Property]
-  var Client_LobbySpaceArchetype : Archetype = Archetype.LobbySpace;
+  var Client_LobbySpaceArchetype : Archetype = Archetype.NonNetworkedSpace;
   
   // Lobby Space set by clients during OnGameSetup.
   var Client_LobbySpace : Space;

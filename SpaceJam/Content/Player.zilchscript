@@ -40,6 +40,8 @@ class Player : ZilchComponent
   
   var LastInputShoot : Boolean;
   
+  var MyClient_Hud : Space;
+  
   [NetProperty(netChannelConfig : "ClientAuthority")]
   var InputAngle : Real2
   {
@@ -71,6 +73,9 @@ class Player : ZilchComponent
     {
       if (this.NetUser.IsMine)
       {
+        this.MyClient_Hud = this.GameSession.CreateSpace(Archetype.NonNetworkedSpace);
+        this.MyClient_Hud.LoadLevel(Level.Hud);
+        
         Zero.Mouse.Trapped = true;
         Zero.Connect(Zero.Keyboard, Events.KeyDown, this.MyClient_OnKeyDown);
         Zero.Connect(Zero.Keyboard, Events.KeyUp, this.MyClient_OnKeyUp);

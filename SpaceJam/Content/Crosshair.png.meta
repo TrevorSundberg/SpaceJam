@@ -1,0 +1,21 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "Crosshair"
+		var ResourceId = 0x5906059d379ce843
+		var AtlasId = 0x5274cf95e4a661fd
+		var FrameSizeX = 0
+		var FrameSizeY = 0
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 32
+		var OriginY = 32
+		var PixelsPerUnit = 64
+		var Sampling = SpriteSampling.Linear
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}
