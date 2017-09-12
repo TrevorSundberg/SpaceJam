@@ -1,0 +1,12 @@
+[Version:1]
+Material 
+{
+	var RenderGroups = Array
+	{
+		"565802cf02d081da:DebugDrawOnTop"
+	}
+	ColorValue 
+	{
+		var Color = Real4{1, 0.389999986, 0, 0.5}
+	}
+}

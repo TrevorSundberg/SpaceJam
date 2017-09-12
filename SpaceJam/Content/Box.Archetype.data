@@ -4,7 +4,7 @@ Cog
 	var Name = "Box"
 	Transform 
 	{
-		var Translation = Real3{18.3500004, 2.6500001, 5.70000029}
+		var Translation = Real3{2.45000005, 0.5, 1.45000005}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -17,8 +17,18 @@ Cog
 		var LocalAabbCenter = Real3{0, 0, 0}
 		var LocalAabbHalfExtents = Real3{1, 1, 1}
 		var GroupSortValue = 0
-		var Material = "592788aca60c54a5:UvScaledZeroMaterial"
+		var Material = "5828b036bd65b5d8:OpaqueFlat"
 		var Mesh = "4de0354322b345ae:Cube"
+	}
+	RigidBody 
+	{
+		var Velocity = Real3{0, 0, 0}
+		var AngularVelocity = Real3{0, 0, 0}
+		var DynamicState = RigidBodyDynamicState.Dynamic
+		var AllowSleep = true
+		var Asleep = false
+		var RotationLocked = false
+		var Mode2D = Mode2DStates.InheritFromSpace
 	}
 	BoxCollider 
 	{

@@ -188,9 +188,9 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{-42.5260544, 13.1656017, -0.213856697}
+			var Translation = Real3{7.43857574, 5.36822701, 7.15260267}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{-0.031201791, -0.666334629, -0.0279268604, 0.744476199}
+			var Rotation = Quaternion{0.00250968593, -0.286203146, 0.000749644008, 0.958165467}
 		}
 		CameraViewport 
 		{
@@ -247,10 +247,10 @@ Level
 		{
 			var ControlMode = ControlMode.Orbit
 			var Previous3DMode = ControlMode.Orbit
-			var LookDistance = 63.3019905
-			var VerticalAngle = 0.0837732702
-			var HorizontalAngle = 158.539764
-			var LookTarget = Real3{20.1680698, 7.86878777, -7.18033934}
+			var LookDistance = 15.610096
+			var VerticalAngle = -0.00523851439
+			var HorizontalAngle = 157.660156
+			var LookTarget = Real3{16, 5.45000029, -5.9000001}
 			var MoveSensitivity = 1
 		}
 	}
@@ -1228,20 +1228,6 @@ Level
 		var Name = "ThinGround8x8"
 		Transform 
 		{
-			var Translation = Real3{12, 12.3000002, -27.3000011}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{16, 16, 16}
-		}
-		Model 
-		{
-			var Material = "592412fa89a539c8:SpaceGlass"
-		}
-	}
-	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:93]
-	{
-		var Name = "ThinGround8x8"
-		Transform 
-		{
 			var Translation = Real3{18, 5.45000029, -5.9000001}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{2, 2, 2}
@@ -1251,55 +1237,13 @@ Level
 			var Material = "592412fa89a539c8:SpaceGlass"
 		}
 	}
-	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:94]
-	{
-		var Name = "ThinGround8x8"
-		Transform 
-		{
-			var Translation = Real3{16.9500008, 6.3499999, -9}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{4, 4, 4}
-		}
-		Model 
-		{
-			var Material = "592412fa89a539c8:SpaceGlass"
-		}
-	}
-	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:95]
-	{
-		var Name = "ThinGround8x8"
-		Transform 
-		{
-			var Translation = Real3{17.25, 8.19999981, -15.0500002}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{8, 8, 8}
-		}
-		Model 
-		{
-			var Material = "592412fa89a539c8:SpaceGlass"
-		}
-	}
-	Cog [InheritId:"59030741d5756486:Player"][ContextId:96]
+	Cog [InheritId:"59030741d5756486:Player"][ContextId:93]
 	{
 		Transform 
 		{
 			var Translation = Real3{17.8999996, 5.3499999, -4.5}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [InheritId:"592786e739b4f563:ThinGround8x8"][ContextId:97]
-	{
-		var Name = "ThinGround8x8"
-		Transform 
-		{
-			var Translation = Real3{16, 5.45000029, -5.9000001}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{2, 2, 2}
-		}
-		Model 
-		{
-			var Material = "592412fa89a539c8:SpaceGlass"
 		}
 	}
 }

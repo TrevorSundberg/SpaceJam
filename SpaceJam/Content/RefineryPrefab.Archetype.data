@@ -1,0 +1,2941 @@
+[Version:1]
+Cog 
+{
+	var Name = "RefineryPrefab"
+	Transform 
+	{
+		var Translation = Real3{0, 0, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Hierarchy 
+	{
+		Cog [Id:0x593df8431b75021f]
+		{
+			var Name = "Geometry"
+			Transform 
+			{
+				var Translation = Real3{0, 0, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Hierarchy 
+			{
+				Cog [Id:0x593df8431b750221][InheritId:"5927805ae88b7326:Box"]
+				{
+					var Name = "Box"
+					Transform 
+					{
+						var Translation = Real3{2.45000005, 0.5, 1.45000005}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{1, 1, 1}
+					}
+				}
+				Cog [Id:0x593df8431b750222][InheritId:"5927805ae88b7326:Box"]
+				{
+					var Name = "Box"
+					Transform 
+					{
+						var Translation = Real3{-11.1999998, -1.5, 19.0500011}
+						var Rotation = Quaternion{0, -0.0498323441, 0, 0.998757601}
+						var Scale = Real3{1, 1, 1}
+					}
+				}
+				Cog [Id:0x593df8431b750223][InheritId:"5927805ae88b7326:Box"]
+				{
+					var Name = "Box"
+					Transform 
+					{
+						var Translation = Real3{-11.3000002, -1.5, 17.75}
+						var Rotation = Quaternion{0, 0.065118365, 0, 0.997877538}
+						var Scale = Real3{1, 1, 1}
+					}
+				}
+				Cog [Id:0x593df8431b750225][InheritId:"5927805ae88b7326:Box"]
+				{
+					var Name = "Box"
+					Transform 
+					{
+						var Translation = Real3{-9.85000038, -1.5, 18.9500008}
+						var Rotation = Quaternion{0, 0.0187763236, 0, 0.999823689}
+						var Scale = Real3{1, 1, 1}
+					}
+				}
+				Cog [Id:0x593df8431b750226][InheritId:"592786e739b4f563:ThinGround8x8"]
+				{
+					var Name = "ThinGround8x8"
+					Transform 
+					{
+						var Translation = Real3{0, -2.10000014, 4}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{8, 0.200000003, 8}
+					}
+				}
+				Cog [Id:0x593df8431b750228][InheritId:"5927870dc3b9af1a:ThinWall8x4"]
+				{
+					var Name = "ThinWall8x4"
+					Transform 
+					{
+						var Translation = Real3{4.0999999, 4, -4}
+						var Rotation = Quaternion{0, -0.707106829, 0, 0.707106769}
+						var Scale = Real3{8.00000095, 4, 0.200000033}
+					}
+					Model 
+					{
+						var Material = "592412fa89a539c8:SpaceGlass"
+					}
+				}
+				Cog [Id:0x593df8431b750229][InheritId:"592786e739b4f563:ThinGround8x8"]
+				{
+					var Name = "ThinGround8x8"
+					Transform 
+					{
+						var Translation = Real3{0, -2.10000014, 12}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{8, 0.200000003, 8}
+					}
+				}
+				Cog [Id:0x593df8431b75022b][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{4.0999999, 8, -9}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{2.00000024, 4, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b75022c][InheritId:"5927b0cf2daf34ac:Ramp"]
+				{
+					var Name = "Ramp"
+					Transform 
+					{
+						var Translation = Real3{-6, -1, -2}
+						var Rotation = Quaternion{0, -0.707106829, 0, 0.707106769}
+						var Scale = Real3{4.00000048, 2, 4.00000048}
+					}
+				}
+				Cog [Id:0x593df8431b75022d][InheritId:"5927b0cf2daf34ac:Ramp"]
+				{
+					var Name = "Ramp"
+					Transform 
+					{
+						var Translation = Real3{-11, 4, -11}
+						var Rotation = Quaternion{-2.98023295e-08, -2.98023295e-08, -0.707106829, 0.707106829}
+						var Scale = Real3{12, 2, 2}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{6, 1}
+					}
+				}
+				Cog [Id:0x593df8431b75022f][InheritId:"5927b0cf2daf34ac:Ramp"]
+				{
+					var Name = "Ramp"
+					Transform 
+					{
+						var Translation = Real3{-13, 4, -9}
+						var Rotation = Quaternion{-2.98023295e-08, -2.98023295e-08, -0.707106829, 0.707106829}
+						var Scale = Real3{12, 2, 2}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{6, 1}
+					}
+				}
+				Cog [Id:0x593df8431b750230][InheritId:"5927b0cf2daf34ac:Ramp"]
+				{
+					var Name = "Ramp"
+					Transform 
+					{
+						var Translation = Real3{-17, 4, 1}
+						var Rotation = Quaternion{0.5, -0.5, -0.5, 0.5}
+						var Scale = Real3{12, 2, 2}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{6, 1}
+					}
+				}
+				Cog [Id:0x593df8431b750231][InheritId:"5927b0cf2daf34ac:Ramp"]
+				{
+					var Name = "Ramp"
+					Transform 
+					{
+						var Translation = Real3{-17, 4, 7}
+						var Rotation = Quaternion{0.707106829, -0.707106829, 3.09086232e-08, -3.09086232e-08}
+						var Scale = Real3{12, 2, 2}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{6, 1}
+					}
+				}
+				Cog [Id:0x593df8431b750233][InheritId:"5927b0cf2daf34ac:Ramp"]
+				{
+					var Name = "Ramp"
+					Transform 
+					{
+						var Translation = Real3{-13, 4, 7}
+						var Rotation = Quaternion{0.707106829, -0.707106829, 3.09086232e-08, -3.09086232e-08}
+						var Scale = Real3{12, 2, 2}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{6, 1}
+					}
+				}
+				Cog [Id:0x593df8431b750234][InheritId:"5927b0cf2daf34ac:Ramp"]
+				{
+					var Name = "Ramp"
+					Transform 
+					{
+						var Translation = Real3{-19, 4, 1}
+						var Rotation = Quaternion{-2.98023295e-08, -2.98023295e-08, -0.707106829, 0.707106829}
+						var Scale = Real3{12, 2, 2}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{6, 1}
+					}
+				}
+				Cog [Id:0x593df8431b750235][InheritId:"5927b0cf2daf34ac:Ramp"]
+				{
+					var Name = "Ramp"
+					Transform 
+					{
+						var Translation = Real3{-15, 4, 1}
+						var Rotation = Quaternion{-2.98023295e-08, -2.98023295e-08, -0.707106829, 0.707106829}
+						var Scale = Real3{12, 2, 2}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{6, 1}
+					}
+				}
+				Cog [Id:0x593df8431b750236][InheritId:"5927b0cf2daf34ac:Ramp"]
+				{
+					var Name = "Ramp"
+					Transform 
+					{
+						var Translation = Real3{-15, 4, -7}
+						var Rotation = Quaternion{-2.98023295e-08, -2.98023295e-08, -0.707106829, 0.707106829}
+						var Scale = Real3{12, 2, 2}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{6, 1}
+					}
+				}
+				Cog [Id:0x593df8431b750238][InheritId:"5927b0cf2daf34ac:Ramp"]
+				{
+					var Name = "Ramp"
+					Transform 
+					{
+						var Translation = Real3{-15, 4, -1}
+						var Rotation = Quaternion{-0.5, 0.5, -0.5, 0.5}
+						var Scale = Real3{12, 2, 2}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{6, 1}
+					}
+				}
+				Cog [Id:0x593df8431b750239][InheritId:"5927b0cf2daf34ac:Ramp"]
+				{
+					var Name = "Ramp"
+					Transform 
+					{
+						var Translation = Real3{-19, 4, 7}
+						var Rotation = Quaternion{-0.5, 0.5, -0.5, 0.5}
+						var Scale = Real3{12, 2, 2}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{6, 1}
+					}
+				}
+				Cog [Id:0x593df8431b75023a][InheritId:"5927b0cf2daf34ac:Ramp"]
+				{
+					var Name = "Ramp"
+					Transform 
+					{
+						var Translation = Real3{-15, 4, 7}
+						var Rotation = Quaternion{-0.5, 0.5, -0.5, 0.5}
+						var Scale = Real3{12, 2, 2}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{6, 1}
+					}
+				}
+				Cog [Id:0x593df8431b75023c][InheritId:"592464cd7f589ac4:ThinWall8x1"]
+				{
+					var Name = "ThinWall8x1"
+					Transform 
+					{
+						var Translation = Real3{-2, 1.5, -0.100000001}
+						var Rotation = Quaternion{0, 1, 0, 0}
+						var Scale = Real3{4, 1, 0.200000003}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{2, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b75023d][InheritId:"592786e739b4f563:ThinGround8x8"]
+				{
+					var Name = "ThinGround8x8"
+					Transform 
+					{
+						var Translation = Real3{-8, -2.10000014, 4}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{8, 0.200000003, 8}
+					}
+				}
+				Cog [Id:0x593df8431b75023e][InheritId:"592786e739b4f563:ThinGround8x8"]
+				{
+					var Name = "ThinGround8x8"
+					Transform 
+					{
+						var Translation = Real3{-16, -2.10000014, 4}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{8, 0.200000003, 8}
+					}
+				}
+				Cog [Id:0x593df8431b750240][InheritId:"5927870dc3b9af1a:ThinWall8x4"]
+				{
+					var Name = "ThinWall8x4"
+					Transform 
+					{
+						var Translation = Real3{4.0999999, 8, -4}
+						var Rotation = Quaternion{0, -0.707106829, 0, 0.707106769}
+						var Scale = Real3{8.00000095, 4, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b750241][InheritId:"5927870dc3b9af1a:ThinWall8x4"]
+				{
+					var Name = "ThinWall8x4"
+					Transform 
+					{
+						var Translation = Real3{-15.8999996, 8, -4}
+						var Rotation = Quaternion{0, -0.707106829, 0, 0.707106769}
+						var Scale = Real3{4, 4, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{2, 2}
+					}
+				}
+				Cog [Id:0x593df8431b750243][InheritId:"5927870dc3b9af1a:ThinWall8x4"]
+				{
+					var Name = "ThinWall8x4"
+					Transform 
+					{
+						var Translation = Real3{-15.8999996, 4, -4}
+						var Rotation = Quaternion{0, -0.707106829, 0, 0.707106769}
+						var Scale = Real3{4, 4, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{2, 2}
+					}
+				}
+				Cog [Id:0x593df8431b750244][InheritId:"5927b872c66ccfe0:Barrel"]
+				{
+					Transform 
+					{
+						var Translation = Real3{1.35000002, -1.45000005, 0.5}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{0.699999988, 1, 0.699999988}
+					}
+				}
+				Cog [Id:0x593df8431b750245][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-10, -2.10000014, -6}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b750247][InheritId:"5924647868459451:ThinWall8x2"]
+				{
+					var Name = "ThinWall8x2"
+					Transform 
+					{
+						var Translation = Real3{4.0999999, 1, -4}
+						var Rotation = Quaternion{0, -0.707106829, 0, 0.707106769}
+						var Scale = Real3{8.00000095, 2, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b750248][InheritId:"5927870dc3b9af1a:ThinWall8x4"]
+				{
+					var Name = "ThinWall8x4"
+					Transform 
+					{
+						var Translation = Real3{4.0999999, 4, 4}
+						var Rotation = Quaternion{0, -0.707106829, 0, 0.707106769}
+						var Scale = Real3{8.00000095, 4, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b750249][InheritId:"592464cd7f589ac4:ThinWall8x1"]
+				{
+					var Name = "ThinWall8x1"
+					Transform 
+					{
+						var Translation = Real3{0, 0.5, -0.100000001}
+						var Rotation = Quaternion{0, 1, 0, 0}
+						var Scale = Real3{8, 1, 0.200000003}
+					}
+				}
+				Cog [Id:0x593df8431b75024b][InheritId:"592464cd7f589ac4:ThinWall8x1"]
+				{
+					var Name = "ThinWall8x1"
+					Transform 
+					{
+						var Translation = Real3{-8, 2.5, 15.9000006}
+						var Rotation = Quaternion{0, 1, 0, 0}
+						var Scale = Real3{8, 1, 0.200000003}
+					}
+				}
+				Cog [Id:0x593df8431b75024c][InheritId:"592464cd7f589ac4:ThinWall8x1"]
+				{
+					var Name = "ThinWall8x1"
+					Transform 
+					{
+						var Translation = Real3{-10, 3.5, 15.9000006}
+						var Rotation = Quaternion{0, 1, 0, 0}
+						var Scale = Real3{4, 1, 0.200000003}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{2, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b75024e][InheritId:"592464cd7f589ac4:ThinWall8x1"]
+				{
+					var Name = "ThinWall8x1"
+					Transform 
+					{
+						var Translation = Real3{-11, 4.5, 15.9000006}
+						var Rotation = Quaternion{0, 1, 0, 0}
+						var Scale = Real3{2, 1, 0.200000003}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{1, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b75024f][InheritId:"592464cd7f589ac4:ThinWall8x1"]
+				{
+					var Name = "ThinWall8x1"
+					Transform 
+					{
+						var Translation = Real3{-11.5, 5.5, 15.9000006}
+						var Rotation = Quaternion{0, 1, 0, 0}
+						var Scale = Real3{1, 1, 0.200000003}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750250][InheritId:"592464cd7f589ac4:ThinWall8x1"]
+				{
+					var Name = "ThinWall8x1"
+					Transform 
+					{
+						var Translation = Real3{-4.0999999, 2.5, 18}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106829}
+						var Scale = Real3{4, 1, 0.200000003}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{2, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750252][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{6, -2.10000014, 14}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b750253][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{6, -2.10000014, 18}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b750254][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{2, -2.10000014, 18}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b750256][InheritId:"5927870dc3b9af1a:ThinWall8x4"]
+				{
+					var Name = "ThinWall8x4"
+					Transform 
+					{
+						var Translation = Real3{4.0999999, 8, 4}
+						var Rotation = Quaternion{0, -0.707106829, 0, 0.707106769}
+						var Scale = Real3{8.00000095, 4, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b750257][InheritId:"592464cd7f589ac4:ThinWall8x1"]
+				{
+					var Name = "ThinWall8x1"
+					Transform 
+					{
+						var Translation = Real3{-2, 0.5, -7.9000001}
+						var Rotation = Quaternion{0, 1, 0, 0}
+						var Scale = Real3{4, 1, 0.200000003}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{2, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750258][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{4.0999999, 0, -14}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{0.200000003, 4, 4}
+					}
+				}
+				Cog [Id:0x593df8431b75025a][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-4.0999999, 0, -14}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{0.200000003, 4, 4}
+					}
+				}
+				Cog [Id:0x593df8431b75025b][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-4.0999999, 0, -18}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{0.200000003, 4, 4}
+					}
+				}
+				Cog [Id:0x593df8431b75025c][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{4.0999999, 0, -18}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{0.200000003, 4, 4}
+					}
+				}
+				Cog [Id:0x593df8431b75025d][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{4.0999999, 4, -14}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{0.200000003, 4, 4}
+					}
+				}
+				Cog [Id:0x593df8431b75025f][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{4.0999999, 8, -14}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{0.200000003, 4, 4}
+					}
+				}
+				Cog [Id:0x593df8431b750260][InheritId:"5927b0cf2daf34ac:Ramp"]
+				{
+					var Name = "Ramp"
+					Transform 
+					{
+						var Translation = Real3{2, 9.19999981, -6}
+						var Rotation = Quaternion{-0.707106769, 3.09086197e-08, 0.707106829, 3.09086161e-08}
+						var Scale = Real3{4.00000048, 2.00000048, 4.00000048}
+					}
+				}
+				Cog [Id:0x593df8431b750261][InheritId:"5927b0cf2daf34ac:Ramp"]
+				{
+					var Name = "Ramp"
+					Transform 
+					{
+						var Translation = Real3{2, 8, -17}
+						var Rotation = Quaternion{0.707106829, 0, 0, 0.707106829}
+						var Scale = Real3{4.00000048, 2.00000048, 4.00000048}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{2, 2}
+					}
+				}
+				Cog [Id:0x593df8431b750263][InheritId:"5927b0cf2daf34ac:Ramp"]
+				{
+					var Name = "Ramp"
+					Transform 
+					{
+						var Translation = Real3{2, 4, -19}
+						var Rotation = Quaternion{0.707106829, 0, 0, 0.707106829}
+						var Scale = Real3{4.00000048, 2.00000048, 4.00000048}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{2, 2}
+					}
+				}
+				Cog [Id:0x593df8431b750264][InheritId:"592786e739b4f563:ThinGround8x8"]
+				{
+					var Name = "ThinGround8x8"
+					Transform 
+					{
+						var Translation = Real3{0, 10.1000004, -12}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{8, 0.200000003, 8}
+					}
+				}
+				Cog [Id:0x593df8431b750265][InheritId:"592786e739b4f563:ThinGround8x8"]
+				{
+					var Name = "ThinGround8x8"
+					Transform 
+					{
+						var Translation = Real3{-8, 10.1000004, -8}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{8, 0.200000003, 8}
+					}
+				}
+				Cog [Id:0x593df8431b750267][InheritId:"592786e739b4f563:ThinGround8x8"]
+				{
+					var Name = "ThinGround8x8"
+					Transform 
+					{
+						var Translation = Real3{-8, 10.1000004, 0}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{8, 0.200000003, 8}
+					}
+					Model 
+					{
+						var Material = "592788aca60c54a5:UvScaledZeroMaterial"
+					}
+				}
+				Cog [Id:0x593df8431b750268][InheritId:"592786e739b4f563:ThinGround8x8"]
+				{
+					var Name = "ThinGround8x8"
+					Transform 
+					{
+						var Translation = Real3{-16, 10.1000004, 4}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{8, 0.200000003, 8}
+					}
+				}
+				Cog [Id:0x593df8431b750269][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{2, 8.19999981, 8.10000038}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+				}
+				Cog [Id:0x593df8431b75026b][InheritId:"5927b0cf2daf34ac:Ramp"]
+				{
+					var Name = "Ramp"
+					Transform 
+					{
+						var Translation = Real3{2, 9.19999981, -2}
+						var Rotation = Quaternion{-0.707106769, 3.09086197e-08, 0.707106829, 3.09086161e-08}
+						var Scale = Real3{4.00000048, 2.00000048, 4.00000048}
+					}
+				}
+				Cog [Id:0x593df8431b75026c][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{4.0999999, 4, -9}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{2.00000024, 4, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b75026e][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{4.0999999, 0, -9}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{2.00000024, 4, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b75026f][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-10, -2.10000014, -2}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b750270][InheritId:"5927b872c66ccfe0:Barrel"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-3.35000014, 0.550000012, -6.55000019}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{0.699999988, 1, 0.699999988}
+					}
+				}
+				Cog [Id:0x593df8431b750272][InheritId:"592786e739b4f563:ThinGround8x8"]
+				{
+					var Name = "ThinGround8x8"
+					Transform 
+					{
+						var Translation = Real3{0, -1, -4}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{8, 2, 8}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{1, 1}
+					}
+				}
+				Cog [Id:0x593df8431b750273][InheritId:"5927b872c66ccfe0:Barrel"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-3.29999995, 0.550000012, -7.30000019}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{0.699999988, 1, 0.699999988}
+					}
+				}
+				Cog [Id:0x593df8431b750275][InheritId:"5927b872c66ccfe0:Barrel"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-3.04999995, 1.60000002, -7.0999999}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{0.699999988, 1, 0.699999988}
+					}
+				}
+				Cog [Id:0x593df8431b750276][InheritId:"592787fbde6fc0e4:Crate"]
+				{
+					var Name = "Crate"
+					Transform 
+					{
+						var Translation = Real3{2.45000005, -1, 1.45000005}
+						var Rotation = Quaternion{0, -0.382683456, 0, 0.923879504}
+						var Scale = Real3{2, 2, 2}
+					}
+				}
+				Cog [Id:0x593df8431b750277][InheritId:"5927b872c66ccfe0:Barrel"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-2.54999995, 0.550000012, -7.3499999}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{0.699999988, 1, 0.699999988}
+					}
+				}
+				Cog [Id:0x593df8431b750279][InheritId:"592786e739b4f563:ThinGround8x8"]
+				{
+					var Name = "ThinGround8x8"
+					Transform 
+					{
+						var Translation = Real3{0, 10.1000004, 4}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{8, 0.200000003, 8}
+					}
+				}
+				Cog [Id:0x593df8431b75027a][InheritId:"592786e739b4f563:ThinGround8x8"]
+				{
+					var Name = "ThinGround8x8"
+					Transform 
+					{
+						var Translation = Real3{0, 6.0999999, 10}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{8, 0.200000003, 4}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{2, 1}
+					}
+				}
+				Cog [Id:0x593df8431b75027b][InheritId:"592786e739b4f563:ThinGround8x8"]
+				{
+					var Name = "ThinGround8x8"
+					Transform 
+					{
+						var Translation = Real3{-8, 6.0999999, 10}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{8, 0.200000003, 4}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{2, 1}
+					}
+				}
+				Cog [Id:0x593df8431b75027d][InheritId:"5927b872c66ccfe0:Barrel"]
+				{
+					Transform 
+					{
+						var Translation = Real3{0.5, -1.45000005, 0.5}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{0.699999988, 1, 0.699999988}
+					}
+				}
+				Cog [Id:0x593df8431b75027e][InheritId:"5927b872c66ccfe0:Barrel"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-10.4499998, -1.45000005, -10.9000006}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{0.699999988, 1, 0.699999988}
+					}
+				}
+				Cog [Id:0x593df8431b75027f][InheritId:"5927b872c66ccfe0:Barrel"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-11.3500004, -1.45000005, -10}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{0.699999988, 1, 0.699999988}
+					}
+					Model 
+					{
+						var Material = "5828b036bd65b5d8:OpaqueFlat"
+					}
+				}
+				Cog [Id:0x593df8431b750281][InheritId:"5927b872c66ccfe0:Barrel"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-12.1999998, -1.45000005, -9.10000038}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{0.699999988, 1, 0.699999988}
+					}
+					Model 
+					{
+						var Material = "5828b036bd65b5d8:OpaqueFlat"
+					}
+				}
+				Cog [Id:0x593df8431b750282][InheritId:"592786e739b4f563:ThinGround8x8"]
+				{
+					var Name = "ThinGround8x8"
+					Transform 
+					{
+						var Translation = Real3{-8, -2.10000014, 12}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{8, 0.200000003, 8}
+					}
+				}
+				Cog [Id:0x593dd4bb0f58a8cf][InheritId:"593dd7a0fe9def07:Pillar"]
+				{
+					var Name = "Pillar"
+					Transform 
+					{
+						var Translation = Real3{-6, 2, 12}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{2, 8, 2}
+					}
+					Model 
+					{
+						var Material = "592788aca60c54a5:UvScaledZeroMaterial"
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{1, 2}
+					}
+				}
+				Cog [Id:0x593df8431b750283][InheritId:"593dd7a0fe9def07:Pillar"]
+				{
+					var Name = "Pillar"
+					Transform 
+					{
+						var Translation = Real3{6, 4.20000029, 15.9000006}
+						var Rotation = Quaternion{0.707106829, 0, 0, 0.707106829}
+						var Scale = Real3{2, 8, 2}
+					}
+					Model 
+					{
+						var Material = "592788aca60c54a5:UvScaledZeroMaterial"
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{1, 2}
+					}
+				}
+				Cog [Id:0x593df8431b750285][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-6, -2.10000014, -6}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b750286][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-2, 10.1000004, -6}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b750287][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-2, 10.1000004, -18}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b750289][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{2, 10.1000004, -18}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b75028a][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-14, 10.1000004, -6}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b75028b][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-14, 10.1000004, -2}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b75028c][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-2, 10.1000004, -2}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b75028e][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-6, 10.1000004, 6}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b75028f][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-10, 10.1000004, 6}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b750290][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{6, 4, 11.9000006}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+				}
+				Cog [Id:0x593df8431b750291][InheritId:"5927870dc3b9af1a:ThinWall8x4"]
+				{
+					var Name = "ThinWall8x4"
+					Transform 
+					{
+						var Translation = Real3{4.0999999, 0, 4}
+						var Rotation = Quaternion{0, -0.707106829, 0, 0.707106769}
+						var Scale = Real3{8.00000095, 4, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b750293][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-10, -2.10000014, -10}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b750294][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-6, -2.10000014, -10}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b750295][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-2, -2.10000014, -10}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b750297][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-2, -2.10000014, -14}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b750298][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{2, -2.10000014, -14}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b750299][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{2, -2.10000014, -18}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b75029b][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-2, -2.10000014, -18}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b75029c][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{2, -2.10000014, -10}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b75029d][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{4.0999999, 4, -11}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{2.00000024, 4, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b75029e][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{4.0999999, 0, -11}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{2.00000024, 4, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b7502a0][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{4.0999999, 8, -11}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{2.00000024, 4, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b7502a1][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-2, 8.19999981, 8.10000038}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+				}
+				Cog [Id:0x593df8431b7502a3][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{4.0999999, 8, -18}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{0.200000003, 4, 4}
+					}
+				}
+				Cog [Id:0x593df8431b7502a4][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{4.0999999, 4, -18}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{0.200000003, 4, 4}
+					}
+				}
+				Cog [Id:0x593df8431b7502a5][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-4.0999999, 8, -18}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{0.200000003, 4, 4}
+					}
+				}
+				Cog [Id:0x593df8431b7502a6][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-4.0999999, 4, -18}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{0.200000003, 4, 4}
+					}
+				}
+				Cog [Id:0x593df8431b7502a7][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-4.0999999, 8, -14}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{0.200000003, 4, 4}
+					}
+				}
+				Cog [Id:0x593df8431b7502a9][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-4.0999999, 4, -14}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{0.200000003, 4, 4}
+					}
+				}
+				Cog [Id:0x593df8431b7502aa][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-14, -2.10000014, -6}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b7502ab][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-13, -2.10000014, -9}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{2, 0.200000003, 2}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b7502ac][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-13, 10.1000004, -9}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{2, 0.200000003, 2}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b7502ae][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-14, -2.10000014, -2}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b7502af][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-6.20000029, 0, -12.1000004}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+					Model 
+					{
+						var Material = "592788aca60c54a5:UvScaledZeroMaterial"
+						var Mesh = "4de0354322b345ae:Cube"
+					}
+				}
+				Cog [Id:0x593df8431b7502b0][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-6.20000029, 4, -12.1000004}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+					Model 
+					{
+						var Mesh = "4de0354322b345ae:Cube"
+					}
+				}
+				Cog [Id:0x593df8431b7502b2][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-6.20000029, 8, -12.1000004}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+				}
+				Cog [Id:0x593df8431b7502b3][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-10.1999998, 0, -12.1000004}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+					Model 
+					{
+						var Material = "592788aca60c54a5:UvScaledZeroMaterial"
+						var Mesh = "4de0354322b345ae:Cube"
+					}
+				}
+				Cog [Id:0x593df8431b7502b4][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-10.1999998, 4, -12.1000004}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+					Model 
+					{
+						var Mesh = "4de0354322b345ae:Cube"
+					}
+				}
+				Cog [Id:0x593df8431b7502b5][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-10.1999998, 8, -12.1000004}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+				}
+				Cog [Id:0x593df8431b7502b6][InheritId:"5927870dc3b9af1a:ThinWall8x4"]
+				{
+					var Name = "ThinWall8x4"
+					Transform 
+					{
+						var Translation = Real3{-12.1000004, 4, 12}
+						var Rotation = Quaternion{0, -0.707106829, 0, 0.707106769}
+						var Scale = Real3{8.00000095, 4, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b7502b8][InheritId:"5927870dc3b9af1a:ThinWall8x4"]
+				{
+					var Name = "ThinWall8x4"
+					Transform 
+					{
+						var Translation = Real3{7.9000001, 4, 16}
+						var Rotation = Quaternion{0, -0.707106829, 0, 0.707106769}
+						var Scale = Real3{8.00000095, 4, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b7502b9][InheritId:"5927870dc3b9af1a:ThinWall8x4"]
+				{
+					var Name = "ThinWall8x4"
+					Transform 
+					{
+						var Translation = Real3{-12.1000004, 0, 12}
+						var Rotation = Quaternion{0, -0.707106829, 0, 0.707106769}
+						var Scale = Real3{8.00000095, 4, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b7502ba][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{2.10000014, 0, 9.19999981}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{2.00000024, 4, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b7502bb][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{2.10000014, 4, 9.19999981}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{2.00000024, 4, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b7502bd][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{3.20000005, 0, 10.1000004}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{0.200000003, 4, 2}
+					}
+				}
+				Cog [Id:0x593df8431b7502be][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-14.9499998, 0, -8.10000038}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{0.200000003, 4, 2}
+					}
+				}
+				Cog [Id:0x593df8431b7502c0][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-14.9499998, 4, -8.10000038}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{0.200000003, 4, 2}
+					}
+				}
+				Cog [Id:0x593df8431b7502c1][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-14.9499998, 8, -8.10000038}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{0.200000003, 4, 2}
+					}
+				}
+				Cog [Id:0x593df8431b7502c2][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{3.20000005, 4, 10.1000004}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{0.200000003, 4, 2}
+					}
+				}
+				Cog [Id:0x593df8431b7502c3][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{4.0999999, 0, 10.8000002}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{2.00000024, 4, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b7502c4][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 1.5, 5.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b7502c6][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 0.5, 5.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b7502c7][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, -0.5, 5.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b7502c8][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 1.5, 4.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b7502c9][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 1.5, 3.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b7502cb][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, -1.5, 5.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b7502cc][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, -1.5, 4.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b7502cd][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, -1.5, 3.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b7502cf][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, -1.5, 2.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b7502d0][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 1.5, 2.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b7502d1][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{4.0999999, 4, 10.8000002}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{2.00000024, 4, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b7502d2][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{6, 0, 11.9000006}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+				}
+				Cog [Id:0x593df8431b7502d4][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-10, 8.19999981, 8.10000038}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+				}
+				Cog [Id:0x593df8431b7502d5][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-6, 8.19999981, 8.10000038}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+				}
+				Cog [Id:0x593df8431b7502d6][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, -0.5, 2.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b7502d7][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 0.5, 2.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b7502d9][InheritId:"5927b0cf2daf34ac:Ramp"]
+				{
+					var Name = "Ramp"
+					Transform 
+					{
+						var Translation = Real3{-2, 8, -17}
+						var Rotation = Quaternion{0.707106829, 0, 0, 0.707106829}
+						var Scale = Real3{4.00000048, 2.00000048, 4.00000048}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{2, 2}
+					}
+				}
+				Cog [Id:0x593df8431b7502da][InheritId:"5927b0cf2daf34ac:Ramp"]
+				{
+					var Name = "Ramp"
+					Transform 
+					{
+						var Translation = Real3{-2, 4, -19}
+						var Rotation = Quaternion{0.707106829, 0, 0, 0.707106829}
+						var Scale = Real3{4.00000048, 2.00000048, 4.00000048}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{2, 2}
+					}
+				}
+				Cog [Id:0x593dd6d1d9445bea][InheritId:"593dd6d1d944aab4:Ramp2"]
+				{
+					var Name = "Ramp2"
+					Transform 
+					{
+						var Translation = Real3{-3, 0, -19}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{2, 4, 2}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{1, 2}
+					}
+				}
+				Cog [Id:0x593df8431b7502db][InheritId:"593dd6d1d944aab4:Ramp2"]
+				{
+					var Name = "Ramp2"
+					Transform 
+					{
+						var Translation = Real3{3, 0, -19}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{2, 4, 2}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{1, 2}
+					}
+				}
+				Cog [Id:0x593df8431b7502dd][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-6, -2.10000014, 18}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b7502de][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-10, -2.10000014, 18}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b7502df][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-9.19999981, 2.10000014, 18}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{10, 0.200000003, 4}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{5, 2}
+					}
+				}
+				Cog [Id:0x593df8431b7502e0][InheritId:"5927897fbcb9c7a0:ThinGround4x4"]
+				{
+					var Name = "ThinGround4x4"
+					Transform 
+					{
+						var Translation = Real3{-2, -2.10000014, 18}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+				}
+				Cog [Id:0x593df8431b7502e2][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{6, 0, 19.8999996}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+				}
+				Cog [Id:0x593df8431b7502e3][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{6, 4, 19.8999996}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+				}
+				Cog [Id:0x593df8431b7502e4][InheritId:"592786e739b4f563:ThinGround8x8"]
+				{
+					var Name = "ThinGround8x8"
+					Transform 
+					{
+						var Translation = Real3{-8, 6.0999999, 14}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{8, 0.200000003, 4}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{2, 1}
+					}
+				}
+				Cog [Id:0x593df8431b7502e6][InheritId:"592786e739b4f563:ThinGround8x8"]
+				{
+					var Name = "ThinGround8x8"
+					Transform 
+					{
+						var Translation = Real3{-8, 6.0999999, 18}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{8, 0.200000003, 4}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{2, 1}
+					}
+				}
+				Cog [Id:0x593df8431b7502e7][InheritId:"592786e739b4f563:ThinGround8x8"]
+				{
+					var Name = "ThinGround8x8"
+					Transform 
+					{
+						var Translation = Real3{-2, 6.0999999, 18}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{1, 1}
+					}
+				}
+				Cog [Id:0x593df8431b7502e8][InheritId:"592786e739b4f563:ThinGround8x8"]
+				{
+					var Name = "ThinGround8x8"
+					Transform 
+					{
+						var Translation = Real3{-2, 6.0999999, 14}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{1, 1}
+					}
+				}
+				Cog [Id:0x593df8431b7502e9][InheritId:"592786e739b4f563:ThinGround8x8"]
+				{
+					var Name = "ThinGround8x8"
+					Transform 
+					{
+						var Translation = Real3{-13, 6.0999999, 18}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{2, 0.200000003, 4}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 1}
+					}
+				}
+				Cog [Id:0x593df8431b7502ec][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{2, 2, 19.8999996}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 8, 0.200000003}
+					}
+					Model 
+					{
+						var Material = "592412fa89a539c8:SpaceGlass"
+					}
+				}
+				Cog [Id:0x593df8431b7502ed][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-2, 0, 19.8999996}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+				}
+				Cog [Id:0x593df8431b7502ee][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-6, 0, 19.8999996}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+				}
+				Cog [Id:0x593df8431b7502f0][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-10, 0, 19.8999996}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+				}
+				Cog [Id:0x593df8431b7502f1][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-12.1000004, 0, 18}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106829}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+				}
+				Cog [Id:0x593df8431b7502f2][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{7.9000001, 0, 19}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106829}
+						var Scale = Real3{2, 4, 0.200000003}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{1, 2}
+					}
+				}
+				Cog [Id:0x593df8431b7502f3][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{7.9000001, 0, 13}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106829}
+						var Scale = Real3{2, 4, 0.200000003}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{1, 2}
+					}
+				}
+				Cog [Id:0x593df8431b7502f5][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-2, 4, 19.8999996}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+				}
+				Cog [Id:0x593df8431b7502f6][InheritId:"59279c93d8f5e2a8:ThinWall4x4"]
+				{
+					Transform 
+					{
+						var Translation = Real3{-6, 4, 19.8999996}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+				}
+				Cog [Id:0x593df8431b7502f7][InheritId:"592786e739b4f563:ThinGround8x8"]
+				{
+					var Name = "ThinGround8x8"
+					Transform 
+					{
+						var Translation = Real3{2, 6.0999999, 16}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 8}
+					}
+					Model 
+					{
+						var Material = "592412fa89a539c8:SpaceGlass"
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{1, 1}
+					}
+				}
+				Cog [Id:0x593df8431b7502f8][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{3, 0, 8.10000038}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{0.200000003, 4, 2}
+					}
+				}
+				Cog [Id:0x593df8431b7502f9][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{3, 4, 8.10000038}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{0.200000003, 4, 2}
+					}
+				}
+				Cog [Id:0x593df8431b7502fb][InheritId:"592786e739b4f563:ThinGround8x8"]
+				{
+					var Name = "ThinGround8x8"
+					Transform 
+					{
+						var Translation = Real3{6, 6.0999999, 14}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{1, 1}
+					}
+				}
+				Cog [Id:0x593df8431b7502fc][InheritId:"592786e739b4f563:ThinGround8x8"]
+				{
+					var Name = "ThinGround8x8"
+					Transform 
+					{
+						var Translation = Real3{6, 6.0999999, 18}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 0.200000003, 4}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{1, 1}
+					}
+				}
+				Cog [Id:0x593df8431b7502fd][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 5.5, 4.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b7502fe][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 3.5, 2.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750300][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 2.5, 3.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750301][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 2.5, 2.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750302][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 5.5, 2.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750303][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 3.5, 5.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750304][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 2.5, 5.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750306][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 4.5, 2.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750307][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 4.5, 5.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750308][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 5.5, 3.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750309][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 2.5, 4.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b75030a][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 5.5, 5.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b75030c][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 9.5, 5.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b75030d][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 8.5, 2.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b75030e][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 6.5, 4.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b75030f][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 9.5, 3.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750311][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 8.5, 5.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750312][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 9.5, 2.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750313][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 9.5, 4.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750314][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 7.5, 2.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750315][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 7.5, 5.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750317][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 6.5, 5.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750318][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 6.5, 3.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750319][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-19.8999996, 6.5, 2.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b75031a][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-8.5, 3.5, 19.8999996}
+						var Rotation = Quaternion{0, 1, 0, -1.1920929e-07}
+						var Scale = Real3{1.00000012, 1, 0.200000063}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b75031c][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-8.5, 5.5, 19.8999996}
+						var Rotation = Quaternion{0, 1, 0, -1.1920929e-07}
+						var Scale = Real3{1.00000012, 1, 0.200000063}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b75031d][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-8.5, 4.5, 19.8999996}
+						var Rotation = Quaternion{0, 1, 0, -1.1920929e-07}
+						var Scale = Real3{1.00000012, 1, 0.200000063}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b75031e][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-11.5, 4.5, 19.8999996}
+						var Rotation = Quaternion{0, 1, 0, -1.1920929e-07}
+						var Scale = Real3{1.00000012, 1, 0.200000063}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b75031f][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-11.5, 2.5, 19.8999996}
+						var Rotation = Quaternion{0, 1, 0, -1.1920929e-07}
+						var Scale = Real3{1.00000012, 1, 0.200000063}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750320][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-8.5, 2.5, 19.8999996}
+						var Rotation = Quaternion{0, 1, 0, -1.1920929e-07}
+						var Scale = Real3{1.00000012, 1, 0.200000063}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750322][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-9.5, 2.5, 19.8999996}
+						var Rotation = Quaternion{0, 1, 0, -1.1920929e-07}
+						var Scale = Real3{1.00000012, 1, 0.200000063}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750323][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-10.5, 5.5, 19.8999996}
+						var Rotation = Quaternion{0, 1, 0, -1.1920929e-07}
+						var Scale = Real3{1.00000012, 1, 0.200000063}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750324][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-10.5, 2.5, 19.8999996}
+						var Rotation = Quaternion{0, 1, 0, -1.1920929e-07}
+						var Scale = Real3{1.00000012, 1, 0.200000063}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750325][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-11.5, 3.5, 19.8999996}
+						var Rotation = Quaternion{0, 1, 0, -1.1920929e-07}
+						var Scale = Real3{1.00000012, 1, 0.200000063}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750327][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-11.5, 5.5, 19.8999996}
+						var Rotation = Quaternion{0, 1, 0, -1.1920929e-07}
+						var Scale = Real3{1.00000012, 1, 0.200000063}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750328][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-9.5, 5.5, 19.8999996}
+						var Rotation = Quaternion{0, 1, 0, -1.1920929e-07}
+						var Scale = Real3{1.00000012, 1, 0.200000063}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750329][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-13.8999996, 3.5, 19.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b75032a][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-13.8999996, 5.5, 19.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b75032b][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-13.8999996, 4.5, 19.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b75032d][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-13.8999996, 4.5, 16.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b75032e][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-13.8999996, 2.5, 16.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b75032f][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-13.8999996, 2.5, 19.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750330][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-13.8999996, 2.5, 18.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750332][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-13.8999996, 5.5, 17.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750333][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-13.8999996, 2.5, 17.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750334][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-13.8999996, 3.5, 16.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750335][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-13.8999996, 5.5, 16.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750336][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-13.8999996, 5.5, 18.5}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{1, 1, 0.200000033}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{0.5, 0.5}
+					}
+				}
+				Cog [Id:0x593df8431b750338][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-13, 3, 19.8999996}
+						var Rotation = Quaternion{0, 1, 0, -1.1920929e-07}
+						var Scale = Real3{2, 2, 0.200000063}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{1, 1}
+					}
+				}
+				Cog [Id:0x593df8431b750339][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-13, 5, 19.8999996}
+						var Rotation = Quaternion{0, 1, 0, -1.1920929e-07}
+						var Scale = Real3{2, 2, 0.200000063}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{1, 1}
+					}
+				}
+				Cog [Id:0x593df8431b75033a][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-13.1999998, 3, 15.9000006}
+						var Rotation = Quaternion{0, 1, 0, -1.1920929e-07}
+						var Scale = Real3{2, 2, 0.200000063}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{1, 1}
+					}
+				}
+				Cog [Id:0x593df8431b75033b][InheritId:"592793c1c225580e:ThinWall2x4"]
+				{
+					var Name = "ThinWall2x4"
+					Transform 
+					{
+						var Translation = Real3{-13.1999998, 5, 15.9000006}
+						var Rotation = Quaternion{0, 1, 0, -1.1920929e-07}
+						var Scale = Real3{2, 2, 0.200000063}
+					}
+					UvScaler 
+					{
+						var UvScale = Real2{1, 1}
+					}
+				}
+				Cog [Id:0x593df8431b75033c][InheritId:"5927805ae88b7326:Box"]
+				{
+					var Name = "Box"
+					Transform 
+					{
+						var Translation = Real3{-7.3499999, -1.5, 19.0500011}
+						var Rotation = Quaternion{0, -0.161881953, 0, 0.986810148}
+						var Scale = Real3{1, 1, 1}
+					}
+				}
+				Cog [Id:0x593df8431b75033e][InheritId:"5927805ae88b7326:Box"]
+				{
+					var Name = "Box"
+					Transform 
+					{
+						var Translation = Real3{-8.65000057, -1.5, 19.0500011}
+						var Rotation = Quaternion{0, 0.144299597, 0, 0.98953414}
+						var Scale = Real3{1, 1, 1}
+					}
+				}
+				Cog [Id:0x593df8431b75033f][InheritId:"5927805ae88b7326:Box"]
+				{
+					var Name = "Box"
+					Transform 
+					{
+						var Translation = Real3{-10.9000006, -1.5, 16.6000004}
+						var Rotation = Quaternion{0, 0.0698865354, 0, 0.997554958}
+						var Scale = Real3{1, 1, 1}
+					}
+				}
+				Cog [Id:0x593df8431b750340][InheritId:"5927805ae88b7326:Box"]
+				{
+					var Name = "Box"
+					Transform 
+					{
+						var Translation = Real3{-9.75, -1.5, 17.5500011}
+						var Rotation = Quaternion{0, -0.208620429, 0, 0.977996707}
+						var Scale = Real3{1, 1, 1}
+					}
+				}
+				Cog [Id:0x593df8431b750341][InheritId:"5927805ae88b7326:Box"]
+				{
+					var Name = "Box"
+					Transform 
+					{
+						var Translation = Real3{-10.6000004, -0.450000018, 18.3000011}
+						var Rotation = Quaternion{0, -0.208620429, 0, 0.977996707}
+						var Scale = Real3{1, 1, 1}
+					}
+				}
+				Cog [Id:0x593df8431b750343][InheritId:"5927805ae88b7326:Box"]
+				{
+					var Name = "Box"
+					Transform 
+					{
+						var Translation = Real3{-11.4499998, -1.5, 15.3500004}
+						var Rotation = Quaternion{0, -0.037879914, 0, 0.99928236}
+						var Scale = Real3{1, 1, 1}
+					}
+				}
+			}
+		}
+		Cog [Id:0x593df8431b750344]
+		{
+			var Name = "Volume"
+			EditorFlags 
+			{
+				var Locked = true
+				var Hidden = true
+			}
+			Transform 
+			{
+				var Translation = Real3{0, 0, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Hierarchy 
+			{
+				Cog [Id:0x593df8431b750345][InheritId:"593d01a3bc628c58:BoxVolume"]
+				{
+					var Name = "BoxVolume"
+					Transform 
+					{
+						var Translation = Real3{0, 4, -6}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{8.5, 12.5, 28.5}
+					}
+					Model 
+					{
+						var Material = "593dfcdb96a1d330:Volume"
+					}
+				}
+				Cog [Id:0x593df8431b750346][InheritId:"593d01a3bc628c58:BoxVolume"]
+				{
+					var Name = "BoxVolume"
+					Transform 
+					{
+						var Translation = Real3{-8.25, 4, -2}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{8, 12.5, 20.5}
+					}
+				}
+				Cog [Id:0x593df8431b750348][InheritId:"593d01a3bc628c58:BoxVolume"]
+				{
+					var Name = "BoxVolume"
+					Transform 
+					{
+						var Translation = Real3{-4, 2, 12}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{16.5, 8.5, 8}
+					}
+				}
+				Cog [Id:0x593df8431b750349][InheritId:"593d01a3bc628c58:BoxVolume"]
+				{
+					var Name = "BoxVolume"
+					Transform 
+					{
+						var Translation = Real3{5.8499999, 2, 15.8500004}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4.5, 8.5, 8.5}
+					}
+				}
+				Cog [Id:0x593df8431b75034a][InheritId:"593d01a3bc628c58:BoxVolume"]
+				{
+					var Name = "BoxVolume"
+					Transform 
+					{
+						var Translation = Real3{-4, 0, 17.8500004}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{16.5, 4.5, 4.5}
+					}
+				}
+				Cog [Id:0x593df8431b75034b][InheritId:"593d01a3bc628c58:BoxVolume"]
+				{
+					var Name = "BoxVolume"
+					Transform 
+					{
+						var Translation = Real3{-5, 4.0999999, 17.8500004}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{18.5, 4.5, 4.5}
+					}
+				}
+				Cog [Id:0x593df8431b75034c][InheritId:"593d01a3bc628c58:BoxVolume"]
+				{
+					var Name = "BoxVolume"
+					Transform 
+					{
+						var Translation = Real3{-14.25, 4, -1}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 12.5, 18.5}
+					}
+				}
+				Cog [Id:0x593df8431b75034e][InheritId:"593d01a3bc628c58:BoxVolume"]
+				{
+					var Name = "BoxVolume"
+					Transform 
+					{
+						var Translation = Real3{-18.25, 4, 4}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 12.5, 8.5}
+					}
+				}
+			}
+		}
+		Cog [Id:0x593df8431b75034f]
+		{
+			var Name = "Doorways"
+			EditorFlags 
+			{
+				var Locked = true
+				var Hidden = true
+			}
+			Transform 
+			{
+				var Translation = Real3{0, 0, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Hierarchy 
+			{
+				Cog [Id:0x593df8431b750350][InheritId:"593d24dfe760ed00:Doorway"]
+				{
+					var Name = "Doorway"
+					Transform 
+					{
+						var Translation = Real3{-16, 0, -4}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106829}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+				}
+				Cog [Id:0x593df8431b750351][InheritId:"593d24dfe760ed00:Doorway"]
+				{
+					var Name = "Doorway"
+					Transform 
+					{
+						var Translation = Real3{8, 0, 16}
+						var Rotation = Quaternion{0, -0.707106829, 0, 0.707106829}
+						var Scale = Real3{4, 4, 0.200000003}
+					}
+				}
+				Cog [Id:0x593df8431b750353][InheritId:"593d24dfe760ed00:Doorway"]
+				{
+					var Name = "Doorway"
+					Transform 
+					{
+						var Translation = Real3{0, 0, -20}
+						var Rotation = Quaternion{0, 0, 0, 1}
+						var Scale = Real3{4, 4, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b750354][InheritId:"593d24dfe760ed00:Doorway"]
+				{
+					var Name = "Doorway"
+					Transform 
+					{
+						var Translation = Real3{-20, 0, 4}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{2, 2, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b750355][InheritId:"593d24dfe760ed00:Doorway"]
+				{
+					var Name = "Doorway"
+					Transform 
+					{
+						var Translation = Real3{-20, 4, 4}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{2, 2, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b750356][InheritId:"593d24dfe760ed00:Doorway"]
+				{
+					var Name = "Doorway"
+					Transform 
+					{
+						var Translation = Real3{-20, 8, 4}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{2, 2, 0.200000033}
+					}
+				}
+				Cog [Id:0x593df8431b750357][InheritId:"593d24dfe760ed00:Doorway"]
+				{
+					var Name = "Doorway"
+					Transform 
+					{
+						var Translation = Real3{-10, 4, 20}
+						var Rotation = Quaternion{0, 1, 0, -1.1920929e-07}
+						var Scale = Real3{2.00000024, 2, 0.200000063}
+					}
+				}
+				Cog [Id:0x593df8431b750359][InheritId:"593d24dfe760ed00:Doorway"]
+				{
+					var Name = "Doorway"
+					Transform 
+					{
+						var Translation = Real3{-14, 4, 18}
+						var Rotation = Quaternion{0, 0.707106829, 0, 0.707106769}
+						var Scale = Real3{2, 2, 0.200000033}
+					}
+				}
+			}
+		}
+	}
+}
