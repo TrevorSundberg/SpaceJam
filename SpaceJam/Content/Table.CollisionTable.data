@@ -1,0 +1,24 @@
+[Version:1]
+CollisionTable 
+{
+	var RegisteredGroups = Array
+	{
+		"4e740859314e5515:DefaultGroup"
+		"5901a8b327356a7a:HitBox"
+	}
+	var CollisionFilters = Array
+	{
+		Object
+		{
+			var TypeA = "5901a8b327356a7a:HitBox"
+			var TypeB = "5901a8b327356a7a:HitBox"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+	}
+	var AutoRegister = true
+}

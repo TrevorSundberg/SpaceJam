@@ -55,18 +55,22 @@ class HeldItemGun : HeldItem
     
     foreach (var result in this.Space.PhysicsSpace.CastRay(ray, 100))
     {
-      if (result.ObjectHit.RigidBody != null)
+      if (result.ObjectHit.Collider != null)
       {
-        result.ObjectHit.RigidBody.ForceAwake();
-        if (this.Automatic)
+        var body = result.ObjectHit.Collider.ActiveBody;
+        if (body != null)
         {
-          result.ObjectHit.RigidBody.ApplyForceAtPoint(ray.Direction * 5, result.WorldPosition);
-          result.ObjectHit.RigidBody.ApplyForce(Real3.YAxis * 20);
-        }
-        else
-        {
-          result.ObjectHit.RigidBody.ApplyForceAtPoint(ray.Direction * 50, result.WorldPosition);
-          result.ObjectHit.RigidBody.ApplyForce(Real3.YAxis * 80);
+          body.ForceAwake();
+          if (this.Automatic)
+          {
+            body.Velocity += ray.Direction;
+            body.ApplyForceAtPoint(ray.Direction * 200 * body.Mass, result.WorldPosition);
+          }
+          else
+          {
+            body.Velocity += ray.Direction;
+            body.ApplyForceAtPoint(ray.Direction * 200 * body.Mass, result.WorldPosition);
+          }
         }
       }
     }
