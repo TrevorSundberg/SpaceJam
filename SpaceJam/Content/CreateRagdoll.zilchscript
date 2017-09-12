@@ -1,0 +1,182 @@
+[Command(autoRegister:true)][RunInEditor]
+class CreateRagdoll : ZilchComponent
+{
+  var ScaleRelativeToBodySize : Real = 0.05;
+  var ScaleRelativeToLength : Real = 0.5;
+  var ScaleMultipleConnections : Real = 1.2;
+  
+  var MeasuredAabb : Aabb;
+  
+  [Property]
+  var AutoApply : Boolean;
+  
+  function Initialize(init : CogInitializer)
+  {
+    if (this.AutoApply && !this.Space.IsEditorMode)
+      this.ApplyTo(this.Owner);
+    else
+      Zero.Connect(this.Owner, Events.CommandExecute, this.OnCommandExecute);
+  }
+
+  function OnCommandExecute(event : CommandEvent)
+  {
+    //Zero.Editor.OperationQueue.BeginBatch();
+    var created = false;
+    
+    foreach (var object in Zero.Editor.Selection)
+    {
+      var cog = object as Cog;
+      if (cog == null)
+        continue;
+      
+      cog.Space.MarkModified();
+      //Zero.Editor.OperationQueue.SaveObjectState(cog);
+      
+      this.ApplyTo(cog);
+      
+      created = true;
+    }
+    
+    if (!created)
+      Console.WriteLine("This command must be called on a Cog with a Skeleton component");
+    //Zero.Editor.OperationQueue.EndBatch();
+  }
+  
+  function ApplyTo(cog : Cog)
+  {
+    var aabb = this.RecursiveMeasureWorldAabb(cog);
+    
+    var sizeRelativetoBodySize = Math.Max(Math.Max(aabb.Extents.X, aabb.Extents.Y), aabb.Extents.Z) * this.ScaleRelativeToBodySize;
+    
+    this.RecrusiveCreate(cog, false, sizeRelativetoBodySize);
+  }
+  
+  function RecursiveMeasureWorldAabb(cog : Cog) : Aabb
+  {
+    // All Skeletons must have a Transform
+    var center = cog.Transform.WorldTranslation;
+    
+    this.MeasuredAabb.Set(center);
+    
+    this.RecursiveMeasureWorldAabbEx(cog);
+    return this.MeasuredAabb;
+  }
+  
+  function RecursiveMeasureWorldAabbEx(cog : Cog)
+  {
+    if (cog.Graphical != null)
+    {
+      var ourAabb = cog.Graphical.WorldAabb;
+      this.MeasuredAabb.Min = Math.Min(this.MeasuredAabb.Min, ourAabb.Min);
+      this.MeasuredAabb.Max = Math.Max(this.MeasuredAabb.Max, ourAabb.Max);
+    }
+    
+    foreach (var child in cog.Children)
+    {
+      this.RecursiveMeasureWorldAabbEx(child);
+    }
+  }
+  
+  function RecrusiveCreate(cog : Cog, hitSkeleton : Boolean, sizeRelativetoBodySize : Real)
+  {
+    if (cog.Skeleton != null)
+      hitSkeleton = true;
+    
+    var children = cog.ChildrenArray;
+    
+    if (children.Count == 0)
+      return;
+    
+    // It's important that we make a copy here so we don't iterate over our newly created objects
+    foreach (var child in children)
+    {
+      this.RecrusiveCreate(child, hitSkeleton, sizeRelativetoBodySize);
+    }
+    
+    if (!hitSkeleton)
+      return;
+    
+    cog.AddComponentByName("RigidBody");
+    cog.RigidBody.DynamicState = RigidBodyDynamicState.Kinematic;
+    
+    var hitbox = cog.Space.Create(Archetype.HitBox);
+    hitbox.ClearArchetype();
+    hitbox.AttachToPreserveLocal(cog);
+    
+    var parentPos = cog.Transform.WorldTranslation;
+    
+    if (children.Count == 1)
+    {
+      var childPos = children[0].Transform.WorldTranslation;
+      
+      var toChild = childPos - parentPos;
+      var length = Math.Length(toChild);
+      
+      var sizeRelativeToLength = length * this.ScaleRelativeToLength;
+      
+      var limbSize = Math.Min(sizeRelativetoBodySize, sizeRelativeToLength);
+      
+      hitbox.Transform.WorldScale = Real3(limbSize, limbSize, length);
+      hitbox.Transform.WorldTranslation = (parentPos + childPos) / 2.0;
+      hitbox.Orientation.LookAtDirection(toChild);
+    }
+    else
+    {
+      var aabb = Aabb();
+      aabb.Set(parentPos);
+      
+      foreach (var child in children)
+      {
+        var pos = child.Transform.WorldTranslation;
+        aabb.Min = Math.Min(aabb.Min, pos);
+        aabb.Max = Math.Max(aabb.Max, pos);
+      }
+      
+      hitbox.Transform.WorldScale = aabb.Extents * this.ScaleMultipleConnections;
+      hitbox.Transform.WorldTranslation = aabb.Center;
+      hitbox.Transform.LocalRotation = Quaternion.Identity;
+    }
+    
+    foreach (var child in children)
+    {
+      var childHitbox : Cog = null;
+      foreach (var childHitboxCog in child.Children)
+      {
+        if (childHitboxCog.Name == "HitBox")
+        {
+          childHitbox = childHitboxCog;
+          break;
+        }
+      }
+      
+      if (childHitbox != null)
+      {
+        var a = hitbox;
+        var b = childHitbox;
+        var pos = child.Transform.WorldTranslation;
+        
+        var weld = cog.Space.Create(Archetype.HitBoxWeldJoint);
+        weld.ClearArchetype();
+        weld.AttachTo(cog);
+        weld.ObjectLink.ObjectAPath.Cog = a;
+        weld.ObjectLink.ObjectBPath.Cog = b;
+        weld.ObjectLink.WorldPointA = pos;
+        weld.ObjectLink.WorldPointB = pos;
+        var rotation = Math.Multiply(Math.Invert(a.Transform.WorldRotation), b.Transform.WorldRotation);
+        weld.WeldJoint.LocalBasisA = rotation;
+        weld.WeldJoint.LocalBasisB = Quaternion.Identity;
+        
+        
+        var position = cog.Space.Create(Archetype.HitBoxPositionJoint);
+        position.ClearArchetype();
+        position.AttachTo(cog);
+        position.ObjectLink.ObjectAPath.Cog = a;
+        position.ObjectLink.ObjectBPath.Cog = b;
+        position.ObjectLink.WorldPointA = pos;
+        position.ObjectLink.WorldPointB = pos;
+      }
+    }
+    
+    //Zero.Editor.OperationQueue.ObjectCreated(hitbox);
+  }
+}
