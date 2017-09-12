@@ -34,7 +34,7 @@ GameSession
 	}
 	GameSetup 
 	{
-		var Client_LobbySpaceArchetype = "5953cc822262c182:LobbySpace"
+		var Client_LobbySpaceArchetype = "5953cc822262c182:NonNetworkedSpace"
 		var Client_LobbyLevel = "59a4c6f607a2f677:Lobby"
 		var Server_WorldSpaceArchetype = "576f215c0825de61:Space"
 		var Server_WorldLevel = "576f215c0825c3a8:Level"

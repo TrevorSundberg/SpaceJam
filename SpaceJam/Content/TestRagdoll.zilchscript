@@ -1,5 +1,8 @@
 class TestRagdoll : ZilchComponent
 {
+  [Dependency]
+  var Ragdoll : Ragdoll;
+  
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
@@ -10,30 +13,9 @@ class TestRagdoll : ZilchComponent
     if (event.Key == Keys.Semicolon)
     {
       this.Owner.AnimationGraph.Active = false;
-      this.Recurse(this.Owner);
+      this.Ragdoll.WeldPose();
+      this.Ragdoll.DynamicState = RigidBodyDynamicState.Dynamic;
     }
   }
   
-  function Recurse(cog : Cog)
-  {
-    foreach (var child in cog.Children)
-    {
-      this.Recurse(child);
-    }
-    
-    var weld = cog.WeldJoint;
-    if (weld != null)
-    {
-      var rotation = Math.Multiply(Math.Invert(cog.ObjectLink.ObjectA.Transform.WorldRotation), cog.ObjectLink.ObjectB.Transform.WorldRotation);
-      weld.LocalBasisA = rotation;
-      weld.LocalBasisB = Quaternion.Identity;
-    }
-    
-    var body = cog.RigidBody;
-    if (body != null)
-    {
-      body.DynamicState = RigidBodyDynamicState.Dynamic;
-      //body.ApplyForce(Real3(0, 00, 200) * body.Mass);
-    }
-  }
 }
