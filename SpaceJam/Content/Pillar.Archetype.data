@@ -1,0 +1,38 @@
+[Version:1]
+Cog 
+{
+	var Name = "Pillar"
+	Transform 
+	{
+		var Translation = Real3{-8, -0.5, 12}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Model 
+	{
+		var Visible = true
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var OverrideBoundingBox = false
+		var LocalAabbCenter = Real3{0, 0, 0}
+		var LocalAabbHalfExtents = Real3{1, 1, 1}
+		var GroupSortValue = 0
+		var Material = "592788aca60c54a5:UvScaledZeroMaterial"
+		var Mesh = "4de0354322b3572e:Cylinder"
+	}
+	UvScaler 
+	{
+		var UvScale = Real2{2, 2}
+	}
+	CylinderCollider 
+	{
+		var Ghost = false
+		var SendsEvents = true
+		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+		var CollisionGroup = "4e740859314e5515:DefaultGroup"
+		var Offset = Real3{0, 0, 0}
+		var Radius = 0.5
+		var Height = 1
+		var Direction = AxisDirection.Y
+	}
+}

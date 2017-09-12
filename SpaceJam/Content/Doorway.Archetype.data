@@ -1,0 +1,29 @@
+[Version:1]
+Cog 
+{
+	var Name = "Doorway"
+	Transform 
+	{
+		var Translation = Real3{-16, 0, -4}
+		var Scale = Real3{4, 4, 0.200000003}
+		var Rotation = Quaternion{0, 0.707106829, 0, 0.707106829}
+	}
+	Model 
+	{
+		var Visible = true
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var OverrideBoundingBox = false
+		var LocalAabbCenter = Real3{0, 0, 0}
+		var LocalAabbHalfExtents = Real3{1, 1, 1}
+		var GroupSortValue = 0
+		var Material = "593d26b8aa485217:Doorway"
+		var Mesh = "4de0354322b345ae:Cube"
+	}
+	Orientation 
+	{
+		var GlobalUp = Real3{0, 1, 0}
+		var LocalOrientationBasis = Quaternion{0, 0, 0, 1}
+		var DefaultBases = OrientationBases.ForwardNegativeZUpY
+	}
+}

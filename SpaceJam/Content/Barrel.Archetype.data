@@ -4,7 +4,7 @@ Cog
 	var Name = "Barrel"
 	Transform 
 	{
-		var Translation = Real3{0.889035463, 1.31738353, -2.4294579}
+		var Translation = Real3{-10.4499998, -1.45000005, -10.9000006}
 		var Scale = Real3{0.699999988, 1, 0.699999988}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -17,7 +17,7 @@ Cog
 		var LocalAabbCenter = Real3{0, 0, 0}
 		var LocalAabbHalfExtents = Real3{1, 1, 1}
 		var GroupSortValue = 0
-		var Material = "592788aca60c54a5:UvScaledZeroMaterial"
+		var Material = "5828b036bd65b5d8:OpaqueFlat"
 		var Mesh = "4de0354322b3572e:Cylinder"
 	}
 	RigidBody 
